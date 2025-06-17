@@ -8,6 +8,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   vite: {
+    css: {
+      devSourcemap: true,
+    },
     resolve: {
       alias: {
         "@skele/components": path.resolve(__dirname, "../../packages/shared/components"),

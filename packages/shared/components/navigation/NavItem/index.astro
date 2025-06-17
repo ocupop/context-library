@@ -1,0 +1,58 @@
+---
+import Icon from "../../elements/Icon/index.astro";
+import { navItemSchema } from "../nav-item-list-schema";
+const props = navItemSchema.parse(Astro.props);
+
+const hasChildren = Astro.slots.has("default");
+const dropdownId = `dropdown-toggle-${crypto.randomUUID()}`;
+const contentId = `dropdown-content-${crypto.randomUUID()}`;
+const isCurrentPage = props.href === Astro.url.pathname;
+
+import "./global.pcss";
+---
+
+<style>
+  @import "./styles.pcss";
+</style>
+
+<li
+  class:list={["nav-item", props.className, hasChildren ? "has-children" : null]}
+  id={props.id}
+  style={props.customStyle}
+>
+  {
+    hasChildren ? (
+      <>
+        <input
+          type="checkbox"
+          id={dropdownId}
+          class="nav-item-toggle"
+          aria-expanded="false"
+          aria-controls={contentId}
+        />
+        <label
+          for={dropdownId}
+          class="nav-item-trigger"
+          role="button"
+          aria-expanded="false"
+          aria-controls={contentId}
+          tabindex="0"
+        >
+          <Icon name="hero/chevron-right" size="none" aria-hidden="true" />
+          {props.label}
+          <slot name="label" />
+        </label>
+        <div id={contentId} role="region" aria-label={`${props.label} submenu`}>
+          <slot />
+        </div>
+      </>
+    ) : (
+      <a href={props.href} aria-current={isCurrentPage ? "page" : undefined}>
+        {props.label}
+        <slot name="label" />
+      </a>
+    )
+  }
+</li>
+
+<script src="./nav-item.ts"></script>

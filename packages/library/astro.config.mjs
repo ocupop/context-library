@@ -18,6 +18,9 @@ export default defineConfig({
     }),
   ],
   vite: {
+    css: {
+      devSourcemap: true,
+    },
     resolve: {
       alias: {
         "@skele/components": path.resolve(__dirname, "../shared/components"),

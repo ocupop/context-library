@@ -1,0 +1,27 @@
+---
+import { navSchema } from "./schema";
+import "./sidebar.pcss";
+import "./theme.dark.pcss";
+import "./theme.light.pcss";
+
+const props = navSchema.parse(Astro.props);
+
+const ariaProps = props.ariaLabel ? { "aria-label": props.ariaLabel } : {};
+---
+
+<style>
+  @import "./styles.pcss";
+</style>
+
+<nav
+  class:list={["nav", `nav-layout-${props.layout}`, props.className]}
+  role="navigation"
+  id={props.id}
+  {...ariaProps}
+>
+  <div class="inner">
+    <slot name="brand" />
+    <slot name="menu" />
+    <slot name="utilities" />
+  </div>
+</nav>

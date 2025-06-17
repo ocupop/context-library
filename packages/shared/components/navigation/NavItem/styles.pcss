@@ -1,5 +1,11 @@
 .nav-item {
   position: relative;
+
+  a[aria-current="page"] {
+    text-decoration: underline dotted;
+    text-decoration-color: var(--nav-sidebar-active-textDecorationColor);
+    text-underline-offset: 3px;
+  }
 }
 
 .nav-item > a {

@@ -6,7 +6,8 @@ export const navSchema = z.object({
   className: z.string().optional(),
   customStyle: z.string().optional(),
   id: z.string().optional(),
-  layout: z.enum(["horizontal", "vertical"]).optional().default("horizontal"),
+  layout: z.enum(["bar", "sidebar"]).optional().default("bar"),
+  ariaLabel: z.string().optional(),
 });
 
 export type NavProps = z.infer<typeof navSchema>;
