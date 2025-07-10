@@ -24,7 +24,7 @@ _inputs:
     type: text
     comment: The text that goes inside the button.
   link:
-    type: text
+    type: url
     comment: The URL that the button should link to.
   iconName: 
     type: select 

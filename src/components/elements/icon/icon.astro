@@ -4,8 +4,6 @@ import clsx from "clsx";
 
 const { name, size, background, className, ...restProps } = Astro.props;
 
-console.log(Astro.props);
-
 const htmlAttributes = Object.fromEntries(
   Object.entries(restProps).filter(([key]) => !key.startsWith("_"))
 );
