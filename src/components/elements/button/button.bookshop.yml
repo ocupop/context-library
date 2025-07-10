@@ -39,7 +39,7 @@ _inputs:
         - after
     comment: The position of the icon relative to the label.
   hideText:
-    type: boolean
+    type: switch
     comment: Whether to hide the button text and show only the icon.
   variant:
     type: select
