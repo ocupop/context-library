@@ -49,7 +49,6 @@ if (typeof src === "string" && src.startsWith("/images/")) {
   if (imageKey && imageFiles[imageKey]) {
     console.log("Found local image:", imageKey);
 
-    // With eager: false, imageFiles[imageKey] is a function that needs to be called
     imageSrc = await imageFiles[imageKey]();
 
     // Use metadata dimensions if not explicitly provided
