@@ -1,7 +1,7 @@
 ---
 import clsx from "clsx";
 
-const { quote, name, description, className, id, ariaLabel, customStyle } = Astro.props;
+const { quote, attribution, className, id, ariaLabel, customStyle } = Astro.props;
 
 const classAttr = clsx("testimonial", className);
 ---
@@ -17,9 +17,13 @@ const classAttr = clsx("testimonial", className);
   </p>
   <cite class="testimonial__author">
     <strong class="testimonial__name">
-      {name}
+      {attribution.name}
     </strong>
-    {description && <span class="testimonial__description">{description}</span>}
+    {
+      attribution.description && (
+        <span class="testimonial__description">{attribution.description}</span>
+      )
+    }
   </cite>
 </blockquote>
 
