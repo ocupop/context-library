@@ -4,6 +4,11 @@ primary_size: xl
 examples:
   - title: Aspect Ratios
     slugs:
-      - aspect-ratios
+      - ratio-square
+      - ratio-landscape
+      - ratio-portrait
+      - ratio-widescreen
+      - ratio-ultrawide
+      - ratio-golden
     size: xl
 ---
