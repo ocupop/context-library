@@ -1,6 +1,7 @@
 spec:
   structures:
     - contentBlocks
+    - pageBlocks
   label: Container
   description: "A container component that provides layout structure with background options, padding, and content width controls."
   icon: width_full

@@ -3,7 +3,7 @@ import { defineCollection, z } from "astro:content";
 
 const pageSchema = z.object({
   title: z.string(),
-  contentBlocks: z.array(z.any()),
+  pageBlocks: z.array(z.any()),
 });
 
 const docsPageSchema = z.object({
