@@ -10,7 +10,7 @@ spec:
 
 blueprint:
   text:
-  level: h2
+  type: h2
   size:
   align: start
   iconName: null
@@ -25,8 +25,8 @@ _inputs:
     comment: The text content of the heading.
     type: markdown
 
-  level:
-    comment: The heading level.
+  type:
+    comment: The heading type/level.
     type: select
     options:
       values:
@@ -36,6 +36,8 @@ _inputs:
         - h4
         - h5
         - h6
+        - eyebrow
+        - subtitle
   size:
     comment: The font size of the text.
     type: select

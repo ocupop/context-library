@@ -3,7 +3,7 @@ title: Heading
 primary_size: sm
 examples:
   - slugs:
-      - levels
+      - types
     size: lg
   - slugs:
       - sizes
