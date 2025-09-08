@@ -1,7 +1,7 @@
 ---
 import { z } from "zod/v4";
-import "../../styles/style.pcss";
-import "../styles/component-library.pcss";
+import "@styles/style.pcss";
+import "@component-library/styles/component-library.pcss";
 
 const libraryLayoutSchema = z.object({
   frontmatter: z
@@ -13,8 +13,8 @@ const libraryLayoutSchema = z.object({
 });
 
 import Container from "@components/wrappers/container/container.astro";
-import SidebarNavLayout from "./SidebarNavLayout.astro";
-import MobileNavLayout from "./MobileNavLayout.astro";
+import SidebarNavLayout from "@component-library/layouts/SidebarNavLayout.astro";
+import MobileNavLayout from "@component-library/layouts/MobileNavLayout.astro";
 const props = libraryLayoutSchema.parse(Astro.props);
 const pageTitle = props.frontmatter?.title || "Component Library";
 ---

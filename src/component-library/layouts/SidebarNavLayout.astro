@@ -1,10 +1,10 @@
 ---
+import navData from "@component-library/data/nav.json";
 import NavItem from "@components/navigation/nav-item/nav-item.astro";
 import NavList from "@components/navigation/nav-list/nav-list.astro";
 import NavRoot from "@components/navigation/nav-root/nav-root.astro";
 import Icon from "@components/primitives/icon/icon.astro";
 import { getCollection } from "astro:content";
-import navData from "../data/nav.json";
 
 const allComponents = await getCollection("docs-components");
 
