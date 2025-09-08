@@ -92,7 +92,9 @@ const navId = `nav-${crypto.randomUUID()}`;
           const firstFocusable = nav.querySelector(
             'a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
           );
-          if (firstFocusable && firstFocusable instanceof HTMLElement) firstFocusable.focus();
+          if (firstFocusable && firstFocusable instanceof HTMLElement) {
+            firstFocusable.focus();
+          }
         } else {
           document.body.style.overflow = "";
           // Return focus to hamburger when closing
