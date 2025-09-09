@@ -4,9 +4,9 @@ spacing: "all"
 blocks:
   - _bookshop_name: "primitives/video"
     videoType: youtube
-    videoId: 5dXw2jaj2so
+    videoId: dsTXcSeAZq8
     videoSrc:
     videoPoster:
-    title: Live visual editing in Astro with CloudCannon
+    title: Astro in 100 Seconds
     style: "max-width: 600px"
 ---
