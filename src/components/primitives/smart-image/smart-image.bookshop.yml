@@ -12,7 +12,7 @@ blueprint:
   src:
   alt:
   rounded: false
-  aspectRatio: landscape
+  aspectRatio: null
   positionVertical: center
   positionHorizontal: center
 
@@ -30,7 +30,7 @@ _inputs:
     comment: Whether to apply rounded corners to the image
   aspectRatio:
     type: select
-    comment: The aspect ratio for the image container
+    comment: Set a fixed aspect ratio for the image
     options:
       - square
       - landscape
