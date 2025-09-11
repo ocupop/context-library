@@ -1,7 +1,7 @@
 ---
-import ComponentProperties from "../components/ComponentProperties/index.astro";
-import ComponentViewer from "../components/ComponentViewer/index.astro";
-import LibraryLayout from "./LibraryLayout.astro";
+import ComponentProperties from "@component-library/components/ComponentProperties/index.astro";
+import ComponentViewer from "@component-library/components/ComponentViewer/index.astro";
+import LibraryLayout from "@component-library/layouts/LibraryLayout.astro";
 
 const { frontmatter, schema, bookshopData, examples = [], componentKey = "" } = Astro.props;
 const meta = {

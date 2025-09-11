@@ -6,7 +6,7 @@ pageBlocks:
     label: ''
     contentBlocks:
       - _bookshop_name: primitives/heading
-        text: Welcome to your Skele site
+        text: Welcome to your CloudCannon Starter Component site
         level: h1
         align: start
         iconPosition: before

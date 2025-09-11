@@ -1,23 +1,29 @@
 ---
-title: "Levels"
+title: "Types"
 spacing: "sides"
 blocks:
   - _bookshop_name: "primitives/heading"
     text: This is a h1 heading
-    level: h1
+    type: h1
   - _bookshop_name: "primitives/heading"
     text: This is a h2 heading
-    level: h2
+    type: h2
   - _bookshop_name: "primitives/heading"
     text: This is a h3 heading
-    level: h3
+    type: h3
   - _bookshop_name: "primitives/heading"
     text: This is a h4 heading
-    level: h4
+    type: h4
   - _bookshop_name: "primitives/heading"
     text: This is a h5 heading
-    level: h5
+    type: h5
   - _bookshop_name: "primitives/heading"
     text: This is a h6 heading
-    level: h6
+    type: h6
+  - _bookshop_name: "primitives/heading"
+    text: This is a subtitle heading
+    type: subtitle
+  - _bookshop_name: "primitives/heading"
+    text: This is a eyebrow heading
+    type: eyebrow
 ---

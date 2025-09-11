@@ -1,6 +1,6 @@
 ---
+import LibraryLayout from "@component-library/layouts/LibraryLayout.astro";
 import { getCollection, render } from "astro:content";
-import LibraryLayout from "../../component-library/layouts/LibraryLayout.astro";
 
 export async function getStaticPaths() {
   const pages = await getCollection("docs-pages");

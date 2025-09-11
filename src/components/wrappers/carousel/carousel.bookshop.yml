@@ -32,10 +32,10 @@ _inputs:
         comment: The content blocks to display in this slide.
   autoPlay:
     comment: Enable auto-play functionality.
-    type: boolean
+    type: switch
   autoScroll:
     comment: Enable auto-scroll functionality.
-    type: boolean
+    type: switch
   slideWidthPercent:
     comment: Width of each slide as a percentage (e.g., "33%", "50%", "100%").
     type: text

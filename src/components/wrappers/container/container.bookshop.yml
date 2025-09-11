@@ -15,13 +15,14 @@ blueprint:
   maxContentWidth: md
   paddingHorizontal: md
   paddingVertical: md
-  colorScheme: default
+  colorScheme: "default"
   backgroundColor:
   backgroundImage:
     source: ""
     alt: ""
     positionVertical: top
     positionHorizontal: center
+  rounded: false
 
 # Overrides any fields in the blueprint when viewing this component in the component browser
 preview:
@@ -39,118 +40,85 @@ _inputs:
     type: select
     options:
       values:
-        - name: Extra Small
-          value: xs
-        - name: Small
-          value: sm
-        - name: Medium
-          value: md
-        - name: Large
-          value: lg
-        - name: Extra Large
-          value: xl
-        - name: 2xl
-          value: 2xl
-        - name: 3xl
-          value: 3xl
-      value_key: value
+        - xs
+        - sm
+        - md
+        - lg
+        - xl
+        - 2xl
+        - 3xl
   paddingHorizontal:
     comment: Horizontal padding applied to the container content.
     type: select
     options:
-      values: &sizeOptions
-        - name: Extra Small
-          value: xs
-        - name: Small
-          value: sm
-        - name: Medium
-          value: md
-        - name: Large
-          value: lg
-        - name: Extra LArge
-          value: xl
-        - name: 2xl
-          value: 2xl
-        - name: 3xl
-          value: 3xl
-        - name: 4xl
-          value: 4xl
-        - name: 5xl
-          value: 5xl
-        - name: 6xl
-          value: 6xl
-      value_key: value
+      values:
+        - xs
+        - sm
+        - md
+        - lg
+        - xl
+        - 2xl
+        - 3xl
+        - 4xl
+        - 5xl
+        - 6xl
   paddingVertical:
     comment: Vertical padding applied to the container content.
     type: select
     options:
-      values: *sizeOptions
-      value_key: value
+      values:
+        - xs
+        - sm
+        - md
+        - lg
+        - xl
+        - 2xl
+        - 3xl
+        - 4xl
+        - 5xl
+        - 6xl
   colorScheme:
     comment: Color scheme theme for the container.
     type: select
     options:
       values:
-        - name: Default
-          value: default
-        - name: Contrast
-          value: contrast
-      value_key: value
+        - default
+        - contrast
   backgroundColor:
     comment: Background color for the container.
     type: select
     options:
       values:
-        - name: Base
-          value: base
-        - name: Surface
-          value: surface
-        - name: Accent
-          value: accent
-        - name: Highlight
-          value: highlight
-      value_key: value
+        - base
+        - surface
+        - accent
+        - highlight
   backgroundImage:
     comment: Background image configuration for the container.
     type: object
-    options:
-      preview:
-        icon: image
-        image:
-          - key: source
-        text: 
-          - key: alt
-          - Background image
-        subtext:
-          - key: source
-          - Add an image source.
-  backgroundImage.source:
-    comment: URL or path to the background image.
-    type: image
-  backgroundImage.alt:
-    comment: Alt text for the background image.
-    type: textarea
-  backgroundImage.positionVertical:
-    comment: Vertical position of the background image.
-    type: select
-    options:
-      values:
-        - name: Top
-          value: top
-        - name: Center
-          value: center
-        - name: Bottom
-          value: bottom
-      value_key: value
-  backgroundImage.positionHorizontal:
-    comment: Horizontal position of the background image.
-    type: select
-    options:
-      values:
-        - name: Left
-          value: left
-        - name: Center
-          value: center
-        - name: Right
-          value: right
-      value_key: value
+    _inputs:
+      source:
+        comment: URL or path to the background image.
+        type: text
+      alt:
+        comment: Alt text for the background image.
+        type: text
+      positionVertical:
+        comment: Vertical position of the background image.
+        type: select
+        options:
+          values:
+            - top
+            - center
+            - bottom
+      positionHorizontal:
+        comment: Horizontal position of the background image.
+        type: select
+        options:
+          values:
+            - left
+            - center
+            - right
+  rounded:
+    comment: Whether to apply rounded corners to the container.
+    type: switch

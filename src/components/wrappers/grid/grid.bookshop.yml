@@ -48,7 +48,7 @@ _inputs:
         - space-evenly
   equalWidth:
     comment: Whether items should have equal widths (true) or intrinsic widths based on content (false).
-    type: boolean
+    type: switch
   items:
     comment: Array of grid items, each containing content blocks to render.
     type: array

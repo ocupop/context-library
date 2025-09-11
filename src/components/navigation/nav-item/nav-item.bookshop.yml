@@ -31,6 +31,6 @@ _inputs:
     label: Text
     comment: The text for the navigation item.
   defaultOpen:
-    type: boolean
+    type: switch
     label: Default Open
     comment: Whether the dropdown should be open by default (for items with children).

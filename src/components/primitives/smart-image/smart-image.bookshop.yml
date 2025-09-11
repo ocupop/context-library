@@ -12,6 +12,9 @@ blueprint:
   src:
   alt:
   rounded: false
+  aspectRatio: null
+  positionVertical: center
+  positionHorizontal: center
 
 preview:
 
@@ -25,3 +28,26 @@ _inputs:
   rounded:
     type: switch
     comment: Whether to apply rounded corners to the image
+  aspectRatio:
+    type: select
+    comment: Set a fixed aspect ratio for the image
+    options:
+      - square
+      - landscape
+      - portrait
+      - widescreen
+      - golden
+  positionVertical:
+    type: select
+    comment: Vertical positioning of the image within the container
+    options:
+      - top
+      - center
+      - bottom
+  positionHorizontal:
+    type: select
+    comment: Horizontal positioning of the image within the container
+    options:
+      - left
+      - center
+      - right

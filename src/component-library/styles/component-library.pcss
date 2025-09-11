@@ -18,6 +18,7 @@
 
   .library-sidebar {
     display: none;
+    flex-shrink: 0;
     height: 100vh;
     overflow-y: auto;
     padding: var(--spacing-md);
@@ -26,8 +27,11 @@
     width: 280px;
 
     > .sidebar-logo {
-      margin-inline-start: var(--spacing-lg);
-      margin-bottom: var(--spacing-md);
+      height: auto;
+      margin-inline: var(--spacing-md);
+      margin-bottom: var(--spacing-sm);
+      max-width: 130px;
+      width: 100%;
     }
 
     @media (--from-md) {
@@ -38,6 +42,7 @@
   .library-mobile-nav {
     align-items: center;
     background: var(--color-bg);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     display: block;
     display: flex;
     justify-content: space-between;
@@ -45,6 +50,11 @@
     position: sticky;
     top: 0;
     z-index: var(--layer-6);
+
+    > .sidebar-logo {
+      height: 37px;
+      width: auto;
+    }
 
     @media (--from-md) {
       display: none;

@@ -109,7 +109,7 @@ _inputs:
     type: text
   rounded:
     comment: Whether to apply rounded corners to the card.
-    type: boolean
+    type: switch
   border:
     comment: Whether to apply a border to the card.
-    type: boolean
+    type: switch

@@ -1,12 +1,11 @@
 .heading {
   .heading-icon {
-    position: relative;
     bottom: 0.1em;
     margin-inline-end: 0.2em;
+    position: relative;
 
     &.heading-icon-after {
-      margin-inline-end: 0;
-      margin-inline-start: 0.2em;
+      margin-inline: 0.2em 0;
     }
   }
 
@@ -60,5 +59,22 @@
 
   &.align-end {
     text-align: end;
+  }
+
+  &.type-eyebrow {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-em-sm);
+    text-transform: uppercase;
+  }
+
+  &.type-subtitle {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.5;
+    margin-top: var(--spacing-em-sm);
   }
 }
