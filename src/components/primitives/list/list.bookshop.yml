@@ -84,6 +84,6 @@ _structures:
               copyformatting: true
           icon:
             type: select
+            comment: The name of the icon to display from the icon library.
             options:
               values: _select_data.icons
-            comment: The name of the icon to display from the icon library

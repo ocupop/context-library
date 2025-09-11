@@ -7,6 +7,11 @@ spec:
   description: A horizontal line to separate content
   icon: horizontal_rule
   tags:
+  preview:
+    text: Divider
+    subtext:
+      - template: 'Padding: {padding}'
+    icon: horizontal_rule
 
 blueprint:
   padding:

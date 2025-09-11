@@ -7,9 +7,15 @@ spec:
   description: Displays an image optimized for performance with smart CDN detection.
   icon: image
   tags: []
+  preview:
+    icon: image
+    text: Smart Image
+    subtext:
+      - key: alt
+      - key: source  
 
 blueprint:
-  src:
+  source:
   alt:
   rounded: false
   aspectRatio: null
@@ -19,35 +25,46 @@ blueprint:
 preview:
 
 _inputs:
-  src:
-    type: text
-    comment: The URL or path to the image
+  source:
+    type: image
+    comment: The URL or path to the image.
   alt:
-    type: text
-    comment: Alternative text for accessibility
+    type: textarea
+    comment: Alternative text for accessibility.
   rounded:
     type: switch
-    comment: Whether to apply rounded corners to the image
+    comment: Whether to apply rounded corners to the image.
   aspectRatio:
     type: select
-    comment: Set a fixed aspect ratio for the image
+    comment: Set a fixed aspect ratio for the image.
     options:
-      - square
-      - landscape
-      - portrait
-      - widescreen
-      - golden
+      - id: square
+        name: Square
+      - id: landscape
+        name: Landscape
+      - id: portrait
+        name: Portrait
+      - id: widescreen
+        name: Widescreen
+      - id: golden
+        name: Golden
   positionVertical:
     type: select
-    comment: Vertical positioning of the image within the container
+    comment: Vertical positioning of the image within the container.
     options:
-      - top
-      - center
-      - bottom
+      - id: top
+        name: Top
+      - id: center
+        name: Center
+      - id: bottom
+        name: Bottom
   positionHorizontal:
     type: select
-    comment: Horizontal positioning of the image within the container
+    comment: Horizontal positioning of the image within the container.
     options:
-      - left
-      - center
-      - right
+      - id: left
+        name: Left
+      - id: center
+        name: Center
+      - id: right
+        name: Right

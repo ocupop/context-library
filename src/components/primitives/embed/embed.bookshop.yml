@@ -7,6 +7,12 @@ spec:
   description: "Embed content from other sources."
   icon: data_object
   tags: []
+  preview:
+    icon: data_object
+    text: Embed
+    subtext:
+      - key: title
+      - key: source
 
 blueprint:
   source:

@@ -36,35 +36,34 @@ _inputs:
     type: select
     options:
       values:
-        - start
-        - center
-        - end
+        - id: start
+          name: Start
+        - id: center
+          name: Center
+        - id: end
+          name: End
   size:
     type: select
     comment: The font size of the text.
     options:
       values:
-        - name: Extra Small
-          value: xs
-        - name: Small
-          value: sm
-        - name: Medium
-          value: md
-        - name: Large
-          value: lg
-        - name: Extra Large
-          value: xl
-        - name: 2xl
-          value: 2xl
-        - name: 3xl
-          value: 3xl
-        - name: 4xl
-          value: 4xl
-        - name: 5xl
-          value: 5xl
-        - name: 6xl
-          value: 6xl
-      value_key: value
-      preview:
-        text:
-          - key: name
+        - id: xs
+          name: Extra Small
+        - id: sm
+          name: Small
+        - id: md
+          name: Medium
+        - id: lg
+          name: Large
+        - id: xl
+          name: Extra Large
+        - id: 2xl
+          name: 2xl
+        - id: 3xl
+          name: 3xl
+        - id: 4xl
+          name: 4xl
+        - id: 5xl
+          name: 5xl
+        - id: 6xl
+          name: 6xl
