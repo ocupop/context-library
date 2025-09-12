@@ -205,7 +205,7 @@ pageBlocks:
                 align: start
                 size: md
               - _bookshop_name: primitives/smart-image
-                source: /src/assets/images/component-library/castle.jpg
+                source: /images/component-library/castle.jpg
                 alt: A image
                 rounded: false
                 aspectRatio:
