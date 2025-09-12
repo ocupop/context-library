@@ -49,7 +49,8 @@ _inputs:
       accepts_mime_types:
         - video/mp4
       paths:
-        uploads: /src/assets/videos/
+        uploads: src/assets/videos/
+        static: src/assets
     hidden: 'videoType != "native"'
   videoPoster:
     type: image

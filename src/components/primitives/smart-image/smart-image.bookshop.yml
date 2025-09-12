@@ -29,6 +29,10 @@ _inputs:
   source:
     type: image
     comment: The URL or path to the image.
+    options:
+      paths:
+        uploads: src/assets/images
+        static: src/assets
   alt:
     type: textarea
     comment: Alternative text for accessibility.
@@ -39,33 +43,36 @@ _inputs:
     type: select
     comment: Set a fixed aspect ratio for the image.
     options:
-      - id: square
-        name: Square
-      - id: landscape
-        name: Landscape
-      - id: portrait
-        name: Portrait
-      - id: widescreen
-        name: Widescreen
-      - id: golden
-        name: Golden
+      values:
+        - id: square
+          name: Square
+        - id: landscape
+          name: Landscape
+        - id: portrait
+          name: Portrait
+        - id: widescreen
+          name: Widescreen
+        - id: golden
+          name: Golden
   positionVertical:
     type: select
     comment: Vertical positioning of the image within the container.
     options:
-      - id: top
-        name: Top
-      - id: center
-        name: Center
-      - id: bottom
-        name: Bottom
+      values:
+        - id: top
+          name: Top
+        - id: center
+          name: Center
+        - id: bottom
+          name: Bottom
   positionHorizontal:
     type: select
     comment: Horizontal positioning of the image within the container.
     options:
-      - id: left
-        name: Left
-      - id: center
-        name: Center
-      - id: right
-        name: Right
+      values:
+        - id: left
+          name: Left
+        - id: center
+          name: Center
+        - id: right
+          name: Right
