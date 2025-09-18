@@ -98,8 +98,8 @@ _inputs:
         - id: contrast
           name: Contrast
   backgroundColor:
-    comment: Background color for the container.
     type: select
+    comment: Background color for the container.
     options:
       values:
         - id: base
@@ -111,8 +111,8 @@ _inputs:
         - id: highlight
           name: Highlight
   backgroundImage:
-    comment: Background image configuration for the container.
     type: object
+    comment: Background image configuration for the container.
     options:
       preview:
         icon: image
@@ -153,5 +153,5 @@ _inputs:
         - id: right
           name: Right
   rounded:
-    comment: Whether to apply rounded corners to the container.
     type: switch
+    comment: Whether to apply rounded corners to the container.

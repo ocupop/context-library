@@ -20,18 +20,18 @@ preview:
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
   items:
-    comment: The items to display in the accordion.
     type: array
+    comment: The items to display in the accordion.
     icon: expand_all
     options:
       structures: _structures.accordion_item
   openFirst:
-    comment: If true, the first item will be open by default.
     type: switch
+    comment: If true, the first item will be open by default.
   singleOpen:
-    comment: If true, only one item can be open at a time within this accordion.
     type: switch
 
+    comment: If true, only one item can be open at a time within this accordion.
 _structures:
   accordion_item:
     values:

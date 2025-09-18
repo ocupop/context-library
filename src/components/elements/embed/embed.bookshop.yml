@@ -35,8 +35,8 @@ _inputs:
       hide_link_to_email_address: true
       hide_link_to_telephone: true
   aspectRatio:
-    comment: The aspect ratio of the embed.
     type: select
+    comment: The aspect ratio of the embed.
     options:
       values:
         - id: square

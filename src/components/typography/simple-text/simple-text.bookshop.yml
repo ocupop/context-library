@@ -17,8 +17,8 @@ preview:
 
 _inputs:
   text:
-    comment: The text content of the simple text.
     type: markdown
+    comment: The text content of the simple text.
     options:
       bold: true
       italic: true
@@ -32,8 +32,8 @@ _inputs:
       removeformat: true
       copyformatting: true
   align:
-    comment: The alignment of the text.
     type: select
+    comment: The alignment of the text.
     options:
       values:
         - id: start

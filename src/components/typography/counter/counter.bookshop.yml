@@ -10,7 +10,7 @@ spec:
   preview:
     text: Counter
     subtext:
-      - template: '{prefix}{number}{suffix}'
+      - template: "{prefix}{number}{suffix}"
       - Add counter details
     icon: speed
 
@@ -26,8 +26,8 @@ preview:
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
   number:
-    comment: The number to count to.
     type: number
+    comment: The number to count to.
     options:
       min: 0
       step: 1

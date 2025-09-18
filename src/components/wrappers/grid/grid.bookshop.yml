@@ -20,14 +20,14 @@ preview:
 
 _inputs:
   minItemWidth:
+    type: number
     comment: The minimum width for each grid item in pixels.
-    type: number
   maxItemWidth:
-    comment: The maximum width for each grid item in pixels.
     type: number
+    comment: The maximum width for each grid item in pixels.
   verticalAlignment:
-    comment: The vertical alignment of grid items.
     type: select
+    comment: The vertical alignment of grid items.
     options:
       values:
         - id: start
@@ -39,8 +39,8 @@ _inputs:
         - id: stretch
           name: Stretch
   horizontalAlignment:
-    comment: The horizontal alignment of grid items.
     type: select
+    comment: The horizontal alignment of grid items.
     options:
       values:
         - id: start
@@ -56,12 +56,12 @@ _inputs:
         - id: space-evenly
           name: Space Evenly
   equalWidth:
-    comment: Whether items should have equal widths (true) or intrinsic widths based on content (false).
     type: switch
+    comment: Whether items should have equal widths (true) or intrinsic widths based on content (false).
   items:
+    type: array
     label: Grid Items
     comment: Array of grid items, each containing content blocks to render.
-    type: array
     options:
       structures: _structures.grid_item
 

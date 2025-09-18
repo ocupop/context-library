@@ -24,6 +24,7 @@ _inputs:
           - key: name
   size:
     type: select
+    comment: The size of the icon.
     options:
       values:
         - id: none
@@ -34,7 +35,6 @@ _inputs:
           name: Medium
         - id: lg
           name: Large
-    comment: The size of the icon.
   background:
     type: select
     comment: The background style for the icon.

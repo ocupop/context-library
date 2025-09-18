@@ -27,8 +27,8 @@ _inputs:
     options:
       structures: _structures.buttonBlocks
   direction:
-    comment: Direction of button layout.
     type: select
+    comment: Direction of button layout.
     options:
       values:
         - id: row
@@ -36,8 +36,8 @@ _inputs:
         - id: column
           name: Column
   align:
-    comment: Alignment of buttons within the group.
     type: select
+    comment: Alignment of buttons within the group.
     options:
       values:
         - id: start

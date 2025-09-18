@@ -23,8 +23,8 @@ preview:
 # Any extra CloudCannon inputs configuration to apply to the blueprint
 _inputs:
   padding:
-    comment: The space on the top and bottom of the horizontal line.
     type: select
+    comment: The space on the top and bottom of the horizontal line.
     options:
       values:
         - id: none

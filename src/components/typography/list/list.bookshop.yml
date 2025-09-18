@@ -21,9 +21,9 @@ preview:
 _inputs:
   items:
     type: array
+    comment: Array of list items. If empty, slot content will be used instead.
     options:
       structures: _structures.item
-    comment: Array of list items. If empty, slot content will be used instead.
   direction:
     type: select
     options:
@@ -43,8 +43,8 @@ _inputs:
         - id: end
           name: End
   size:
-    comment: Controls the size of the icon and text
     type: select
+    comment: Controls the size of the icon and text
     options:
       values:
         - id: xs

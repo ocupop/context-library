@@ -25,6 +25,7 @@ _inputs:
     comment: The name attribute for the input field.
   type:
     type: select
+    comment: The input type.
     options:
       values:
         - text
@@ -34,7 +35,6 @@ _inputs:
         - url
         - number
         - date
-    comment: The input type.
   placeholder:
     type: text
     comment: Placeholder text for the input field.

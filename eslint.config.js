@@ -4,7 +4,9 @@ import astroEslintParser from "astro-eslint-parser";
 import eslintPluginAstro from "eslint-plugin-astro";
 import jsoncPlugin from "eslint-plugin-jsonc";
 import jsxA11y from "eslint-plugin-jsx-a11y";
+import ymlPlugin from "eslint-plugin-yml";
 import jsoncParser from "jsonc-eslint-parser";
+import yamlParser from "yaml-eslint-parser";
 
 export default [
   // Base ESLint recommended rules
@@ -102,6 +104,39 @@ export default [
     rules: {
       "jsonc/quotes": ["error", "double"],
       "jsonc/comma-dangle": ["error", "never"],
+    },
+  },
+
+  // Enforce the order of keys in Bookshop YAML files
+  {
+    files: ["**/*.bookshop.yml", "**/*.bookshop.yaml"],
+    languageOptions: {
+      parser: yamlParser,
+    },
+    plugins: {
+      yml: ymlPlugin,
+    },
+    rules: {
+      ...ymlPlugin.configs.recommended.rules,
+      "yml/sort-keys": [
+        "error",
+        {
+          pathPattern: "^$",
+          order: ["spec", "blueprint", "preview", "_inputs"],
+        },
+        {
+          pathPattern: "^_inputs\\..*$",
+          order: ["type", "label", "comment", "hidden", "options"],
+        },
+        {
+          pathPattern: "^_inputs\\..*\\.options$",
+          order: ["values", "structures", "preview"], // Common options keys
+        },
+      ],
+      "yml/quotes": ["error", { prefer: "double", avoidEscape: false }],
+      "yml/no-empty-document": "off",
+      "yml/no-empty-mapping-value": "off", // Bookshop uses empty values for defaults
+      "yml/no-empty-sequence-entry": "off", // Bookshop uses empty arrays for defaults
     },
   },
 

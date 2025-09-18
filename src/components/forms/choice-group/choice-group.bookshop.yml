@@ -34,11 +34,11 @@ _inputs:
     comment: Optional title text for the fieldset.
   orientation:
     type: select
+    comment: The layout orientation - vertical for stacked layout, horizontal for grid layout.
     options:
       values:
         - vertical
         - horizontal
-    comment: The layout orientation - vertical for stacked layout, horizontal for grid layout.
   required:
     type: switch
     comment: Whether the field is required.

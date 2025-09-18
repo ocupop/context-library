@@ -21,9 +21,10 @@ _inputs:
   text:
     type: text
     comment: The text that goes inside the submit button.
-    hidden: 'hideText'
+    hidden: "hideText"
   variant:
     type: select
+    comment: The presentation of the submit button.
     options:
       values:
         - primary
@@ -31,24 +32,23 @@ _inputs:
         - tertiary
         - ghost
         - text
-    comment: The presentation of the submit button.
   size:
     type: select
+    comment: The size of the submit button.
     options:
       values:
         - sm
         - md
         - lg
-    comment: The size of the submit button.
   iconName:
     type: select
+    comment: The name of the icon to display. See the Icon component documentation for more information.
     options:
       values: _select_data.icons
-    comment: The name of the icon to display. See the Icon component documentation for more information.
   iconPosition:
     type: select
     comment: The position of the icon relative to the text.
-    hidden: '!iconName'
+    hidden: "!iconName"
     options:
       values:
         - before
