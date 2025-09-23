@@ -26,6 +26,13 @@ const { contentBlocks } = Astro.props;
   contentBlocks?.map((block, i) => {
     const Component = components[block._bookshop_name];
 
-    return <Component {...block} />;
+    if (!Component && block._bookshop_name) {
+      console.warn(
+        `Component not found: ${block._bookshop_name}. Available components:`,
+        Object.keys(components)
+      );
+    }
+
+    return Component ? <Component {...block} /> : null;
   })
 }
