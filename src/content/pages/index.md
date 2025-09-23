@@ -167,6 +167,13 @@ pageBlocks:
                 title:
                 source: /assets/videos/glass.mp4
                 poster: /assets/images/video-placeholder.jpg
+              - _bookshop_name: elements/smart-video
+                externalVideoHost: true
+                videoHost: vimeo
+                id: '1054665455'
+                title: A vimeo test vid
+                source:
+                poster:
         openFirst: false
         singleOpen: false
     maxContentWidth: 2xl
