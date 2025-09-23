@@ -12,6 +12,35 @@ pageBlocks:
         align: center
         iconName:
         iconPosition:
+      - _bookshop_name: wrappers/card
+        label: ''
+        contentBlocks:
+          - _bookshop_name: typography/counter
+            number: 100
+            prefix: $
+            suffix: USD
+            horizontalAlignment: start
+        headerContentBlocks:
+          - _bookshop_name: typography/heading
+            text: This is interesting
+            type: h3
+            size: xl
+            align: start
+            iconName: arrow-down
+            iconPosition: before
+        footerContentBlocks: []
+        paddingHorizontal: xl
+        paddingVertical: xl
+        colorScheme: contrast
+        backgroundColor: highlight
+        backgroundImage:
+          source: ''
+          alt: ''
+          positionVertical: top
+          positionHorizontal: center
+        link: ''
+        rounded: false
+        border: false
       - _bookshop_name: typography/definition-list
         items:
           - _component: definition-list-item
@@ -29,6 +58,14 @@ pageBlocks:
             iconPosition: before
             hideText: false
             variant: primary
+            size: lg
+          - _bookshop_name: elements/button
+            text: GitHub
+            link: https://github.com/
+            iconName: social/github
+            iconPosition: after
+            hideText: false
+            variant: tertiary
             size: lg
         direction: row
         align: center
