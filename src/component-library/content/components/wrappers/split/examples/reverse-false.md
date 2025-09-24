@@ -11,7 +11,7 @@ blocks:
           text: |-
             ## Side A
 
-            This is content for the side A
+            This is content for side A.
   secondColumnContentBlocks:
     - _bookshop_name: "wrappers/container"
       backgroundColor: "highlight"
@@ -20,7 +20,7 @@ blocks:
           text: |-
             ## Side B
 
-            This is content for the side B
+            This is content for side B.
   distributionMode: "third-two-thirds"
   fixedWidth: null
   verticalAlignment: "top"

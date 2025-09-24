@@ -36,7 +36,7 @@ _inputs:
     comment: Enable auto-scroll functionality.
     type: switch
   slideWidthPercent:
-    comment: Width of each slide as a percentage (e.g., 33, 50, 100).
+    comment: Width of each slide as a percentage of the carousel (e.g., 33, 50, 100).
     type: range
     min: 0
     max: 100

@@ -1,7 +1,7 @@
 spec:
   structures:
   label: Pagination
-  description: "A navigation component for Astro's built-in pagination. Just pass the page object!"
+  description: "A navigation component for Astro's built-in pagination, simply passing the page object."
   icon: list
   tags: []
 

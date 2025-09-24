@@ -38,12 +38,12 @@ _inputs:
         - id: native
           name: Native
     id:
-      comment: Enter a video ID from a public video on YouTube or Vimeo
+      comment: Enter a video ID from a public video on YouTube or Vimeo.
       hidden: 'type == "native"'
     src:
       type: file
       label: Video Source
-      comment: Must be mp4 as this is supported by all modern browsers
+      comment: Must be mp4, as this is supported by all modern browsers.
       options:
         accepts_mime_types:
           - video/mp4
@@ -54,4 +54,4 @@ _inputs:
       comment: The image displayed before the video plays or while it is loading.
       hidden: 'type != "native"'
     autoplay:
-      comment: Play the video automatically on load without the user pressing play
+      comment: Play the video automatically on load without the user pressing play.

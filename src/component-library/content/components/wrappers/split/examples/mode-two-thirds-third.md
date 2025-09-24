@@ -9,7 +9,7 @@ blocks:
       contentBlocks:
         - _bookshop_name: "typography/rich-text"
           text: |-
-            ## Two Thirds Column
+            ## Two thirds column
 
             This column takes up 66% of the available space.
   secondColumnContentBlocks:
@@ -18,7 +18,7 @@ blocks:
       contentBlocks:
         - _bookshop_name: "typography/rich-text"
           text: |-
-            ## Third Column
+            ## Third column
 
             This column takes up 33% of the available space.
   distributionMode: "two-thirds-third"

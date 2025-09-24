@@ -10,7 +10,6 @@ blocks:
     alt: "Dunedin cliffside"
     positionVertical: center
     positionHorizontal: center
-  colorScheme: contrast
   contentBlocks:
     - _bookshop_name: "typography/heading"
       text: "Center Position"

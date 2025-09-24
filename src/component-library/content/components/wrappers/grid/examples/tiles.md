@@ -66,7 +66,7 @@ blocks:
               text: "Tile 5"
               level: h3
             - _bookshop_name: "typography/simple-text"
-              text: "Great for showcasing multiple items like products, blog posts, team members, or portfolio pieces in a grid format."
+              text: "It's great for showcasing multiple items like products, blog posts, team members, or portfolio pieces in a grid format."
     - contentBlocks:
         - _bookshop_name: "wrappers/card"
           paddingHorizontal: md
