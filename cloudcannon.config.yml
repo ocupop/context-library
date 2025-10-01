@@ -33,8 +33,6 @@ collection_groups:
       - data
 
 _structures:
-  blocks:
-    id_key: _bookshop_name
   contentBlocks:
     style: modal
     id_key: _bookshop_name
