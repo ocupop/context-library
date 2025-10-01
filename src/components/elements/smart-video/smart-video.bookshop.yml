@@ -63,7 +63,7 @@ _inputs:
                   accepts_mime_types:
                     - video/mp4
                   paths:
-                    uploads: public/assets/videos
+                    uploads: public/videos
                     static: public
               poster:
                 type: image
