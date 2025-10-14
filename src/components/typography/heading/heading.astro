@@ -48,7 +48,9 @@ const Tag = getTag(type);
   }
   {
     text ? (
-      <span data-editable="text" data-prop="text" class="heading-text" set:html={MarkdownText} />
+      <span data-editable="text" data-prop="text" class="heading-text">
+        {text}
+      </span>
     ) : (
       <slot />
     )
