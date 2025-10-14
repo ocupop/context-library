@@ -1,5 +1,4 @@
 ---
-import Icon from "@components/elements/icon/icon.astro";
 // @ts-ignore
 import MarkdownIt from "markdown-it";
 
@@ -31,33 +30,11 @@ const getTag = (type: string) => {
 const Tag = getTag(type);
 ---
 
-<Tag
+<h1
   class:list={["heading", `type-${type}`, size && `size-${size}`, `align-${alignX}`, className]}
   {...htmlAttributes}
 >
-  {
-    iconName && iconPosition == "before" && (
-      <Icon
-        name={iconName}
-        size="none"
-        class="heading-icon"
-        aria-hidden="true"
-        role="presentation"
-      />
-    )
-  }
   <span data-editable="text" data-prop="text" class="heading-text">
     {text}
   </span>
-  {
-    iconName && iconPosition === "after" && (
-      <Icon
-        name={iconName}
-        size="none"
-        class="heading-icon heading-icon-after"
-        aria-hidden="true"
-        role="presentation"
-      />
-    )
-  }
-</Tag>
+</h1>
