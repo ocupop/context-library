@@ -3,9 +3,22 @@
 import "@cloudcannon/editable-regions/astro-react-renderer";
 
 import { registerAstroComponent } from "@cloudcannon/editable-regions/astro";
-// @ts-ignore
-import Heading from "./src/components/typography/heading/heading.astro";
-import SimpleText from "./src/components/typography/simple-text/simple-text.astro";
 
-registerAstroComponent("typography/heading", Heading);
-registerAstroComponent("typography/simple-text", SimpleText);
+// Dynamically import all components from the components directory
+// @ts-ignore - Vite's import.meta.glob is not recognized by TypeScript
+const componentModules = import.meta.glob("./src/components/**/*.astro", { eager: true });
+
+for (const [path, module] of Object.entries(componentModules)) {
+  const match = path.match(/\.\/src\/components\/(.+)\/([^\/]+)\.astro$/);
+
+  if (match) {
+    const componentName = match[2]; // e.g., 'heading'
+    const fullPath = match[1]; // e.g., 'typography/heading'
+
+    if (fullPath.endsWith(`/${componentName}`)) {
+      // @ts-ignore
+      registerAstroComponent(fullPath, module.default);
+      console.log(`Registered component: ${fullPath}`);
+    }
+  }
+}
