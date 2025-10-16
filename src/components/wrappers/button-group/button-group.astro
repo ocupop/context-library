@@ -32,7 +32,5 @@ const alignClass = alignMap[alignX as keyof typeof alignMap] ?? "align-start";
   {...htmlAttributes}
 >
   <slot />
-  <editable-array data-editable="array" data-prop="buttonBlocks" data-id-key="_bookshop_name">
-    <Component contentBlocks={buttonBlocks} />
-  </editable-array>
+  <Component contentBlocks={buttonBlocks} propName="buttonBlocks" />
 </div>

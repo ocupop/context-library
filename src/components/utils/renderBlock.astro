@@ -1,6 +1,7 @@
 ---
 export interface Props {
   contentBlocks: any[];
+  propName?: string;
 }
 
 const components: Record<string, Function> = {};
@@ -19,24 +20,26 @@ Object.entries(componentImports).forEach(([path, obj]) => {
   components[bookshopName] = (obj as any).default;
 });
 
-const { contentBlocks } = Astro.props;
+const { contentBlocks, propName = "contentBlocks" } = Astro.props;
 ---
 
-{
-  contentBlocks?.map((block, i) => {
-    const Component = components[block._bookshop_name];
+<editable-array data-editable="array" data-prop={propName} data-id-key="_bookshop_name">
+  {
+    contentBlocks?.map((block) => {
+      const Component = components[block._bookshop_name];
 
-    if (!Component && block._bookshop_name) {
-      console.warn(
-        `Component not found: ${block._bookshop_name}. Available components:`,
-        Object.keys(components)
-      );
-    }
+      if (!Component && block._bookshop_name) {
+        console.warn(
+          `Component not found: ${block._bookshop_name}. Available components:`,
+          Object.keys(components)
+        );
+      }
 
-    return Component ? (
-      <editable-array-item data-id={block._bookshop_name} data-component={block._bookshop_name}>
-        <Component {...block} />
-      </editable-array-item>
-    ) : null;
-  })
-}
+      return Component ? (
+        <editable-array-item data-id={block._bookshop_name} data-component={block._bookshop_name}>
+          <Component {...block} />
+        </editable-array-item>
+      ) : null;
+    })
+  }
+</editable-array>
