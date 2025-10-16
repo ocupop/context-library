@@ -144,12 +144,13 @@ _inputs:
           - Add an image source
         image:
           - key: source
-      paths:
-        uploads: src/assets/images
-        static: src
   backgroundImage.source:
     comment: URL or path to the background image.
     type: image
+    options:
+      paths:
+        uploads: src/assets/images
+        static: ""
   backgroundImage.alt:
     comment: Alt text for the background image.
     type: textarea
