@@ -23,7 +23,12 @@ Object.entries(componentImports).forEach(([path, obj]) => {
 const { contentBlocks, propName = "contentBlocks" } = Astro.props;
 ---
 
-<editable-array data-editable="array" data-prop={propName} data-id-key="_component">
+<editable-array
+  data-editable="array"
+  data-component-key="_component"
+  data-id-key="_component"
+  data-prop={propName}
+>
   {
     contentBlocks?.map((block) => {
       const Component = components[block._component];
@@ -36,11 +41,7 @@ const { contentBlocks, propName = "contentBlocks" } = Astro.props;
       }
 
       return Component ? (
-        <editable-array-item
-          data-component-key="_component"
-          data-id={block._component}
-          data-component={block._component}
-        >
+        <editable-array-item data-id={block._component} data-component={block._component}>
           <Component {...block} />
         </editable-array-item>
       ) : null;

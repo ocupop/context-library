@@ -1415,6 +1415,60 @@ _structures:
                   name: Center
                 - id: end
                   name: End
+      - label: Rich text
+        icon: edit_note
+        description: A catch-all for all content types. Can contain headings, paragraphs, images, bullets. Use text prop for Markdown content or slot for HTML content.
+        value:
+          _component: typography/rich-text
+          text: ""
+          alignX: start
+        preview:
+          subtext:
+            - key: text
+            - Add text to block
+        picker_preview:
+          text: Rich text
+          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
+          icon: edit_note
+        _inputs:
+          text:
+            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
+            type: markdown
+            options:
+              bold: true
+              italic: true
+              link: true
+              strike: true
+              subscript: true
+              superscript: true
+              underline: true
+              undo: true
+              redo: true
+              format: p h1 h2 h3 h4 h5 h6
+              removeformat: true
+              copyformatting: true
+              bulletedlist: true
+              numberedlist: true
+              indent: true
+              outdent: true
+              join_above: true
+              join_below: true
+              code: true
+              embed: true
+              horizontalrule: true
+              image: true
+              table: true
+          alignX:
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+            comment: The horizontal alignment of the rich text component.
       - label: Simple Text
         icon: view_headline
         description: Displays blocks of text for content sections with options for alignment, size and decoration.
@@ -1484,60 +1538,6 @@ _structures:
                   name: 5xl
                 - id: 6xl
                   name: 6xl
-      - label: Rich text
-        icon: edit_note
-        description: A catch-all for all content types. Can contain headings, paragraphs, images, bullets. Use text prop for Markdown content or slot for HTML content.
-        value:
-          _component: typography/rich-text
-          text: ""
-          alignX: start
-        preview:
-          subtext:
-            - key: text
-            - Add text to block
-        picker_preview:
-          text: Rich text
-          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
-          icon: edit_note
-        _inputs:
-          text:
-            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
-            type: markdown
-            options:
-              bold: true
-              italic: true
-              link: true
-              strike: true
-              subscript: true
-              superscript: true
-              underline: true
-              undo: true
-              redo: true
-              format: p h1 h2 h3 h4 h5 h6
-              removeformat: true
-              copyformatting: true
-              bulletedlist: true
-              numberedlist: true
-              indent: true
-              outdent: true
-              join_above: true
-              join_below: true
-              code: true
-              embed: true
-              horizontalrule: true
-              image: true
-              table: true
-          alignX:
-            type: select
-            options:
-              values:
-                - id: start
-                  name: Start
-                - id: center
-                  name: Center
-                - id: end
-                  name: End
-            comment: The horizontal alignment of the rich text component.
       - label: List
         icon: list
         description: Displays items in a list with icons as markers. (For traditional bulleted or numbered lists, use rich text instead.)
@@ -1598,6 +1598,112 @@ _structures:
                   name: Extra Large
                 - id: 2xl
                   name: 2xl
+      - label: Heading
+        icon: title
+        description: The main title or heading with levels (H1 to H6) to show hierarchy and structure for the page and sections.
+        value:
+          _component: typography/heading
+          text: ""
+          type: h2
+          size: ""
+          alignX: start
+          iconName: null
+          iconPosition: before
+        preview:
+          text:
+            - key: text
+            - Heading
+          icon: title
+        picker_preview:
+          text: Heading
+          subtext: Main title or heading with levels (H1 to H6)
+          icon: title
+        _inputs:
+          text:
+            comment: The text content of the heading.
+            type: markdown
+            options:
+              bold: false
+              copyformatting: false
+              italic: true
+              link: true
+              redo: true
+              removeformat: true
+              strike: true
+              subscript: true
+              superscript: true
+              underline: true
+              undo: true
+              blockquote: false
+              bulletedlist: false
+              image: false
+              numberedlist: false
+              snippet: false
+          type:
+            comment: The heading type or level.
+            type: select
+            options:
+              values:
+                - h1
+                - h2
+                - h3
+                - h4
+                - h5
+                - h6
+                - eyebrow
+                - subtitle
+          size:
+            comment: The font size of the text.
+            type: select
+            options:
+              values:
+                - id: none
+                  name: None
+                - id: xs
+                  name: Extra Small
+                - id: sm
+                  name: Small
+                - id: md
+                  name: Medium
+                - id: lg
+                  name: Large
+                - id: xl
+                  name: Extra Large
+                - id: 2xl
+                  name: 2xl
+                - id: 3xl
+                  name: 3xl
+                - id: 4xl
+                  name: 4xl
+                - id: 5xl
+                  name: 5xl
+                - id: 6xl
+                  name: 6xl
+          alignX:
+            comment: The horizontal alignment of the text.
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+          iconName:
+            comment: The name of the icon to display.
+            type: select
+            options:
+              values: _select_data.icons
+          iconPosition:
+            comment: The position of the icon relative to the text.
+            type: select
+            options:
+              values:
+                - id: before
+                  name: Before
+                - id: after
+                  name: After
       - label: Definition List
         icon: dns
         description: For displaying key-value pairs. Ideal for glossaries, opening times, etc.
@@ -1669,6 +1775,30 @@ _structures:
                   name: Center
                 - id: end
                   name: End
+      - label: Form
+        icon: checklist_rtl
+        description: A form element that groups related form controls and handles form submission.
+        value:
+          _component: forms/form
+          action: null
+          formBlocks: []
+        preview:
+          subtext:
+            - template: A form containing {formBlocks|array_length} {"item"|pluralize=formBlocks}
+            - Add items to the form
+        picker_preview:
+          text: Form
+          subtext: A form element that groups related form controls and handles form submission.
+          icon: checklist_rtl
+        _inputs:
+          action:
+            type: url
+            comment: Where to send the form-data when the form is submitted. The URL that processes the form submission.
+          formBlocks:
+            type: array
+            comment: The form blocks to render inside the form.
+            options:
+              structures: _structures.formBlocks
       - label: Spacer
         icon: space_bar
         description: Gives space between content.
@@ -1702,6 +1832,67 @@ _structures:
                   name: 2xl
                 - id: 3xl
                   name: 3xl
+      - label: Smart Video
+        icon: videocam
+        description: Play a video from YouTube, Vimeo, or your local files.
+        value:
+          _component: elements/smart-video
+          type: ""
+          id: ""
+          title: ""
+          source: ""
+          poster: ""
+        preview:
+          icon: videocam
+          text:
+            - template: Smart Video - {type}
+            - Smart Video
+          subtext:
+            - key: title
+            - key: source
+            - Add video
+        picker_preview:
+          text: Smart Video
+          subtext: Play a video from YouTube, Vimeo, or your local files.
+          icon: videocam
+        _inputs:
+          type:
+            type: select
+            options:
+              values:
+                - id: youtube
+                  name: YouTube
+                - id: vimeo
+                  name: Vimeo
+                - id: local-source
+                  name: Local Source
+          title:
+            type: text
+            comment: Used for externally hosted videos - The video title provides accessibility information for assistive technologies (like screen readers) and can display a tooltip when a user hovers over the video.
+          id:
+            type: text
+            comment: Used for externally hosted videos - Enter the YouTube or Vimeo id.
+          source:
+            type: file
+            label: Video Source
+            comment: Used for locally hosted videos - Must be mp4 as this is supported by all modern browsers.
+            options:
+              accepts_mime_types:
+                - video/mp4
+              paths:
+                uploads: public/videos
+                static: public
+          poster:
+            type: image
+            comment: Used for locally hosted videos - The image displayed before the video plays or while it is loading.
+            options:
+              accepts_mime_types:
+                - image/jpeg
+                - image/png
+                - image/webp
+              paths:
+                uploads: public/images
+                static: public
       - label: Smart Image
         icon: image
         description: Displays an image optimized for performance with smart CDN detection.
@@ -1775,91 +1966,6 @@ _structures:
                   name: Center
                 - id: right
                   name: Right
-      - label: Form
-        icon: checklist_rtl
-        description: A form element that groups related form controls and handles form submission.
-        value:
-          _component: forms/form
-          action: null
-          formBlocks: []
-        preview:
-          subtext:
-            - template: A form containing {formBlocks|array_length} {"item"|pluralize=formBlocks}
-            - Add items to the form
-        picker_preview:
-          text: Form
-          subtext: A form element that groups related form controls and handles form submission.
-          icon: checklist_rtl
-        _inputs:
-          action:
-            type: url
-            comment: Where to send the form-data when the form is submitted. The URL that processes the form submission.
-          formBlocks:
-            type: array
-            comment: The form blocks to render inside the form.
-            options:
-              structures: _structures.formBlocks
-      - label: Smart Video
-        icon: videocam
-        description: Play a video from YouTube, Vimeo, or your local files.
-        value:
-          _component: elements/smart-video
-          type: ""
-          id: ""
-          title: ""
-          source: ""
-          poster: ""
-        preview:
-          icon: videocam
-          text:
-            - template: Smart Video - {type}
-            - Smart Video
-          subtext:
-            - key: title
-            - key: source
-            - Add video
-        picker_preview:
-          text: Smart Video
-          subtext: Play a video from YouTube, Vimeo, or your local files.
-          icon: videocam
-        _inputs:
-          type:
-            type: select
-            options:
-              values:
-                - id: youtube
-                  name: YouTube
-                - id: vimeo
-                  name: Vimeo
-                - id: local-source
-                  name: Local Source
-          title:
-            type: text
-            comment: Used for externally hosted videos - The video title provides accessibility information for assistive technologies (like screen readers) and can display a tooltip when a user hovers over the video.
-          id:
-            type: text
-            comment: Used for externally hosted videos - Enter the YouTube or Vimeo id.
-          source:
-            type: file
-            label: Video Source
-            comment: Used for locally hosted videos - Must be mp4 as this is supported by all modern browsers.
-            options:
-              accepts_mime_types:
-                - video/mp4
-              paths:
-                uploads: public/videos
-                static: public
-          poster:
-            type: image
-            comment: Used for locally hosted videos - The image displayed before the video plays or while it is loading.
-            options:
-              accepts_mime_types:
-                - image/jpeg
-                - image/png
-                - image/webp
-              paths:
-                uploads: public/images
-                static: public
       - label: Embed
         icon: data_object
         description: Embed content from other sources.
@@ -2405,6 +2511,60 @@ _structures:
                   name: Center
                 - id: end
                   name: End
+      - label: Rich text
+        icon: edit_note
+        description: A catch-all for all content types. Can contain headings, paragraphs, images, bullets. Use text prop for Markdown content or slot for HTML content.
+        value:
+          _component: typography/rich-text
+          text: ""
+          alignX: start
+        preview:
+          subtext:
+            - key: text
+            - Add text to block
+        picker_preview:
+          text: Rich text
+          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
+          icon: edit_note
+        _inputs:
+          text:
+            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
+            type: markdown
+            options:
+              bold: true
+              italic: true
+              link: true
+              strike: true
+              subscript: true
+              superscript: true
+              underline: true
+              undo: true
+              redo: true
+              format: p h1 h2 h3 h4 h5 h6
+              removeformat: true
+              copyformatting: true
+              bulletedlist: true
+              numberedlist: true
+              indent: true
+              outdent: true
+              join_above: true
+              join_below: true
+              code: true
+              embed: true
+              horizontalrule: true
+              image: true
+              table: true
+          alignX:
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+            comment: The horizontal alignment of the rich text component.
       - label: Simple Text
         icon: view_headline
         description: Displays blocks of text for content sections with options for alignment, size and decoration.
@@ -2474,60 +2634,6 @@ _structures:
                   name: 5xl
                 - id: 6xl
                   name: 6xl
-      - label: Rich text
-        icon: edit_note
-        description: A catch-all for all content types. Can contain headings, paragraphs, images, bullets. Use text prop for Markdown content or slot for HTML content.
-        value:
-          _component: typography/rich-text
-          text: ""
-          alignX: start
-        preview:
-          subtext:
-            - key: text
-            - Add text to block
-        picker_preview:
-          text: Rich text
-          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
-          icon: edit_note
-        _inputs:
-          text:
-            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
-            type: markdown
-            options:
-              bold: true
-              italic: true
-              link: true
-              strike: true
-              subscript: true
-              superscript: true
-              underline: true
-              undo: true
-              redo: true
-              format: p h1 h2 h3 h4 h5 h6
-              removeformat: true
-              copyformatting: true
-              bulletedlist: true
-              numberedlist: true
-              indent: true
-              outdent: true
-              join_above: true
-              join_below: true
-              code: true
-              embed: true
-              horizontalrule: true
-              image: true
-              table: true
-          alignX:
-            type: select
-            options:
-              values:
-                - id: start
-                  name: Start
-                - id: center
-                  name: Center
-                - id: end
-                  name: End
-            comment: The horizontal alignment of the rich text component.
       - label: List
         icon: list
         description: Displays items in a list with icons as markers. (For traditional bulleted or numbered lists, use rich text instead.)
@@ -2588,6 +2694,112 @@ _structures:
                   name: Extra Large
                 - id: 2xl
                   name: 2xl
+      - label: Heading
+        icon: title
+        description: The main title or heading with levels (H1 to H6) to show hierarchy and structure for the page and sections.
+        value:
+          _component: typography/heading
+          text: ""
+          type: h2
+          size: ""
+          alignX: start
+          iconName: null
+          iconPosition: before
+        preview:
+          text:
+            - key: text
+            - Heading
+          icon: title
+        picker_preview:
+          text: Heading
+          subtext: Main title or heading with levels (H1 to H6)
+          icon: title
+        _inputs:
+          text:
+            comment: The text content of the heading.
+            type: markdown
+            options:
+              bold: false
+              copyformatting: false
+              italic: true
+              link: true
+              redo: true
+              removeformat: true
+              strike: true
+              subscript: true
+              superscript: true
+              underline: true
+              undo: true
+              blockquote: false
+              bulletedlist: false
+              image: false
+              numberedlist: false
+              snippet: false
+          type:
+            comment: The heading type or level.
+            type: select
+            options:
+              values:
+                - h1
+                - h2
+                - h3
+                - h4
+                - h5
+                - h6
+                - eyebrow
+                - subtitle
+          size:
+            comment: The font size of the text.
+            type: select
+            options:
+              values:
+                - id: none
+                  name: None
+                - id: xs
+                  name: Extra Small
+                - id: sm
+                  name: Small
+                - id: md
+                  name: Medium
+                - id: lg
+                  name: Large
+                - id: xl
+                  name: Extra Large
+                - id: 2xl
+                  name: 2xl
+                - id: 3xl
+                  name: 3xl
+                - id: 4xl
+                  name: 4xl
+                - id: 5xl
+                  name: 5xl
+                - id: 6xl
+                  name: 6xl
+          alignX:
+            comment: The horizontal alignment of the text.
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+          iconName:
+            comment: The name of the icon to display.
+            type: select
+            options:
+              values: _select_data.icons
+          iconPosition:
+            comment: The position of the icon relative to the text.
+            type: select
+            options:
+              values:
+                - id: before
+                  name: Before
+                - id: after
+                  name: After
       - label: Definition List
         icon: dns
         description: For displaying key-value pairs. Ideal for glossaries, opening times, etc.
@@ -2659,6 +2871,30 @@ _structures:
                   name: Center
                 - id: end
                   name: End
+      - label: Form
+        icon: checklist_rtl
+        description: A form element that groups related form controls and handles form submission.
+        value:
+          _component: forms/form
+          action: null
+          formBlocks: []
+        preview:
+          subtext:
+            - template: A form containing {formBlocks|array_length} {"item"|pluralize=formBlocks}
+            - Add items to the form
+        picker_preview:
+          text: Form
+          subtext: A form element that groups related form controls and handles form submission.
+          icon: checklist_rtl
+        _inputs:
+          action:
+            type: url
+            comment: Where to send the form-data when the form is submitted. The URL that processes the form submission.
+          formBlocks:
+            type: array
+            comment: The form blocks to render inside the form.
+            options:
+              structures: _structures.formBlocks
       - label: Spacer
         icon: space_bar
         description: Gives space between content.
@@ -2692,6 +2928,67 @@ _structures:
                   name: 2xl
                 - id: 3xl
                   name: 3xl
+      - label: Smart Video
+        icon: videocam
+        description: Play a video from YouTube, Vimeo, or your local files.
+        value:
+          _component: elements/smart-video
+          type: ""
+          id: ""
+          title: ""
+          source: ""
+          poster: ""
+        preview:
+          icon: videocam
+          text:
+            - template: Smart Video - {type}
+            - Smart Video
+          subtext:
+            - key: title
+            - key: source
+            - Add video
+        picker_preview:
+          text: Smart Video
+          subtext: Play a video from YouTube, Vimeo, or your local files.
+          icon: videocam
+        _inputs:
+          type:
+            type: select
+            options:
+              values:
+                - id: youtube
+                  name: YouTube
+                - id: vimeo
+                  name: Vimeo
+                - id: local-source
+                  name: Local Source
+          title:
+            type: text
+            comment: Used for externally hosted videos - The video title provides accessibility information for assistive technologies (like screen readers) and can display a tooltip when a user hovers over the video.
+          id:
+            type: text
+            comment: Used for externally hosted videos - Enter the YouTube or Vimeo id.
+          source:
+            type: file
+            label: Video Source
+            comment: Used for locally hosted videos - Must be mp4 as this is supported by all modern browsers.
+            options:
+              accepts_mime_types:
+                - video/mp4
+              paths:
+                uploads: public/videos
+                static: public
+          poster:
+            type: image
+            comment: Used for locally hosted videos - The image displayed before the video plays or while it is loading.
+            options:
+              accepts_mime_types:
+                - image/jpeg
+                - image/png
+                - image/webp
+              paths:
+                uploads: public/images
+                static: public
       - label: Smart Image
         icon: image
         description: Displays an image optimized for performance with smart CDN detection.
@@ -2765,91 +3062,6 @@ _structures:
                   name: Center
                 - id: right
                   name: Right
-      - label: Form
-        icon: checklist_rtl
-        description: A form element that groups related form controls and handles form submission.
-        value:
-          _component: forms/form
-          action: null
-          formBlocks: []
-        preview:
-          subtext:
-            - template: A form containing {formBlocks|array_length} {"item"|pluralize=formBlocks}
-            - Add items to the form
-        picker_preview:
-          text: Form
-          subtext: A form element that groups related form controls and handles form submission.
-          icon: checklist_rtl
-        _inputs:
-          action:
-            type: url
-            comment: Where to send the form-data when the form is submitted. The URL that processes the form submission.
-          formBlocks:
-            type: array
-            comment: The form blocks to render inside the form.
-            options:
-              structures: _structures.formBlocks
-      - label: Smart Video
-        icon: videocam
-        description: Play a video from YouTube, Vimeo, or your local files.
-        value:
-          _component: elements/smart-video
-          type: ""
-          id: ""
-          title: ""
-          source: ""
-          poster: ""
-        preview:
-          icon: videocam
-          text:
-            - template: Smart Video - {type}
-            - Smart Video
-          subtext:
-            - key: title
-            - key: source
-            - Add video
-        picker_preview:
-          text: Smart Video
-          subtext: Play a video from YouTube, Vimeo, or your local files.
-          icon: videocam
-        _inputs:
-          type:
-            type: select
-            options:
-              values:
-                - id: youtube
-                  name: YouTube
-                - id: vimeo
-                  name: Vimeo
-                - id: local-source
-                  name: Local Source
-          title:
-            type: text
-            comment: Used for externally hosted videos - The video title provides accessibility information for assistive technologies (like screen readers) and can display a tooltip when a user hovers over the video.
-          id:
-            type: text
-            comment: Used for externally hosted videos - Enter the YouTube or Vimeo id.
-          source:
-            type: file
-            label: Video Source
-            comment: Used for locally hosted videos - Must be mp4 as this is supported by all modern browsers.
-            options:
-              accepts_mime_types:
-                - video/mp4
-              paths:
-                uploads: public/videos
-                static: public
-          poster:
-            type: image
-            comment: Used for locally hosted videos - The image displayed before the video plays or while it is loading.
-            options:
-              accepts_mime_types:
-                - image/jpeg
-                - image/png
-                - image/webp
-              paths:
-                uploads: public/images
-                static: public
       - label: Embed
         icon: data_object
         description: Embed content from other sources.
@@ -3406,6 +3618,60 @@ _structures:
                   name: Center
                 - id: end
                   name: End
+      - label: Rich text
+        icon: edit_note
+        description: A catch-all for all content types. Can contain headings, paragraphs, images, bullets. Use text prop for Markdown content or slot for HTML content.
+        value:
+          _component: typography/rich-text
+          text: ""
+          alignX: start
+        preview:
+          subtext:
+            - key: text
+            - Add text to block
+        picker_preview:
+          text: Rich text
+          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
+          icon: edit_note
+        _inputs:
+          text:
+            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
+            type: markdown
+            options:
+              bold: true
+              italic: true
+              link: true
+              strike: true
+              subscript: true
+              superscript: true
+              underline: true
+              undo: true
+              redo: true
+              format: p h1 h2 h3 h4 h5 h6
+              removeformat: true
+              copyformatting: true
+              bulletedlist: true
+              numberedlist: true
+              indent: true
+              outdent: true
+              join_above: true
+              join_below: true
+              code: true
+              embed: true
+              horizontalrule: true
+              image: true
+              table: true
+          alignX:
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+            comment: The horizontal alignment of the rich text component.
       - label: Simple Text
         icon: view_headline
         description: Displays blocks of text for content sections with options for alignment, size and decoration.
@@ -3475,60 +3741,6 @@ _structures:
                   name: 5xl
                 - id: 6xl
                   name: 6xl
-      - label: Rich text
-        icon: edit_note
-        description: A catch-all for all content types. Can contain headings, paragraphs, images, bullets. Use text prop for Markdown content or slot for HTML content.
-        value:
-          _component: typography/rich-text
-          text: ""
-          alignX: start
-        preview:
-          subtext:
-            - key: text
-            - Add text to block
-        picker_preview:
-          text: Rich text
-          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
-          icon: edit_note
-        _inputs:
-          text:
-            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
-            type: markdown
-            options:
-              bold: true
-              italic: true
-              link: true
-              strike: true
-              subscript: true
-              superscript: true
-              underline: true
-              undo: true
-              redo: true
-              format: p h1 h2 h3 h4 h5 h6
-              removeformat: true
-              copyformatting: true
-              bulletedlist: true
-              numberedlist: true
-              indent: true
-              outdent: true
-              join_above: true
-              join_below: true
-              code: true
-              embed: true
-              horizontalrule: true
-              image: true
-              table: true
-          alignX:
-            type: select
-            options:
-              values:
-                - id: start
-                  name: Start
-                - id: center
-                  name: Center
-                - id: end
-                  name: End
-            comment: The horizontal alignment of the rich text component.
       - label: List
         icon: list
         description: Displays items in a list with icons as markers. (For traditional bulleted or numbered lists, use rich text instead.)
@@ -3589,6 +3801,112 @@ _structures:
                   name: Extra Large
                 - id: 2xl
                   name: 2xl
+      - label: Heading
+        icon: title
+        description: The main title or heading with levels (H1 to H6) to show hierarchy and structure for the page and sections.
+        value:
+          _component: typography/heading
+          text: ""
+          type: h2
+          size: ""
+          alignX: start
+          iconName: null
+          iconPosition: before
+        preview:
+          text:
+            - key: text
+            - Heading
+          icon: title
+        picker_preview:
+          text: Heading
+          subtext: Main title or heading with levels (H1 to H6)
+          icon: title
+        _inputs:
+          text:
+            comment: The text content of the heading.
+            type: markdown
+            options:
+              bold: false
+              copyformatting: false
+              italic: true
+              link: true
+              redo: true
+              removeformat: true
+              strike: true
+              subscript: true
+              superscript: true
+              underline: true
+              undo: true
+              blockquote: false
+              bulletedlist: false
+              image: false
+              numberedlist: false
+              snippet: false
+          type:
+            comment: The heading type or level.
+            type: select
+            options:
+              values:
+                - h1
+                - h2
+                - h3
+                - h4
+                - h5
+                - h6
+                - eyebrow
+                - subtitle
+          size:
+            comment: The font size of the text.
+            type: select
+            options:
+              values:
+                - id: none
+                  name: None
+                - id: xs
+                  name: Extra Small
+                - id: sm
+                  name: Small
+                - id: md
+                  name: Medium
+                - id: lg
+                  name: Large
+                - id: xl
+                  name: Extra Large
+                - id: 2xl
+                  name: 2xl
+                - id: 3xl
+                  name: 3xl
+                - id: 4xl
+                  name: 4xl
+                - id: 5xl
+                  name: 5xl
+                - id: 6xl
+                  name: 6xl
+          alignX:
+            comment: The horizontal alignment of the text.
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+          iconName:
+            comment: The name of the icon to display.
+            type: select
+            options:
+              values: _select_data.icons
+          iconPosition:
+            comment: The position of the icon relative to the text.
+            type: select
+            options:
+              values:
+                - id: before
+                  name: Before
+                - id: after
+                  name: After
       - label: Definition List
         icon: dns
         description: For displaying key-value pairs. Ideal for glossaries, opening times, etc.
@@ -3660,6 +3978,30 @@ _structures:
                   name: Center
                 - id: end
                   name: End
+      - label: Form
+        icon: checklist_rtl
+        description: A form element that groups related form controls and handles form submission.
+        value:
+          _component: forms/form
+          action: null
+          formBlocks: []
+        preview:
+          subtext:
+            - template: A form containing {formBlocks|array_length} {"item"|pluralize=formBlocks}
+            - Add items to the form
+        picker_preview:
+          text: Form
+          subtext: A form element that groups related form controls and handles form submission.
+          icon: checklist_rtl
+        _inputs:
+          action:
+            type: url
+            comment: Where to send the form-data when the form is submitted. The URL that processes the form submission.
+          formBlocks:
+            type: array
+            comment: The form blocks to render inside the form.
+            options:
+              structures: _structures.formBlocks
       - label: Spacer
         icon: space_bar
         description: Gives space between content.
@@ -3693,6 +4035,67 @@ _structures:
                   name: 2xl
                 - id: 3xl
                   name: 3xl
+      - label: Smart Video
+        icon: videocam
+        description: Play a video from YouTube, Vimeo, or your local files.
+        value:
+          _component: elements/smart-video
+          type: ""
+          id: ""
+          title: ""
+          source: ""
+          poster: ""
+        preview:
+          icon: videocam
+          text:
+            - template: Smart Video - {type}
+            - Smart Video
+          subtext:
+            - key: title
+            - key: source
+            - Add video
+        picker_preview:
+          text: Smart Video
+          subtext: Play a video from YouTube, Vimeo, or your local files.
+          icon: videocam
+        _inputs:
+          type:
+            type: select
+            options:
+              values:
+                - id: youtube
+                  name: YouTube
+                - id: vimeo
+                  name: Vimeo
+                - id: local-source
+                  name: Local Source
+          title:
+            type: text
+            comment: Used for externally hosted videos - The video title provides accessibility information for assistive technologies (like screen readers) and can display a tooltip when a user hovers over the video.
+          id:
+            type: text
+            comment: Used for externally hosted videos - Enter the YouTube or Vimeo id.
+          source:
+            type: file
+            label: Video Source
+            comment: Used for locally hosted videos - Must be mp4 as this is supported by all modern browsers.
+            options:
+              accepts_mime_types:
+                - video/mp4
+              paths:
+                uploads: public/videos
+                static: public
+          poster:
+            type: image
+            comment: Used for locally hosted videos - The image displayed before the video plays or while it is loading.
+            options:
+              accepts_mime_types:
+                - image/jpeg
+                - image/png
+                - image/webp
+              paths:
+                uploads: public/images
+                static: public
       - label: Smart Image
         icon: image
         description: Displays an image optimized for performance with smart CDN detection.
@@ -3766,91 +4169,6 @@ _structures:
                   name: Center
                 - id: right
                   name: Right
-      - label: Form
-        icon: checklist_rtl
-        description: A form element that groups related form controls and handles form submission.
-        value:
-          _component: forms/form
-          action: null
-          formBlocks: []
-        preview:
-          subtext:
-            - template: A form containing {formBlocks|array_length} {"item"|pluralize=formBlocks}
-            - Add items to the form
-        picker_preview:
-          text: Form
-          subtext: A form element that groups related form controls and handles form submission.
-          icon: checklist_rtl
-        _inputs:
-          action:
-            type: url
-            comment: Where to send the form-data when the form is submitted. The URL that processes the form submission.
-          formBlocks:
-            type: array
-            comment: The form blocks to render inside the form.
-            options:
-              structures: _structures.formBlocks
-      - label: Smart Video
-        icon: videocam
-        description: Play a video from YouTube, Vimeo, or your local files.
-        value:
-          _component: elements/smart-video
-          type: ""
-          id: ""
-          title: ""
-          source: ""
-          poster: ""
-        preview:
-          icon: videocam
-          text:
-            - template: Smart Video - {type}
-            - Smart Video
-          subtext:
-            - key: title
-            - key: source
-            - Add video
-        picker_preview:
-          text: Smart Video
-          subtext: Play a video from YouTube, Vimeo, or your local files.
-          icon: videocam
-        _inputs:
-          type:
-            type: select
-            options:
-              values:
-                - id: youtube
-                  name: YouTube
-                - id: vimeo
-                  name: Vimeo
-                - id: local-source
-                  name: Local Source
-          title:
-            type: text
-            comment: Used for externally hosted videos - The video title provides accessibility information for assistive technologies (like screen readers) and can display a tooltip when a user hovers over the video.
-          id:
-            type: text
-            comment: Used for externally hosted videos - Enter the YouTube or Vimeo id.
-          source:
-            type: file
-            label: Video Source
-            comment: Used for locally hosted videos - Must be mp4 as this is supported by all modern browsers.
-            options:
-              accepts_mime_types:
-                - video/mp4
-              paths:
-                uploads: public/videos
-                static: public
-          poster:
-            type: image
-            comment: Used for locally hosted videos - The image displayed before the video plays or while it is loading.
-            options:
-              accepts_mime_types:
-                - image/jpeg
-                - image/png
-                - image/webp
-              paths:
-                uploads: public/images
-                static: public
       - label: Embed
         icon: data_object
         description: Embed content from other sources.
@@ -4381,6 +4699,60 @@ _structures:
                   name: Center
                 - id: end
                   name: End
+      - label: Rich text
+        icon: edit_note
+        description: A catch-all for all content types. Can contain headings, paragraphs, images, bullets. Use text prop for Markdown content or slot for HTML content.
+        value:
+          _component: typography/rich-text
+          text: ""
+          alignX: start
+        preview:
+          subtext:
+            - key: text
+            - Add text to block
+        picker_preview:
+          text: Rich text
+          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
+          icon: edit_note
+        _inputs:
+          text:
+            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
+            type: markdown
+            options:
+              bold: true
+              italic: true
+              link: true
+              strike: true
+              subscript: true
+              superscript: true
+              underline: true
+              undo: true
+              redo: true
+              format: p h1 h2 h3 h4 h5 h6
+              removeformat: true
+              copyformatting: true
+              bulletedlist: true
+              numberedlist: true
+              indent: true
+              outdent: true
+              join_above: true
+              join_below: true
+              code: true
+              embed: true
+              horizontalrule: true
+              image: true
+              table: true
+          alignX:
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+            comment: The horizontal alignment of the rich text component.
       - label: Simple Text
         icon: view_headline
         description: Displays blocks of text for content sections with options for alignment, size and decoration.
@@ -4450,60 +4822,6 @@ _structures:
                   name: 5xl
                 - id: 6xl
                   name: 6xl
-      - label: Rich text
-        icon: edit_note
-        description: A catch-all for all content types. Can contain headings, paragraphs, images, bullets. Use text prop for Markdown content or slot for HTML content.
-        value:
-          _component: typography/rich-text
-          text: ""
-          alignX: start
-        preview:
-          subtext:
-            - key: text
-            - Add text to block
-        picker_preview:
-          text: Rich text
-          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
-          icon: edit_note
-        _inputs:
-          text:
-            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
-            type: markdown
-            options:
-              bold: true
-              italic: true
-              link: true
-              strike: true
-              subscript: true
-              superscript: true
-              underline: true
-              undo: true
-              redo: true
-              format: p h1 h2 h3 h4 h5 h6
-              removeformat: true
-              copyformatting: true
-              bulletedlist: true
-              numberedlist: true
-              indent: true
-              outdent: true
-              join_above: true
-              join_below: true
-              code: true
-              embed: true
-              horizontalrule: true
-              image: true
-              table: true
-          alignX:
-            type: select
-            options:
-              values:
-                - id: start
-                  name: Start
-                - id: center
-                  name: Center
-                - id: end
-                  name: End
-            comment: The horizontal alignment of the rich text component.
       - label: List
         icon: list
         description: Displays items in a list with icons as markers. (For traditional bulleted or numbered lists, use rich text instead.)
@@ -4564,6 +4882,112 @@ _structures:
                   name: Extra Large
                 - id: 2xl
                   name: 2xl
+      - label: Heading
+        icon: title
+        description: The main title or heading with levels (H1 to H6) to show hierarchy and structure for the page and sections.
+        value:
+          _component: typography/heading
+          text: ""
+          type: h2
+          size: ""
+          alignX: start
+          iconName: null
+          iconPosition: before
+        preview:
+          text:
+            - key: text
+            - Heading
+          icon: title
+        picker_preview:
+          text: Heading
+          subtext: Main title or heading with levels (H1 to H6)
+          icon: title
+        _inputs:
+          text:
+            comment: The text content of the heading.
+            type: markdown
+            options:
+              bold: false
+              copyformatting: false
+              italic: true
+              link: true
+              redo: true
+              removeformat: true
+              strike: true
+              subscript: true
+              superscript: true
+              underline: true
+              undo: true
+              blockquote: false
+              bulletedlist: false
+              image: false
+              numberedlist: false
+              snippet: false
+          type:
+            comment: The heading type or level.
+            type: select
+            options:
+              values:
+                - h1
+                - h2
+                - h3
+                - h4
+                - h5
+                - h6
+                - eyebrow
+                - subtitle
+          size:
+            comment: The font size of the text.
+            type: select
+            options:
+              values:
+                - id: none
+                  name: None
+                - id: xs
+                  name: Extra Small
+                - id: sm
+                  name: Small
+                - id: md
+                  name: Medium
+                - id: lg
+                  name: Large
+                - id: xl
+                  name: Extra Large
+                - id: 2xl
+                  name: 2xl
+                - id: 3xl
+                  name: 3xl
+                - id: 4xl
+                  name: 4xl
+                - id: 5xl
+                  name: 5xl
+                - id: 6xl
+                  name: 6xl
+          alignX:
+            comment: The horizontal alignment of the text.
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+          iconName:
+            comment: The name of the icon to display.
+            type: select
+            options:
+              values: _select_data.icons
+          iconPosition:
+            comment: The position of the icon relative to the text.
+            type: select
+            options:
+              values:
+                - id: before
+                  name: Before
+                - id: after
+                  name: After
       - label: Definition List
         icon: dns
         description: For displaying key-value pairs. Ideal for glossaries, opening times, etc.
@@ -4635,6 +5059,30 @@ _structures:
                   name: Center
                 - id: end
                   name: End
+      - label: Form
+        icon: checklist_rtl
+        description: A form element that groups related form controls and handles form submission.
+        value:
+          _component: forms/form
+          action: null
+          formBlocks: []
+        preview:
+          subtext:
+            - template: A form containing {formBlocks|array_length} {"item"|pluralize=formBlocks}
+            - Add items to the form
+        picker_preview:
+          text: Form
+          subtext: A form element that groups related form controls and handles form submission.
+          icon: checklist_rtl
+        _inputs:
+          action:
+            type: url
+            comment: Where to send the form-data when the form is submitted. The URL that processes the form submission.
+          formBlocks:
+            type: array
+            comment: The form blocks to render inside the form.
+            options:
+              structures: _structures.formBlocks
       - label: Spacer
         icon: space_bar
         description: Gives space between content.
@@ -4668,6 +5116,67 @@ _structures:
                   name: 2xl
                 - id: 3xl
                   name: 3xl
+      - label: Smart Video
+        icon: videocam
+        description: Play a video from YouTube, Vimeo, or your local files.
+        value:
+          _component: elements/smart-video
+          type: ""
+          id: ""
+          title: ""
+          source: ""
+          poster: ""
+        preview:
+          icon: videocam
+          text:
+            - template: Smart Video - {type}
+            - Smart Video
+          subtext:
+            - key: title
+            - key: source
+            - Add video
+        picker_preview:
+          text: Smart Video
+          subtext: Play a video from YouTube, Vimeo, or your local files.
+          icon: videocam
+        _inputs:
+          type:
+            type: select
+            options:
+              values:
+                - id: youtube
+                  name: YouTube
+                - id: vimeo
+                  name: Vimeo
+                - id: local-source
+                  name: Local Source
+          title:
+            type: text
+            comment: Used for externally hosted videos - The video title provides accessibility information for assistive technologies (like screen readers) and can display a tooltip when a user hovers over the video.
+          id:
+            type: text
+            comment: Used for externally hosted videos - Enter the YouTube or Vimeo id.
+          source:
+            type: file
+            label: Video Source
+            comment: Used for locally hosted videos - Must be mp4 as this is supported by all modern browsers.
+            options:
+              accepts_mime_types:
+                - video/mp4
+              paths:
+                uploads: public/videos
+                static: public
+          poster:
+            type: image
+            comment: Used for locally hosted videos - The image displayed before the video plays or while it is loading.
+            options:
+              accepts_mime_types:
+                - image/jpeg
+                - image/png
+                - image/webp
+              paths:
+                uploads: public/images
+                static: public
       - label: Smart Image
         icon: image
         description: Displays an image optimized for performance with smart CDN detection.
@@ -4741,91 +5250,6 @@ _structures:
                   name: Center
                 - id: right
                   name: Right
-      - label: Form
-        icon: checklist_rtl
-        description: A form element that groups related form controls and handles form submission.
-        value:
-          _component: forms/form
-          action: null
-          formBlocks: []
-        preview:
-          subtext:
-            - template: A form containing {formBlocks|array_length} {"item"|pluralize=formBlocks}
-            - Add items to the form
-        picker_preview:
-          text: Form
-          subtext: A form element that groups related form controls and handles form submission.
-          icon: checklist_rtl
-        _inputs:
-          action:
-            type: url
-            comment: Where to send the form-data when the form is submitted. The URL that processes the form submission.
-          formBlocks:
-            type: array
-            comment: The form blocks to render inside the form.
-            options:
-              structures: _structures.formBlocks
-      - label: Smart Video
-        icon: videocam
-        description: Play a video from YouTube, Vimeo, or your local files.
-        value:
-          _component: elements/smart-video
-          type: ""
-          id: ""
-          title: ""
-          source: ""
-          poster: ""
-        preview:
-          icon: videocam
-          text:
-            - template: Smart Video - {type}
-            - Smart Video
-          subtext:
-            - key: title
-            - key: source
-            - Add video
-        picker_preview:
-          text: Smart Video
-          subtext: Play a video from YouTube, Vimeo, or your local files.
-          icon: videocam
-        _inputs:
-          type:
-            type: select
-            options:
-              values:
-                - id: youtube
-                  name: YouTube
-                - id: vimeo
-                  name: Vimeo
-                - id: local-source
-                  name: Local Source
-          title:
-            type: text
-            comment: Used for externally hosted videos - The video title provides accessibility information for assistive technologies (like screen readers) and can display a tooltip when a user hovers over the video.
-          id:
-            type: text
-            comment: Used for externally hosted videos - Enter the YouTube or Vimeo id.
-          source:
-            type: file
-            label: Video Source
-            comment: Used for locally hosted videos - Must be mp4 as this is supported by all modern browsers.
-            options:
-              accepts_mime_types:
-                - video/mp4
-              paths:
-                uploads: public/videos
-                static: public
-          poster:
-            type: image
-            comment: Used for locally hosted videos - The image displayed before the video plays or while it is loading.
-            options:
-              accepts_mime_types:
-                - image/jpeg
-                - image/png
-                - image/webp
-              paths:
-                uploads: public/images
-                static: public
       - label: Embed
         icon: data_object
         description: Embed content from other sources.
@@ -5481,6 +5905,60 @@ _structures:
                   name: Center
                 - id: end
                   name: End
+      - label: Rich text
+        icon: edit_note
+        description: A catch-all for all content types. Can contain headings, paragraphs, images, bullets. Use text prop for Markdown content or slot for HTML content.
+        value:
+          _component: typography/rich-text
+          text: ""
+          alignX: start
+        preview:
+          subtext:
+            - key: text
+            - Add text to block
+        picker_preview:
+          text: Rich text
+          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
+          icon: edit_note
+        _inputs:
+          text:
+            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
+            type: markdown
+            options:
+              bold: true
+              italic: true
+              link: true
+              strike: true
+              subscript: true
+              superscript: true
+              underline: true
+              undo: true
+              redo: true
+              format: p h1 h2 h3 h4 h5 h6
+              removeformat: true
+              copyformatting: true
+              bulletedlist: true
+              numberedlist: true
+              indent: true
+              outdent: true
+              join_above: true
+              join_below: true
+              code: true
+              embed: true
+              horizontalrule: true
+              image: true
+              table: true
+          alignX:
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+            comment: The horizontal alignment of the rich text component.
       - label: Simple Text
         icon: view_headline
         description: Displays blocks of text for content sections with options for alignment, size and decoration.
@@ -5550,60 +6028,6 @@ _structures:
                   name: 5xl
                 - id: 6xl
                   name: 6xl
-      - label: Rich text
-        icon: edit_note
-        description: A catch-all for all content types. Can contain headings, paragraphs, images, bullets. Use text prop for Markdown content or slot for HTML content.
-        value:
-          _component: typography/rich-text
-          text: ""
-          alignX: start
-        preview:
-          subtext:
-            - key: text
-            - Add text to block
-        picker_preview:
-          text: Rich text
-          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
-          icon: edit_note
-        _inputs:
-          text:
-            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
-            type: markdown
-            options:
-              bold: true
-              italic: true
-              link: true
-              strike: true
-              subscript: true
-              superscript: true
-              underline: true
-              undo: true
-              redo: true
-              format: p h1 h2 h3 h4 h5 h6
-              removeformat: true
-              copyformatting: true
-              bulletedlist: true
-              numberedlist: true
-              indent: true
-              outdent: true
-              join_above: true
-              join_below: true
-              code: true
-              embed: true
-              horizontalrule: true
-              image: true
-              table: true
-          alignX:
-            type: select
-            options:
-              values:
-                - id: start
-                  name: Start
-                - id: center
-                  name: Center
-                - id: end
-                  name: End
-            comment: The horizontal alignment of the rich text component.
       - label: List
         icon: list
         description: Displays items in a list with icons as markers. (For traditional bulleted or numbered lists, use rich text instead.)
@@ -5664,6 +6088,112 @@ _structures:
                   name: Extra Large
                 - id: 2xl
                   name: 2xl
+      - label: Heading
+        icon: title
+        description: The main title or heading with levels (H1 to H6) to show hierarchy and structure for the page and sections.
+        value:
+          _component: typography/heading
+          text: ""
+          type: h2
+          size: ""
+          alignX: start
+          iconName: null
+          iconPosition: before
+        preview:
+          text:
+            - key: text
+            - Heading
+          icon: title
+        picker_preview:
+          text: Heading
+          subtext: Main title or heading with levels (H1 to H6)
+          icon: title
+        _inputs:
+          text:
+            comment: The text content of the heading.
+            type: markdown
+            options:
+              bold: false
+              copyformatting: false
+              italic: true
+              link: true
+              redo: true
+              removeformat: true
+              strike: true
+              subscript: true
+              superscript: true
+              underline: true
+              undo: true
+              blockquote: false
+              bulletedlist: false
+              image: false
+              numberedlist: false
+              snippet: false
+          type:
+            comment: The heading type or level.
+            type: select
+            options:
+              values:
+                - h1
+                - h2
+                - h3
+                - h4
+                - h5
+                - h6
+                - eyebrow
+                - subtitle
+          size:
+            comment: The font size of the text.
+            type: select
+            options:
+              values:
+                - id: none
+                  name: None
+                - id: xs
+                  name: Extra Small
+                - id: sm
+                  name: Small
+                - id: md
+                  name: Medium
+                - id: lg
+                  name: Large
+                - id: xl
+                  name: Extra Large
+                - id: 2xl
+                  name: 2xl
+                - id: 3xl
+                  name: 3xl
+                - id: 4xl
+                  name: 4xl
+                - id: 5xl
+                  name: 5xl
+                - id: 6xl
+                  name: 6xl
+          alignX:
+            comment: The horizontal alignment of the text.
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+          iconName:
+            comment: The name of the icon to display.
+            type: select
+            options:
+              values: _select_data.icons
+          iconPosition:
+            comment: The position of the icon relative to the text.
+            type: select
+            options:
+              values:
+                - id: before
+                  name: Before
+                - id: after
+                  name: After
       - label: Definition List
         icon: dns
         description: For displaying key-value pairs. Ideal for glossaries, opening times, etc.
@@ -5735,6 +6265,30 @@ _structures:
                   name: Center
                 - id: end
                   name: End
+      - label: Form
+        icon: checklist_rtl
+        description: A form element that groups related form controls and handles form submission.
+        value:
+          _component: forms/form
+          action: null
+          formBlocks: []
+        preview:
+          subtext:
+            - template: A form containing {formBlocks|array_length} {"item"|pluralize=formBlocks}
+            - Add items to the form
+        picker_preview:
+          text: Form
+          subtext: A form element that groups related form controls and handles form submission.
+          icon: checklist_rtl
+        _inputs:
+          action:
+            type: url
+            comment: Where to send the form-data when the form is submitted. The URL that processes the form submission.
+          formBlocks:
+            type: array
+            comment: The form blocks to render inside the form.
+            options:
+              structures: _structures.formBlocks
       - label: Spacer
         icon: space_bar
         description: Gives space between content.
@@ -5768,6 +6322,67 @@ _structures:
                   name: 2xl
                 - id: 3xl
                   name: 3xl
+      - label: Smart Video
+        icon: videocam
+        description: Play a video from YouTube, Vimeo, or your local files.
+        value:
+          _component: elements/smart-video
+          type: ""
+          id: ""
+          title: ""
+          source: ""
+          poster: ""
+        preview:
+          icon: videocam
+          text:
+            - template: Smart Video - {type}
+            - Smart Video
+          subtext:
+            - key: title
+            - key: source
+            - Add video
+        picker_preview:
+          text: Smart Video
+          subtext: Play a video from YouTube, Vimeo, or your local files.
+          icon: videocam
+        _inputs:
+          type:
+            type: select
+            options:
+              values:
+                - id: youtube
+                  name: YouTube
+                - id: vimeo
+                  name: Vimeo
+                - id: local-source
+                  name: Local Source
+          title:
+            type: text
+            comment: Used for externally hosted videos - The video title provides accessibility information for assistive technologies (like screen readers) and can display a tooltip when a user hovers over the video.
+          id:
+            type: text
+            comment: Used for externally hosted videos - Enter the YouTube or Vimeo id.
+          source:
+            type: file
+            label: Video Source
+            comment: Used for locally hosted videos - Must be mp4 as this is supported by all modern browsers.
+            options:
+              accepts_mime_types:
+                - video/mp4
+              paths:
+                uploads: public/videos
+                static: public
+          poster:
+            type: image
+            comment: Used for locally hosted videos - The image displayed before the video plays or while it is loading.
+            options:
+              accepts_mime_types:
+                - image/jpeg
+                - image/png
+                - image/webp
+              paths:
+                uploads: public/images
+                static: public
       - label: Smart Image
         icon: image
         description: Displays an image optimized for performance with smart CDN detection.
@@ -5841,91 +6456,6 @@ _structures:
                   name: Center
                 - id: right
                   name: Right
-      - label: Form
-        icon: checklist_rtl
-        description: A form element that groups related form controls and handles form submission.
-        value:
-          _component: forms/form
-          action: null
-          formBlocks: []
-        preview:
-          subtext:
-            - template: A form containing {formBlocks|array_length} {"item"|pluralize=formBlocks}
-            - Add items to the form
-        picker_preview:
-          text: Form
-          subtext: A form element that groups related form controls and handles form submission.
-          icon: checklist_rtl
-        _inputs:
-          action:
-            type: url
-            comment: Where to send the form-data when the form is submitted. The URL that processes the form submission.
-          formBlocks:
-            type: array
-            comment: The form blocks to render inside the form.
-            options:
-              structures: _structures.formBlocks
-      - label: Smart Video
-        icon: videocam
-        description: Play a video from YouTube, Vimeo, or your local files.
-        value:
-          _component: elements/smart-video
-          type: ""
-          id: ""
-          title: ""
-          source: ""
-          poster: ""
-        preview:
-          icon: videocam
-          text:
-            - template: Smart Video - {type}
-            - Smart Video
-          subtext:
-            - key: title
-            - key: source
-            - Add video
-        picker_preview:
-          text: Smart Video
-          subtext: Play a video from YouTube, Vimeo, or your local files.
-          icon: videocam
-        _inputs:
-          type:
-            type: select
-            options:
-              values:
-                - id: youtube
-                  name: YouTube
-                - id: vimeo
-                  name: Vimeo
-                - id: local-source
-                  name: Local Source
-          title:
-            type: text
-            comment: Used for externally hosted videos - The video title provides accessibility information for assistive technologies (like screen readers) and can display a tooltip when a user hovers over the video.
-          id:
-            type: text
-            comment: Used for externally hosted videos - Enter the YouTube or Vimeo id.
-          source:
-            type: file
-            label: Video Source
-            comment: Used for locally hosted videos - Must be mp4 as this is supported by all modern browsers.
-            options:
-              accepts_mime_types:
-                - video/mp4
-              paths:
-                uploads: public/videos
-                static: public
-          poster:
-            type: image
-            comment: Used for locally hosted videos - The image displayed before the video plays or while it is loading.
-            options:
-              accepts_mime_types:
-                - image/jpeg
-                - image/png
-                - image/webp
-              paths:
-                uploads: public/images
-                static: public
       - label: Embed
         icon: data_object
         description: Embed content from other sources.
@@ -6150,6 +6680,60 @@ _structures:
                   name: Center
                 - id: end
                   name: End
+      - label: Rich text
+        icon: edit_note
+        description: A catch-all for all content types. Can contain headings, paragraphs, images, bullets. Use text prop for Markdown content or slot for HTML content.
+        value:
+          _component: typography/rich-text
+          text: ""
+          alignX: start
+        preview:
+          subtext:
+            - key: text
+            - Add text to block
+        picker_preview:
+          text: Rich text
+          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
+          icon: edit_note
+        _inputs:
+          text:
+            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
+            type: markdown
+            options:
+              bold: true
+              italic: true
+              link: true
+              strike: true
+              subscript: true
+              superscript: true
+              underline: true
+              undo: true
+              redo: true
+              format: p h1 h2 h3 h4 h5 h6
+              removeformat: true
+              copyformatting: true
+              bulletedlist: true
+              numberedlist: true
+              indent: true
+              outdent: true
+              join_above: true
+              join_below: true
+              code: true
+              embed: true
+              horizontalrule: true
+              image: true
+              table: true
+          alignX:
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+            comment: The horizontal alignment of the rich text component.
       - label: Simple Text
         icon: view_headline
         description: Displays blocks of text for content sections with options for alignment, size and decoration.
@@ -6219,60 +6803,6 @@ _structures:
                   name: 5xl
                 - id: 6xl
                   name: 6xl
-      - label: Rich text
-        icon: edit_note
-        description: A catch-all for all content types. Can contain headings, paragraphs, images, bullets. Use text prop for Markdown content or slot for HTML content.
-        value:
-          _component: typography/rich-text
-          text: ""
-          alignX: start
-        preview:
-          subtext:
-            - key: text
-            - Add text to block
-        picker_preview:
-          text: Rich text
-          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
-          icon: edit_note
-        _inputs:
-          text:
-            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
-            type: markdown
-            options:
-              bold: true
-              italic: true
-              link: true
-              strike: true
-              subscript: true
-              superscript: true
-              underline: true
-              undo: true
-              redo: true
-              format: p h1 h2 h3 h4 h5 h6
-              removeformat: true
-              copyformatting: true
-              bulletedlist: true
-              numberedlist: true
-              indent: true
-              outdent: true
-              join_above: true
-              join_below: true
-              code: true
-              embed: true
-              horizontalrule: true
-              image: true
-              table: true
-          alignX:
-            type: select
-            options:
-              values:
-                - id: start
-                  name: Start
-                - id: center
-                  name: Center
-                - id: end
-                  name: End
-            comment: The horizontal alignment of the rich text component.
       - label: List
         icon: list
         description: Displays items in a list with icons as markers. (For traditional bulleted or numbered lists, use rich text instead.)
@@ -6333,6 +6863,112 @@ _structures:
                   name: Extra Large
                 - id: 2xl
                   name: 2xl
+      - label: Heading
+        icon: title
+        description: The main title or heading with levels (H1 to H6) to show hierarchy and structure for the page and sections.
+        value:
+          _component: typography/heading
+          text: ""
+          type: h2
+          size: ""
+          alignX: start
+          iconName: null
+          iconPosition: before
+        preview:
+          text:
+            - key: text
+            - Heading
+          icon: title
+        picker_preview:
+          text: Heading
+          subtext: Main title or heading with levels (H1 to H6)
+          icon: title
+        _inputs:
+          text:
+            comment: The text content of the heading.
+            type: markdown
+            options:
+              bold: false
+              copyformatting: false
+              italic: true
+              link: true
+              redo: true
+              removeformat: true
+              strike: true
+              subscript: true
+              superscript: true
+              underline: true
+              undo: true
+              blockquote: false
+              bulletedlist: false
+              image: false
+              numberedlist: false
+              snippet: false
+          type:
+            comment: The heading type or level.
+            type: select
+            options:
+              values:
+                - h1
+                - h2
+                - h3
+                - h4
+                - h5
+                - h6
+                - eyebrow
+                - subtitle
+          size:
+            comment: The font size of the text.
+            type: select
+            options:
+              values:
+                - id: none
+                  name: None
+                - id: xs
+                  name: Extra Small
+                - id: sm
+                  name: Small
+                - id: md
+                  name: Medium
+                - id: lg
+                  name: Large
+                - id: xl
+                  name: Extra Large
+                - id: 2xl
+                  name: 2xl
+                - id: 3xl
+                  name: 3xl
+                - id: 4xl
+                  name: 4xl
+                - id: 5xl
+                  name: 5xl
+                - id: 6xl
+                  name: 6xl
+          alignX:
+            comment: The horizontal alignment of the text.
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+          iconName:
+            comment: The name of the icon to display.
+            type: select
+            options:
+              values: _select_data.icons
+          iconPosition:
+            comment: The position of the icon relative to the text.
+            type: select
+            options:
+              values:
+                - id: before
+                  name: Before
+                - id: after
+                  name: After
       - label: Definition List
         icon: dns
         description: For displaying key-value pairs. Ideal for glossaries, opening times, etc.
@@ -6404,6 +7040,30 @@ _structures:
                   name: Center
                 - id: end
                   name: End
+      - label: Form
+        icon: checklist_rtl
+        description: A form element that groups related form controls and handles form submission.
+        value:
+          _component: forms/form
+          action: null
+          formBlocks: []
+        preview:
+          subtext:
+            - template: A form containing {formBlocks|array_length} {"item"|pluralize=formBlocks}
+            - Add items to the form
+        picker_preview:
+          text: Form
+          subtext: A form element that groups related form controls and handles form submission.
+          icon: checklist_rtl
+        _inputs:
+          action:
+            type: url
+            comment: Where to send the form-data when the form is submitted. The URL that processes the form submission.
+          formBlocks:
+            type: array
+            comment: The form blocks to render inside the form.
+            options:
+              structures: _structures.formBlocks
       - label: Spacer
         icon: space_bar
         description: Gives space between content.
@@ -6437,6 +7097,67 @@ _structures:
                   name: 2xl
                 - id: 3xl
                   name: 3xl
+      - label: Smart Video
+        icon: videocam
+        description: Play a video from YouTube, Vimeo, or your local files.
+        value:
+          _component: elements/smart-video
+          type: ""
+          id: ""
+          title: ""
+          source: ""
+          poster: ""
+        preview:
+          icon: videocam
+          text:
+            - template: Smart Video - {type}
+            - Smart Video
+          subtext:
+            - key: title
+            - key: source
+            - Add video
+        picker_preview:
+          text: Smart Video
+          subtext: Play a video from YouTube, Vimeo, or your local files.
+          icon: videocam
+        _inputs:
+          type:
+            type: select
+            options:
+              values:
+                - id: youtube
+                  name: YouTube
+                - id: vimeo
+                  name: Vimeo
+                - id: local-source
+                  name: Local Source
+          title:
+            type: text
+            comment: Used for externally hosted videos - The video title provides accessibility information for assistive technologies (like screen readers) and can display a tooltip when a user hovers over the video.
+          id:
+            type: text
+            comment: Used for externally hosted videos - Enter the YouTube or Vimeo id.
+          source:
+            type: file
+            label: Video Source
+            comment: Used for locally hosted videos - Must be mp4 as this is supported by all modern browsers.
+            options:
+              accepts_mime_types:
+                - video/mp4
+              paths:
+                uploads: public/videos
+                static: public
+          poster:
+            type: image
+            comment: Used for locally hosted videos - The image displayed before the video plays or while it is loading.
+            options:
+              accepts_mime_types:
+                - image/jpeg
+                - image/png
+                - image/webp
+              paths:
+                uploads: public/images
+                static: public
       - label: Smart Image
         icon: image
         description: Displays an image optimized for performance with smart CDN detection.
@@ -6510,91 +7231,6 @@ _structures:
                   name: Center
                 - id: right
                   name: Right
-      - label: Form
-        icon: checklist_rtl
-        description: A form element that groups related form controls and handles form submission.
-        value:
-          _component: forms/form
-          action: null
-          formBlocks: []
-        preview:
-          subtext:
-            - template: A form containing {formBlocks|array_length} {"item"|pluralize=formBlocks}
-            - Add items to the form
-        picker_preview:
-          text: Form
-          subtext: A form element that groups related form controls and handles form submission.
-          icon: checklist_rtl
-        _inputs:
-          action:
-            type: url
-            comment: Where to send the form-data when the form is submitted. The URL that processes the form submission.
-          formBlocks:
-            type: array
-            comment: The form blocks to render inside the form.
-            options:
-              structures: _structures.formBlocks
-      - label: Smart Video
-        icon: videocam
-        description: Play a video from YouTube, Vimeo, or your local files.
-        value:
-          _component: elements/smart-video
-          type: ""
-          id: ""
-          title: ""
-          source: ""
-          poster: ""
-        preview:
-          icon: videocam
-          text:
-            - template: Smart Video - {type}
-            - Smart Video
-          subtext:
-            - key: title
-            - key: source
-            - Add video
-        picker_preview:
-          text: Smart Video
-          subtext: Play a video from YouTube, Vimeo, or your local files.
-          icon: videocam
-        _inputs:
-          type:
-            type: select
-            options:
-              values:
-                - id: youtube
-                  name: YouTube
-                - id: vimeo
-                  name: Vimeo
-                - id: local-source
-                  name: Local Source
-          title:
-            type: text
-            comment: Used for externally hosted videos - The video title provides accessibility information for assistive technologies (like screen readers) and can display a tooltip when a user hovers over the video.
-          id:
-            type: text
-            comment: Used for externally hosted videos - Enter the YouTube or Vimeo id.
-          source:
-            type: file
-            label: Video Source
-            comment: Used for locally hosted videos - Must be mp4 as this is supported by all modern browsers.
-            options:
-              accepts_mime_types:
-                - video/mp4
-              paths:
-                uploads: public/videos
-                static: public
-          poster:
-            type: image
-            comment: Used for locally hosted videos - The image displayed before the video plays or while it is loading.
-            options:
-              accepts_mime_types:
-                - image/jpeg
-                - image/png
-                - image/webp
-              paths:
-                uploads: public/images
-                static: public
       - label: Embed
         icon: data_object
         description: Embed content from other sources.
@@ -6784,6 +7420,60 @@ _structures:
                   name: Center
                 - id: end
                   name: End
+      - label: Rich text
+        icon: edit_note
+        description: A catch-all for all content types. Can contain headings, paragraphs, images, bullets. Use text prop for Markdown content or slot for HTML content.
+        value:
+          _component: typography/rich-text
+          text: ""
+          alignX: start
+        preview:
+          subtext:
+            - key: text
+            - Add text to block
+        picker_preview:
+          text: Rich text
+          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
+          icon: edit_note
+        _inputs:
+          text:
+            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
+            type: markdown
+            options:
+              bold: true
+              italic: true
+              link: true
+              strike: true
+              subscript: true
+              superscript: true
+              underline: true
+              undo: true
+              redo: true
+              format: p h1 h2 h3 h4 h5 h6
+              removeformat: true
+              copyformatting: true
+              bulletedlist: true
+              numberedlist: true
+              indent: true
+              outdent: true
+              join_above: true
+              join_below: true
+              code: true
+              embed: true
+              horizontalrule: true
+              image: true
+              table: true
+          alignX:
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+            comment: The horizontal alignment of the rich text component.
       - label: Simple Text
         icon: view_headline
         description: Displays blocks of text for content sections with options for alignment, size and decoration.
@@ -6853,60 +7543,6 @@ _structures:
                   name: 5xl
                 - id: 6xl
                   name: 6xl
-      - label: Rich text
-        icon: edit_note
-        description: A catch-all for all content types. Can contain headings, paragraphs, images, bullets. Use text prop for Markdown content or slot for HTML content.
-        value:
-          _component: typography/rich-text
-          text: ""
-          alignX: start
-        preview:
-          subtext:
-            - key: text
-            - Add text to block
-        picker_preview:
-          text: Rich text
-          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
-          icon: edit_note
-        _inputs:
-          text:
-            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
-            type: markdown
-            options:
-              bold: true
-              italic: true
-              link: true
-              strike: true
-              subscript: true
-              superscript: true
-              underline: true
-              undo: true
-              redo: true
-              format: p h1 h2 h3 h4 h5 h6
-              removeformat: true
-              copyformatting: true
-              bulletedlist: true
-              numberedlist: true
-              indent: true
-              outdent: true
-              join_above: true
-              join_below: true
-              code: true
-              embed: true
-              horizontalrule: true
-              image: true
-              table: true
-          alignX:
-            type: select
-            options:
-              values:
-                - id: start
-                  name: Start
-                - id: center
-                  name: Center
-                - id: end
-                  name: End
-            comment: The horizontal alignment of the rich text component.
       - label: List
         icon: list
         description: Displays items in a list with icons as markers. (For traditional bulleted or numbered lists, use rich text instead.)
@@ -6967,6 +7603,112 @@ _structures:
                   name: Extra Large
                 - id: 2xl
                   name: 2xl
+      - label: Heading
+        icon: title
+        description: The main title or heading with levels (H1 to H6) to show hierarchy and structure for the page and sections.
+        value:
+          _component: typography/heading
+          text: ""
+          type: h2
+          size: ""
+          alignX: start
+          iconName: null
+          iconPosition: before
+        preview:
+          text:
+            - key: text
+            - Heading
+          icon: title
+        picker_preview:
+          text: Heading
+          subtext: Main title or heading with levels (H1 to H6)
+          icon: title
+        _inputs:
+          text:
+            comment: The text content of the heading.
+            type: markdown
+            options:
+              bold: false
+              copyformatting: false
+              italic: true
+              link: true
+              redo: true
+              removeformat: true
+              strike: true
+              subscript: true
+              superscript: true
+              underline: true
+              undo: true
+              blockquote: false
+              bulletedlist: false
+              image: false
+              numberedlist: false
+              snippet: false
+          type:
+            comment: The heading type or level.
+            type: select
+            options:
+              values:
+                - h1
+                - h2
+                - h3
+                - h4
+                - h5
+                - h6
+                - eyebrow
+                - subtitle
+          size:
+            comment: The font size of the text.
+            type: select
+            options:
+              values:
+                - id: none
+                  name: None
+                - id: xs
+                  name: Extra Small
+                - id: sm
+                  name: Small
+                - id: md
+                  name: Medium
+                - id: lg
+                  name: Large
+                - id: xl
+                  name: Extra Large
+                - id: 2xl
+                  name: 2xl
+                - id: 3xl
+                  name: 3xl
+                - id: 4xl
+                  name: 4xl
+                - id: 5xl
+                  name: 5xl
+                - id: 6xl
+                  name: 6xl
+          alignX:
+            comment: The horizontal alignment of the text.
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+          iconName:
+            comment: The name of the icon to display.
+            type: select
+            options:
+              values: _select_data.icons
+          iconPosition:
+            comment: The position of the icon relative to the text.
+            type: select
+            options:
+              values:
+                - id: before
+                  name: Before
+                - id: after
+                  name: After
       - label: Definition List
         icon: dns
         description: For displaying key-value pairs. Ideal for glossaries, opening times, etc.
@@ -7038,6 +7780,30 @@ _structures:
                   name: Center
                 - id: end
                   name: End
+      - label: Form
+        icon: checklist_rtl
+        description: A form element that groups related form controls and handles form submission.
+        value:
+          _component: forms/form
+          action: null
+          formBlocks: []
+        preview:
+          subtext:
+            - template: A form containing {formBlocks|array_length} {"item"|pluralize=formBlocks}
+            - Add items to the form
+        picker_preview:
+          text: Form
+          subtext: A form element that groups related form controls and handles form submission.
+          icon: checklist_rtl
+        _inputs:
+          action:
+            type: url
+            comment: Where to send the form-data when the form is submitted. The URL that processes the form submission.
+          formBlocks:
+            type: array
+            comment: The form blocks to render inside the form.
+            options:
+              structures: _structures.formBlocks
       - label: Spacer
         icon: space_bar
         description: Gives space between content.
@@ -7071,6 +7837,67 @@ _structures:
                   name: 2xl
                 - id: 3xl
                   name: 3xl
+      - label: Smart Video
+        icon: videocam
+        description: Play a video from YouTube, Vimeo, or your local files.
+        value:
+          _component: elements/smart-video
+          type: ""
+          id: ""
+          title: ""
+          source: ""
+          poster: ""
+        preview:
+          icon: videocam
+          text:
+            - template: Smart Video - {type}
+            - Smart Video
+          subtext:
+            - key: title
+            - key: source
+            - Add video
+        picker_preview:
+          text: Smart Video
+          subtext: Play a video from YouTube, Vimeo, or your local files.
+          icon: videocam
+        _inputs:
+          type:
+            type: select
+            options:
+              values:
+                - id: youtube
+                  name: YouTube
+                - id: vimeo
+                  name: Vimeo
+                - id: local-source
+                  name: Local Source
+          title:
+            type: text
+            comment: Used for externally hosted videos - The video title provides accessibility information for assistive technologies (like screen readers) and can display a tooltip when a user hovers over the video.
+          id:
+            type: text
+            comment: Used for externally hosted videos - Enter the YouTube or Vimeo id.
+          source:
+            type: file
+            label: Video Source
+            comment: Used for locally hosted videos - Must be mp4 as this is supported by all modern browsers.
+            options:
+              accepts_mime_types:
+                - video/mp4
+              paths:
+                uploads: public/videos
+                static: public
+          poster:
+            type: image
+            comment: Used for locally hosted videos - The image displayed before the video plays or while it is loading.
+            options:
+              accepts_mime_types:
+                - image/jpeg
+                - image/png
+                - image/webp
+              paths:
+                uploads: public/images
+                static: public
       - label: Smart Image
         icon: image
         description: Displays an image optimized for performance with smart CDN detection.
@@ -7144,91 +7971,6 @@ _structures:
                   name: Center
                 - id: right
                   name: Right
-      - label: Form
-        icon: checklist_rtl
-        description: A form element that groups related form controls and handles form submission.
-        value:
-          _component: forms/form
-          action: null
-          formBlocks: []
-        preview:
-          subtext:
-            - template: A form containing {formBlocks|array_length} {"item"|pluralize=formBlocks}
-            - Add items to the form
-        picker_preview:
-          text: Form
-          subtext: A form element that groups related form controls and handles form submission.
-          icon: checklist_rtl
-        _inputs:
-          action:
-            type: url
-            comment: Where to send the form-data when the form is submitted. The URL that processes the form submission.
-          formBlocks:
-            type: array
-            comment: The form blocks to render inside the form.
-            options:
-              structures: _structures.formBlocks
-      - label: Smart Video
-        icon: videocam
-        description: Play a video from YouTube, Vimeo, or your local files.
-        value:
-          _component: elements/smart-video
-          type: ""
-          id: ""
-          title: ""
-          source: ""
-          poster: ""
-        preview:
-          icon: videocam
-          text:
-            - template: Smart Video - {type}
-            - Smart Video
-          subtext:
-            - key: title
-            - key: source
-            - Add video
-        picker_preview:
-          text: Smart Video
-          subtext: Play a video from YouTube, Vimeo, or your local files.
-          icon: videocam
-        _inputs:
-          type:
-            type: select
-            options:
-              values:
-                - id: youtube
-                  name: YouTube
-                - id: vimeo
-                  name: Vimeo
-                - id: local-source
-                  name: Local Source
-          title:
-            type: text
-            comment: Used for externally hosted videos - The video title provides accessibility information for assistive technologies (like screen readers) and can display a tooltip when a user hovers over the video.
-          id:
-            type: text
-            comment: Used for externally hosted videos - Enter the YouTube or Vimeo id.
-          source:
-            type: file
-            label: Video Source
-            comment: Used for locally hosted videos - Must be mp4 as this is supported by all modern browsers.
-            options:
-              accepts_mime_types:
-                - video/mp4
-              paths:
-                uploads: public/videos
-                static: public
-          poster:
-            type: image
-            comment: Used for locally hosted videos - The image displayed before the video plays or while it is loading.
-            options:
-              accepts_mime_types:
-                - image/jpeg
-                - image/png
-                - image/webp
-              paths:
-                uploads: public/images
-                static: public
       - label: Embed
         icon: data_object
         description: Embed content from other sources.
@@ -7329,333 +8071,6 @@ _structures:
             type: array
             options:
               structures: _structures.accordionBlocks
-  contentBlocks:
-    id_key: _component
-    values:
-      - label: Heading
-        icon: title
-        description: The main title or heading with levels (H1 to H6) to show hierarchy and structure for the page and sections.
-        value:
-          _component: typography/heading
-          text: ""
-          type: h2
-          size: ""
-          alignX: start
-          iconName: null
-          iconPosition: before
-        preview:
-          text:
-            - key: text
-            - Heading
-          icon: title
-        picker_preview:
-          text: Heading
-          subtext: Main title or heading with levels (H1 to H6)
-          icon: title
-        _inputs:
-          text:
-            comment: The text content of the heading.
-            type: markdown
-            options:
-              bold: false
-              copyformatting: false
-              italic: true
-              link: true
-              redo: true
-              removeformat: true
-              strike: true
-              subscript: true
-              superscript: true
-              underline: true
-              undo: true
-              blockquote: false
-              bulletedlist: false
-              image: false
-              numberedlist: false
-              snippet: false
-          type:
-            comment: The heading type or level.
-            type: select
-            options:
-              values:
-                - h1
-                - h2
-                - h3
-                - h4
-                - h5
-                - h6
-                - eyebrow
-                - subtitle
-          size:
-            comment: The font size of the text.
-            type: select
-            options:
-              values:
-                - id: none
-                  name: None
-                - id: xs
-                  name: Extra Small
-                - id: sm
-                  name: Small
-                - id: md
-                  name: Medium
-                - id: lg
-                  name: Large
-                - id: xl
-                  name: Extra Large
-                - id: 2xl
-                  name: 2xl
-                - id: 3xl
-                  name: 3xl
-                - id: 4xl
-                  name: 4xl
-                - id: 5xl
-                  name: 5xl
-                - id: 6xl
-                  name: 6xl
-          alignX:
-            comment: The horizontal alignment of the text.
-            type: select
-            options:
-              values:
-                - id: start
-                  name: Start
-                - id: center
-                  name: Center
-                - id: end
-                  name: End
-          iconName:
-            comment: The name of the icon to display.
-            type: select
-            options:
-              values: _select_data.icons
-          iconPosition:
-            comment: The position of the icon relative to the text.
-            type: select
-            options:
-              values:
-                - id: before
-                  name: Before
-                - id: after
-                  name: After
-  firstContentBlocks:
-    id_key: _component
-    values:
-      - label: Heading
-        icon: title
-        description: The main title or heading with levels (H1 to H6) to show hierarchy and structure for the page and sections.
-        value:
-          _component: typography/heading
-          text: ""
-          type: h2
-          size: ""
-          alignX: start
-          iconName: null
-          iconPosition: before
-        preview:
-          text:
-            - key: text
-            - Heading
-          icon: title
-        picker_preview:
-          text: Heading
-          subtext: Main title or heading with levels (H1 to H6)
-          icon: title
-        _inputs:
-          text:
-            comment: The text content of the heading.
-            type: markdown
-            options:
-              bold: false
-              copyformatting: false
-              italic: true
-              link: true
-              redo: true
-              removeformat: true
-              strike: true
-              subscript: true
-              superscript: true
-              underline: true
-              undo: true
-              blockquote: false
-              bulletedlist: false
-              image: false
-              numberedlist: false
-              snippet: false
-          type:
-            comment: The heading type or level.
-            type: select
-            options:
-              values:
-                - h1
-                - h2
-                - h3
-                - h4
-                - h5
-                - h6
-                - eyebrow
-                - subtitle
-          size:
-            comment: The font size of the text.
-            type: select
-            options:
-              values:
-                - id: none
-                  name: None
-                - id: xs
-                  name: Extra Small
-                - id: sm
-                  name: Small
-                - id: md
-                  name: Medium
-                - id: lg
-                  name: Large
-                - id: xl
-                  name: Extra Large
-                - id: 2xl
-                  name: 2xl
-                - id: 3xl
-                  name: 3xl
-                - id: 4xl
-                  name: 4xl
-                - id: 5xl
-                  name: 5xl
-                - id: 6xl
-                  name: 6xl
-          alignX:
-            comment: The horizontal alignment of the text.
-            type: select
-            options:
-              values:
-                - id: start
-                  name: Start
-                - id: center
-                  name: Center
-                - id: end
-                  name: End
-          iconName:
-            comment: The name of the icon to display.
-            type: select
-            options:
-              values: _select_data.icons
-          iconPosition:
-            comment: The position of the icon relative to the text.
-            type: select
-            options:
-              values:
-                - id: before
-                  name: Before
-                - id: after
-                  name: After
-  secondContentBlocks:
-    id_key: _component
-    values:
-      - label: Heading
-        icon: title
-        description: The main title or heading with levels (H1 to H6) to show hierarchy and structure for the page and sections.
-        value:
-          _component: typography/heading
-          text: ""
-          type: h2
-          size: ""
-          alignX: start
-          iconName: null
-          iconPosition: before
-        preview:
-          text:
-            - key: text
-            - Heading
-          icon: title
-        picker_preview:
-          text: Heading
-          subtext: Main title or heading with levels (H1 to H6)
-          icon: title
-        _inputs:
-          text:
-            comment: The text content of the heading.
-            type: markdown
-            options:
-              bold: false
-              copyformatting: false
-              italic: true
-              link: true
-              redo: true
-              removeformat: true
-              strike: true
-              subscript: true
-              superscript: true
-              underline: true
-              undo: true
-              blockquote: false
-              bulletedlist: false
-              image: false
-              numberedlist: false
-              snippet: false
-          type:
-            comment: The heading type or level.
-            type: select
-            options:
-              values:
-                - h1
-                - h2
-                - h3
-                - h4
-                - h5
-                - h6
-                - eyebrow
-                - subtitle
-          size:
-            comment: The font size of the text.
-            type: select
-            options:
-              values:
-                - id: none
-                  name: None
-                - id: xs
-                  name: Extra Small
-                - id: sm
-                  name: Small
-                - id: md
-                  name: Medium
-                - id: lg
-                  name: Large
-                - id: xl
-                  name: Extra Large
-                - id: 2xl
-                  name: 2xl
-                - id: 3xl
-                  name: 3xl
-                - id: 4xl
-                  name: 4xl
-                - id: 5xl
-                  name: 5xl
-                - id: 6xl
-                  name: 6xl
-          alignX:
-            comment: The horizontal alignment of the text.
-            type: select
-            options:
-              values:
-                - id: start
-                  name: Start
-                - id: center
-                  name: Center
-                - id: end
-                  name: End
-          iconName:
-            comment: The name of the icon to display.
-            type: select
-            options:
-              values: _select_data.icons
-          iconPosition:
-            comment: The position of the icon relative to the text.
-            type: select
-            options:
-              values:
-                - id: before
-                  name: Before
-                - id: after
-                  name: After
   listItems:
     id_key: _component
     values:
@@ -8066,6 +8481,44 @@ _structures:
           value:
             type: text
             comment: The value to be stored in the hidden field.
+      - label: File Upload
+        icon: upload
+        description: A file input field with an optional label.
+        value:
+          _component: forms/file-upload
+          label: null
+          name: null
+          required: false
+          accept: null
+          multiple: false
+        preview:
+          subtext:
+            - key: label
+            - key: name
+            - Enter a name for the file upload form field.
+        picker_preview:
+          text: File Upload
+          subtext: A file input field with an optional label.
+          icon: upload
+        _inputs:
+          label:
+            type: text
+            comment: The label text for the file upload field.
+          name:
+            type: text
+            comment: A unique name attribute for the file upload field.
+            options:
+              required: true
+              required_message: Only form elements with a name will have their values passed when submitting a form.
+          required:
+            type: switch
+            comment: Whether the field is required.
+          accept:
+            type: text
+            comment: Comma-separated list of accepted file types (eg. '.jpg,.png,.pdf').
+          multiple:
+            type: switch
+            comment: Whether multiple files can be selected.
       - label: Date
         icon: calendar
         description: A date input field with an optional label, date constraints, and ISO8601 format validation.
@@ -8105,44 +8558,6 @@ _structures:
           max:
             type: date
             comment: The maximum date allowed (ISO8601 format).
-      - label: File Upload
-        icon: upload
-        description: A file input field with an optional label.
-        value:
-          _component: forms/file-upload
-          label: null
-          name: null
-          required: false
-          accept: null
-          multiple: false
-        preview:
-          subtext:
-            - key: label
-            - key: name
-            - Enter a name for the file upload form field.
-        picker_preview:
-          text: File Upload
-          subtext: A file input field with an optional label.
-          icon: upload
-        _inputs:
-          label:
-            type: text
-            comment: The label text for the file upload field.
-          name:
-            type: text
-            comment: A unique name attribute for the file upload field.
-            options:
-              required: true
-              required_message: Only form elements with a name will have their values passed when submitting a form.
-          required:
-            type: switch
-            comment: Whether the field is required.
-          accept:
-            type: text
-            comment: Comma-separated list of accepted file types (eg. '.jpg,.png,.pdf').
-          multiple:
-            type: switch
-            comment: Whether multiple files can be selected.
       - label: Choice Group
         icon: check_box
         description: A group of checkboxes or radio buttons with labels.
