@@ -13,6 +13,7 @@ value:
   minItemWidth: 280
   maxItemWidth: 400
   items: []
+  gap: md
 preview:
   text:
     - key: label
@@ -51,6 +52,25 @@ _inputs:
     type: array
     options:
       structures: _structures.gridItems
+  gap:
+    comment: The gap between grid items.
+    type: select
+    options:
+      values:
+        - id: xs
+          name: Extra Small
+        - id: sm
+          name: Small
+        - id: md
+          name: Medium
+        - id: lg
+          name: Large
+        - id: xl
+          name: Extra Large
+        - id: 2xl
+          name: 2xl
+        - id: 3xl
+          name: 3xl
 _structures:
   gridItems:
     values:

@@ -9,6 +9,7 @@ const {
   style: userStyle,
   items = [],
   label,
+  gap = "md",
   ...rest
 } = Astro.props;
 
@@ -30,6 +31,7 @@ if (!htmlAttributes.id && label) {
 const gridStyles = [
   `--min-item-width: ${minItemWidth}px`,
   `--max-item-width: ${maxItemWidth}px`,
+  `--grid-spacing: var(--spacing-${gap})`,
   userStyle,
 ]
   .filter(Boolean)

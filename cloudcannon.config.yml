@@ -824,6 +824,7 @@ _structures:
           minItemWidth: 280
           maxItemWidth: 400
           items: []
+          gap: md
         preview:
           text:
             - key: label
@@ -862,6 +863,25 @@ _structures:
             type: array
             options:
               structures: _structures.gridItems
+          gap:
+            comment: The gap between grid items.
+            type: select
+            options:
+              values:
+                - id: xs
+                  name: Extra Small
+                - id: sm
+                  name: Small
+                - id: md
+                  name: Medium
+                - id: lg
+                  name: Large
+                - id: xl
+                  name: Extra Large
+                - id: 2xl
+                  name: 2xl
+                - id: 3xl
+                  name: 3xl
       - &ref_2
         label: Content Selector
         icon: view_sidebar
@@ -898,53 +918,6 @@ _structures:
                   name: Start
                 - id: top
                   name: Top
-      - &ref_19
-        label: Carousel
-        icon: image
-        description: Displays multiple items in a sliding gallery.
-        value:
-          _component: wrappers/carousel
-          label: ""
-          slides: []
-          autoPlay: false
-          autoScroll: false
-          slideWidthPercent: 100
-          minSlideWidth: 0
-        preview:
-          text:
-            - key: label
-            - Carousel
-          subtext:
-            - template: A carousel containing {slides|array_length} {"slide"|pluralize=slides}
-            - Add slides to the carousel
-        picker_preview:
-          text: Carousel
-          subtext: A carousel component for displaying slides with navigation controls
-          icon: image
-        _inputs:
-          label:
-            comment: Optional label for the carousel to help identify it in the editor.
-            type: text
-          slides:
-            comment: Array of slides to display in the carousel.
-            type: array
-            options:
-              structures: _structures.slides
-          autoPlay:
-            comment: Enable auto-play functionality.
-            type: switch
-          autoScroll:
-            comment: Enable auto-scroll functionality.
-            type: switch
-          slideWidthPercent:
-            comment: Width of each slide as a percentage of the carousel (e.g., 33, 50, 100).
-            type: range
-            min: 0
-            max: 100
-            step: 1
-          minSlideWidth:
-            comment: Minimum width of slides in pixels. Prevents slides from getting too small.
-            type: number
       - &ref_20
         label: Container
         icon: width_full
@@ -1118,6 +1091,53 @@ _structures:
           rounded:
             type: switch
             comment: Whether to apply rounded corners to the container.
+      - &ref_19
+        label: Carousel
+        icon: image
+        description: Displays multiple items in a sliding gallery.
+        value:
+          _component: wrappers/carousel
+          label: ""
+          slides: []
+          autoPlay: false
+          autoScroll: false
+          slideWidthPercent: 100
+          minSlideWidth: 0
+        preview:
+          text:
+            - key: label
+            - Carousel
+          subtext:
+            - template: A carousel containing {slides|array_length} {"slide"|pluralize=slides}
+            - Add slides to the carousel
+        picker_preview:
+          text: Carousel
+          subtext: A carousel component for displaying slides with navigation controls
+          icon: image
+        _inputs:
+          label:
+            comment: Optional label for the carousel to help identify it in the editor.
+            type: text
+          slides:
+            comment: Array of slides to display in the carousel.
+            type: array
+            options:
+              structures: _structures.slides
+          autoPlay:
+            comment: Enable auto-play functionality.
+            type: switch
+          autoScroll:
+            comment: Enable auto-scroll functionality.
+            type: switch
+          slideWidthPercent:
+            comment: Width of each slide as a percentage of the carousel (e.g., 33, 50, 100).
+            type: range
+            min: 0
+            max: 100
+            step: 1
+          minSlideWidth:
+            comment: Minimum width of slides in pixels. Prevents slides from getting too small.
+            type: number
       - &ref_3
         label: Card
         icon: crop_square
@@ -1287,42 +1307,6 @@ _structures:
             type: switch
             comment: Whether to apply a border to the card.
       - &ref_4
-        label: Accordion
-        icon: expand_all
-        description: Interactive component for showing and hiding content panels.
-        value:
-          _component: wrappers/accordion
-          label: null
-          items: null
-          openFirst: false
-          singleOpen: false
-        preview:
-          text:
-            - key: label
-            - Accordion
-          subtext:
-            - template: An accordion containing {items|array_length} {"item"|pluralize=items}
-            - Add items to the accordion
-        picker_preview:
-          text: Accordion
-          subtext: Hides content behind an expandable menu.
-          icon: expand_all
-        _inputs:
-          label:
-            comment: Optional label for the accordion to help identify it in the editor.
-            type: text
-          items:
-            comment: The items to display in the accordion.
-            type: array
-            options:
-              structures: _structures.accordionItems
-          openFirst:
-            comment: Whether the first item will be open by default.
-            type: switch
-          singleOpen:
-            comment: Whether only one item can be open at a time within this accordion.
-            type: switch
-      - &ref_5
         label: Button Group
         icon: rectangle
         description: Arranges buttons side by side with consistent spacing.
@@ -1372,6 +1356,42 @@ _structures:
                   name: Center
                 - id: end
                   name: End
+      - &ref_5
+        label: Accordion
+        icon: expand_all
+        description: Interactive component for showing and hiding content panels.
+        value:
+          _component: wrappers/accordion
+          label: null
+          items: null
+          openFirst: false
+          singleOpen: false
+        preview:
+          text:
+            - key: label
+            - Accordion
+          subtext:
+            - template: An accordion containing {items|array_length} {"item"|pluralize=items}
+            - Add items to the accordion
+        picker_preview:
+          text: Accordion
+          subtext: Hides content behind an expandable menu.
+          icon: expand_all
+        _inputs:
+          label:
+            comment: Optional label for the accordion to help identify it in the editor.
+            type: text
+          items:
+            comment: The items to display in the accordion.
+            type: array
+            options:
+              structures: _structures.accordionItems
+          openFirst:
+            comment: Whether the first item will be open by default.
+            type: switch
+          singleOpen:
+            comment: Whether only one item can be open at a time within this accordion.
+            type: switch
       - &ref_6
         label: Testimonial
         icon: format_quote
@@ -1427,61 +1447,6 @@ _structures:
                 - id: end
                   name: End
       - &ref_7
-        label: Rich text
-        icon: edit_note
-        description: Content component for markdown-formatted text.
-        value:
-          _component: typography/rich-text
-          text: ""
-          alignX: start
-        preview:
-          subtext:
-            - key: text
-            - Add text to block
-        picker_preview:
-          text: Rich text
-          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
-          icon: edit_note
-        _inputs:
-          text:
-            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
-            type: markdown
-            options:
-              bold: true
-              italic: true
-              link: true
-              strike: true
-              subscript: true
-              superscript: true
-              underline: true
-              undo: true
-              redo: true
-              format: p h1 h2 h3 h4 h5 h6
-              removeformat: true
-              copyformatting: true
-              bulletedlist: true
-              numberedlist: true
-              indent: true
-              outdent: true
-              join_above: true
-              join_below: true
-              code: true
-              embed: true
-              horizontalrule: true
-              image: true
-              table: true
-          alignX:
-            type: select
-            options:
-              values:
-                - id: start
-                  name: Start
-                - id: center
-                  name: Center
-                - id: end
-                  name: End
-            comment: The horizontal alignment of the rich text component.
-      - &ref_8
         label: Simple Text
         icon: view_headline
         description: Paragraph for plain text content.
@@ -1541,6 +1506,61 @@ _structures:
                   name: 5xl
                 - id: 6xl
                   name: 6xl
+      - &ref_8
+        label: Rich text
+        icon: edit_note
+        description: Content component for markdown-formatted text.
+        value:
+          _component: typography/rich-text
+          text: ""
+          alignX: start
+        preview:
+          subtext:
+            - key: text
+            - Add text to block
+        picker_preview:
+          text: Rich text
+          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
+          icon: edit_note
+        _inputs:
+          text:
+            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
+            type: markdown
+            options:
+              bold: true
+              italic: true
+              link: true
+              strike: true
+              subscript: true
+              superscript: true
+              underline: true
+              undo: true
+              redo: true
+              format: p h1 h2 h3 h4 h5 h6
+              removeformat: true
+              copyformatting: true
+              bulletedlist: true
+              numberedlist: true
+              indent: true
+              outdent: true
+              join_above: true
+              join_below: true
+              code: true
+              embed: true
+              horizontalrule: true
+              image: true
+              table: true
+          alignX:
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+            comment: The horizontal alignment of the rich text component.
       - &ref_9
         label: List
         icon: list
@@ -1823,82 +1843,6 @@ _structures:
                 - id: 3xl
                   name: 3xl
       - &ref_15
-        label: Smart Image
-        icon: image
-        description: Optimized image component for local and remote sources.
-        value:
-          _component: elements/smart-image
-          source: ""
-          alt: ""
-          rounded: false
-          aspectRatio: none
-          positionVertical: center
-          positionHorizontal: center
-        preview:
-          icon: image
-          text: Smart Image
-          subtext:
-            - key: alt
-            - key: source
-            - Add image source
-        picker_preview:
-          text: Smart Image
-          subtext: Optimized image with smart CDN detection.
-          icon: image
-        _inputs:
-          source:
-            type: image
-            comment: The URL or path to the image.
-            options:
-              paths:
-                uploads: src/assets/images
-                static: ""
-          alt:
-            type: textarea
-            comment: Alternative text for accessibility.
-          rounded:
-            type: switch
-            comment: Whether to apply rounded corners to the image.
-          aspectRatio:
-            type: select
-            comment: Set a fixed aspect ratio for the image.
-            options:
-              values:
-                - id: none
-                  name: None
-                - id: square
-                  name: Square (1:1)
-                - id: landscape
-                  name: Landscape (4:3)
-                - id: portrait
-                  name: Portrait (3:4)
-                - id: widescreen
-                  name: Widescreen (16:9)
-                - id: golden
-                  name: Golden (1.618:1)
-          positionVertical:
-            type: select
-            comment: Vertical positioning of the image within the container.
-            options:
-              values:
-                - id: top
-                  name: Top
-                - id: center
-                  name: Center
-                - id: bottom
-                  name: Bottom
-          positionHorizontal:
-            type: select
-            comment: Horizontal positioning of the image within the container.
-            options:
-              values:
-                - id: left
-                  name: Left
-                - id: center
-                  name: Center
-                - id: right
-                  name: Right
-      - &ref_16
         label: Smart Video
         icon: videocam
         description: Video component for YouTube, Vimeo, and HTML5 sources.
@@ -1960,6 +1904,80 @@ _structures:
               paths:
                 uploads: public/images
                 static: public
+      - &ref_16
+        label: Smart Image
+        icon: image
+        description: Optimized image component for local and remote sources.
+        value:
+          _component: elements/smart-image
+          source: ""
+          alt: ""
+          rounded: false
+          aspectRatio: none
+          positionVertical: center
+          positionHorizontal: center
+        preview:
+          icon: image
+          text: Smart Image
+          subtext:
+            - key: alt
+            - key: source
+            - Add image source
+        picker_preview:
+          text: Smart Image
+          subtext: Optimized image with smart CDN detection.
+          icon: image
+        _inputs:
+          source:
+            type: image
+            comment: The URL or path to the image.
+            options:
+              paths:
+                uploads: src/assets/images
+                static: ""
+          alt:
+            type: textarea
+            comment: Alternative text for accessibility.
+          rounded:
+            type: switch
+            comment: Whether to apply rounded corners to the image.
+          aspectRatio:
+            type: select
+            comment: Set a fixed aspect ratio for the image.
+            options:
+              values:
+                - id: none
+                  name: None
+                - id: square
+                  name: Square (1:1)
+                - id: landscape
+                  name: Landscape (4:3)
+                - id: portrait
+                  name: Portrait (3:4)
+                - id: widescreen
+                  name: Widescreen (16:9)
+          positionVertical:
+            type: select
+            comment: Vertical positioning of the image within the container (if aspect ratio is set).
+            options:
+              values:
+                - id: top
+                  name: Top
+                - id: center
+                  name: Center
+                - id: bottom
+                  name: Bottom
+          positionHorizontal:
+            type: select
+            comment: Horizontal positioning of the image within the container (if aspect ratio is set).
+            options:
+              values:
+                - id: left
+                  name: Left
+                - id: center
+                  name: Center
+                - id: right
+                  name: Right
       - &ref_17
         label: Embed
         icon: data_object
@@ -2156,6 +2174,11 @@ _structures:
             type: array
             options:
               structures: _structures.contentSelectorBlocks
+  pageBlocks:
+    id_key: _component
+    style: modal
+    values:
+      - *ref_20
   slides:
     id_key: _component
     style: modal
@@ -2174,11 +2197,6 @@ _structures:
           subtext:
             - template: Contains {contentBlocks|array_length} content {"block"|pluralize=contentBlocks}
             - Add one or more content blocks to the grid item
-  pageBlocks:
-    id_key: _component
-    style: modal
-    values:
-      - *ref_20
   gridItemBlocks:
     id_key: _component
     style: modal
@@ -2186,6 +2204,43 @@ _structures:
       - *ref_3
       - *ref_4
       - *ref_5
+      - *ref_6
+      - *ref_7
+      - *ref_8
+      - *ref_9
+      - *ref_10
+      - *ref_11
+      - *ref_12
+      - *ref_13
+      - *ref_14
+      - *ref_15
+      - *ref_16
+      - *ref_17
+      - *ref_18
+  cardBlocks:
+    id_key: _component
+    style: modal
+    values:
+      - *ref_4
+      - *ref_5
+      - *ref_6
+      - *ref_7
+      - *ref_8
+      - *ref_9
+      - *ref_10
+      - *ref_11
+      - *ref_12
+      - *ref_13
+      - *ref_14
+      - *ref_15
+      - *ref_16
+      - *ref_17
+      - *ref_18
+  accordionBlocks:
+    id_key: _component
+    style: modal
+    values:
+      - *ref_4
       - *ref_6
       - *ref_7
       - *ref_8
@@ -2216,43 +2271,6 @@ _structures:
             type: array
             options:
               structures: _structures.accordionBlocks
-  cardBlocks:
-    id_key: _component
-    style: modal
-    values:
-      - *ref_4
-      - *ref_5
-      - *ref_6
-      - *ref_7
-      - *ref_8
-      - *ref_9
-      - *ref_10
-      - *ref_11
-      - *ref_12
-      - *ref_13
-      - *ref_14
-      - *ref_15
-      - *ref_16
-      - *ref_17
-      - *ref_18
-  accordionBlocks:
-    id_key: _component
-    style: modal
-    values:
-      - *ref_5
-      - *ref_6
-      - *ref_7
-      - *ref_8
-      - *ref_9
-      - *ref_10
-      - *ref_11
-      - *ref_12
-      - *ref_13
-      - *ref_14
-      - *ref_15
-      - *ref_16
-      - *ref_17
-      - *ref_18
   listItems:
     id_key: _component
     style: modal
@@ -2450,6 +2468,58 @@ _structures:
           value:
             type: text
             comment: The default value for the textarea field.
+      - label: Select
+        icon: view_list
+        description: Form field for selecting one option from a list.
+        value:
+          _component: forms/select
+          label: null
+          name: null
+          required: false
+          options:
+            - value: option1
+              label: Option 1
+            - value: option2
+              label: Option 2
+            - value: option3
+              label: Option 3
+          placeholder: null
+          value: null
+        preview:
+          subtext:
+            - key: label
+            - key: name
+            - Enter a name for the form input.
+        picker_preview:
+          text: Select
+          subtext: A dropdown select field with an optional label.
+          icon: view_list
+        _inputs:
+          label:
+            type: text
+            comment: The label text for the select field.
+          name:
+            type: text
+            comment: A unique name attribute for the select field.
+            options:
+              required: true
+              required_message: Only form elements with a name will have their values passed when submitting a form.
+          required:
+            type: switch
+            comment: Whether the field is required.
+          options:
+            type: array
+            comment: Array of select options with value and label.
+            options:
+              structures: _structures.selectOptions
+              min_items: 2
+              min_items_message: At least two options are required.
+          placeholder:
+            type: text
+            comment: Placeholder text for the select field.
+          value:
+            type: text
+            comment: The default selected value.
       - label: Submit
         icon: check
         description: Button for submitting a form.
@@ -2530,58 +2600,6 @@ _structures:
           disabled:
             type: switch
             comment: Whether the submit button is disabled.
-      - label: Select
-        icon: view_list
-        description: Form field for selecting one option from a list.
-        value:
-          _component: forms/select
-          label: null
-          name: null
-          required: false
-          options:
-            - value: option1
-              label: Option 1
-            - value: option2
-              label: Option 2
-            - value: option3
-              label: Option 3
-          placeholder: null
-          value: null
-        preview:
-          subtext:
-            - key: label
-            - key: name
-            - Enter a name for the form input.
-        picker_preview:
-          text: Select
-          subtext: A dropdown select field with an optional label.
-          icon: view_list
-        _inputs:
-          label:
-            type: text
-            comment: The label text for the select field.
-          name:
-            type: text
-            comment: A unique name attribute for the select field.
-            options:
-              required: true
-              required_message: Only form elements with a name will have their values passed when submitting a form.
-          required:
-            type: switch
-            comment: Whether the field is required.
-          options:
-            type: array
-            comment: Array of select options with value and label.
-            options:
-              structures: _structures.selectOptions
-              min_items: 2
-              min_items_message: At least two options are required.
-          placeholder:
-            type: text
-            comment: Placeholder text for the select field.
-          value:
-            type: text
-            comment: The default selected value.
       - label: Segments
         icon: radio_button_partial
         description: Segmented control form field with connected buttons.
@@ -2679,28 +2697,6 @@ _structures:
           value:
             type: text
             comment: The default value for the input field.
-      - label: Hidden
-        icon: eye-slash
-        description: Hidden form field for storing data.
-        value:
-          _component: forms/hidden
-          name: ""
-          value: ""
-        preview:
-          text:
-            - template: Hidden - {name}
-          subtext: A hidden form field for storing data that should not be visible to users.
-        picker_preview:
-          text: Hidden
-          subtext: A hidden form field for storing data that should not be visible to users.
-          icon: eye-slash
-        _inputs:
-          name:
-            type: text
-            comment: The name attribute for the hidden input field.
-          value:
-            type: text
-            comment: The value to be stored in the hidden field.
       - label: File Upload
         icon: upload
         description: Form field for uploading files.
@@ -2778,6 +2774,28 @@ _structures:
           max:
             type: date
             comment: The maximum date allowed (ISO8601 format).
+      - label: Hidden
+        icon: eye-slash
+        description: Hidden form field for storing data.
+        value:
+          _component: forms/hidden
+          name: ""
+          value: ""
+        preview:
+          text:
+            - template: Hidden - {name}
+          subtext: A hidden form field for storing data that should not be visible to users.
+        picker_preview:
+          text: Hidden
+          subtext: A hidden form field for storing data that should not be visible to users.
+          icon: eye-slash
+        _inputs:
+          name:
+            type: text
+            comment: The name attribute for the hidden input field.
+          value:
+            type: text
+            comment: The value to be stored in the hidden field.
       - label: Choice Group
         icon: check_box
         description: Form field for selecting one or more options.

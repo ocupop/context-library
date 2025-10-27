@@ -16,4 +16,13 @@ examples:
       - start-aligned
       - center-aligned
       - uneven-columns
+  - title: Spacing
+    slugs:
+      - spacing-xs
+      - spacing-sm
+      - spacing-md
+      - spacing-lg
+      - spacing-xl
+      - spacing-2xl
+      - spacing-3xl
 ---
