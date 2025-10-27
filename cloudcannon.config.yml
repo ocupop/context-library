@@ -1421,7 +1421,7 @@ _structures:
           _component: typography/simple-text
           text: ""
           alignX: start
-          size: md
+          size: default
         preview:
           text:
             - key: text
@@ -1434,19 +1434,7 @@ _structures:
         _inputs:
           text:
             comment: The text content of the simple text.
-            type: markdown
-            options:
-              bold: true
-              italic: true
-              link: true
-              strike: true
-              subscript: true
-              superscript: true
-              underline: true
-              undo: true
-              redo: true
-              removeformat: true
-              copyformatting: true
+            type: textarea
           alignX:
             comment: The horizontal alignment of the text.
             type: select
@@ -1463,6 +1451,8 @@ _structures:
             comment: The font size of the text.
             options:
               values:
+                - id: default
+                  name: Default
                 - id: xs
                   name: Extra Small
                 - id: sm
@@ -1607,7 +1597,7 @@ _structures:
           _component: typography/heading
           text: ""
           type: h2
-          size: ""
+          size: default
           alignX: start
           iconName: null
           iconPosition: before
@@ -1623,24 +1613,7 @@ _structures:
         _inputs:
           text:
             comment: The text content of the heading.
-            type: markdown
-            options:
-              bold: false
-              copyformatting: false
-              italic: true
-              link: true
-              redo: true
-              removeformat: true
-              strike: true
-              subscript: true
-              superscript: true
-              underline: true
-              undo: true
-              blockquote: false
-              bulletedlist: false
-              image: false
-              numberedlist: false
-              snippet: false
+            type: textarea
           type:
             comment: The heading type or level.
             type: select
@@ -1659,8 +1632,8 @@ _structures:
             type: select
             options:
               values:
-                - id: none
-                  name: None
+                - id: default
+                  name: Default
                 - id: xs
                   name: Extra Small
                 - id: sm
@@ -1707,39 +1680,6 @@ _structures:
                 - id: after
                   name: After
       - &ref_11
-        label: Definition List
-        icon: dns
-        description: Lists term/definition pairs for structured content.
-        value:
-          _component: typography/definition-list
-          items: []
-          alignX: start
-        preview:
-          subtext:
-            - template: Contains {items|array_length} list {'item'|pluralize=items}
-            - Add definition list items
-        picker_preview:
-          text: Definition List
-          subtext: For displaying key-value pairs. Ideal for glossaries, opening times, etc.
-          icon: dns
-        _inputs:
-          items:
-            type: array
-            label: List Items
-            options:
-              structures: _structures.definitionListItems
-          alignX:
-            type: select
-            comment: The horizontal alignment of the definition list items.
-            options:
-              values:
-                - id: start
-                  name: Start
-                - id: center
-                  name: Center
-                - id: end
-                  name: End
-      - &ref_12
         label: Counter
         icon: speed
         description: Animated counter for highlighting key stats or figures.
@@ -1771,6 +1711,39 @@ _structures:
           alignX:
             comment: The horizontal alignment of the counter.
             type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+      - &ref_12
+        label: Definition List
+        icon: dns
+        description: Lists term/definition pairs for structured content.
+        value:
+          _component: typography/definition-list
+          items: []
+          alignX: start
+        preview:
+          subtext:
+            - template: Contains {items|array_length} list {'item'|pluralize=items}
+            - Add definition list items
+        picker_preview:
+          text: Definition List
+          subtext: For displaying key-value pairs. Ideal for glossaries, opening times, etc.
+          icon: dns
+        _inputs:
+          items:
+            type: array
+            label: List Items
+            options:
+              structures: _structures.definitionListItems
+          alignX:
+            type: select
+            comment: The horizontal alignment of the definition list items.
             options:
               values:
                 - id: start
@@ -2693,28 +2666,6 @@ _structures:
           value:
             type: text
             comment: The default value for the input field.
-      - label: Hidden
-        icon: eye-slash
-        description: Hidden form field for storing data.
-        value:
-          _component: forms/hidden
-          name: ""
-          value: ""
-        preview:
-          text:
-            - template: Hidden - {name}
-          subtext: A hidden form field for storing data that should not be visible to users.
-        picker_preview:
-          text: Hidden
-          subtext: A hidden form field for storing data that should not be visible to users.
-          icon: eye-slash
-        _inputs:
-          name:
-            type: text
-            comment: The name attribute for the hidden input field.
-          value:
-            type: text
-            comment: The value to be stored in the hidden field.
       - label: File Upload
         icon: upload
         description: Form field for uploading files.
@@ -2753,6 +2704,28 @@ _structures:
           multiple:
             type: switch
             comment: Whether multiple files can be selected.
+      - label: Hidden
+        icon: eye-slash
+        description: Hidden form field for storing data.
+        value:
+          _component: forms/hidden
+          name: ""
+          value: ""
+        preview:
+          text:
+            - template: Hidden - {name}
+          subtext: A hidden form field for storing data that should not be visible to users.
+        picker_preview:
+          text: Hidden
+          subtext: A hidden form field for storing data that should not be visible to users.
+          icon: eye-slash
+        _inputs:
+          name:
+            type: text
+            comment: The name attribute for the hidden input field.
+          value:
+            type: text
+            comment: The value to be stored in the hidden field.
       - label: Date
         icon: calendar
         description: Form field for selecting a date.
