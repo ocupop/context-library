@@ -13,14 +13,20 @@ const {
   aspectRatio = null,
   positionVertical = "center",
   positionHorizontal = "center",
-  editable = false,
+  editable = true,
   class: className,
+  "data-prop-src": customDataPropSrc,
+  "data-prop-alt": customDataPropAlt,
+  "data-editable": customDataEditable,
   ...rest
 } = Astro.props;
 
 const htmlAttributes = Object.fromEntries(
   Object.entries(rest).filter(([key]) => key !== "_component")
 );
+
+// Extract custom data attributes from props to pass to child components
+const hasCustomDataAttributes = customDataPropSrc || customDataPropAlt || customDataEditable;
 
 const hasValidSrc = source && typeof source === "string" && source.trim() !== "";
 
@@ -31,13 +37,15 @@ const commonProps = {
   alt: alt || "",
 };
 
-const dataAttributes = !editable
-  ? {
-      "data-editable": "image",
-      "data-prop-src": "source",
-      "data-prop-alt": "alt",
-    }
-  : {};
+// Use custom data attributes if provided, otherwise use defaults
+const dataAttributes =
+  !editable || hasCustomDataAttributes
+    ? {
+        "data-editable": customDataEditable || "image",
+        "data-prop-src": customDataPropSrc || "source",
+        "data-prop-alt": customDataPropAlt || "alt",
+      }
+    : {};
 
 const positionClass = `position-${positionVertical}-${positionHorizontal}`;
 ---
