@@ -1091,53 +1091,6 @@ _structures:
           rounded:
             type: switch
             comment: Whether to apply rounded corners to the container.
-      - &ref_20
-        label: Carousel
-        icon: image
-        description: Displays multiple items in a sliding gallery.
-        value:
-          _component: wrappers/carousel
-          label: ""
-          slides: []
-          autoPlay: false
-          autoScroll: false
-          slideWidthPercent: 100
-          minSlideWidth: 0
-        preview:
-          text:
-            - key: label
-            - Carousel
-          subtext:
-            - template: A carousel containing {slides|array_length} {"slide"|pluralize=slides}
-            - Add slides to the carousel
-        picker_preview:
-          text: Carousel
-          subtext: A carousel component for displaying slides with navigation controls
-          icon: image
-        _inputs:
-          label:
-            comment: Optional label for the carousel to help identify it in the editor.
-            type: text
-          slides:
-            comment: Array of slides to display in the carousel.
-            type: array
-            options:
-              structures: _structures.slides
-          autoPlay:
-            comment: Enable auto-play functionality.
-            type: switch
-          autoScroll:
-            comment: Enable auto-scroll functionality.
-            type: switch
-          slideWidthPercent:
-            comment: Width of each slide as a percentage of the carousel (e.g., 33, 50, 100).
-            type: range
-            min: 0
-            max: 100
-            step: 1
-          minSlideWidth:
-            comment: Minimum width of slides in pixels. Prevents slides from getting too small.
-            type: number
       - &ref_3
         label: Card
         icon: crop_square
@@ -1392,6 +1345,53 @@ _structures:
           singleOpen:
             comment: Whether only one item can be open at a time within this accordion.
             type: switch
+      - &ref_20
+        label: Carousel
+        icon: image
+        description: Displays multiple items in a sliding gallery.
+        value:
+          _component: wrappers/carousel
+          label: ""
+          slides: []
+          autoPlay: false
+          autoScroll: false
+          slideWidthPercent: 100
+          minSlideWidth: 0
+        preview:
+          text:
+            - key: label
+            - Carousel
+          subtext:
+            - template: A carousel containing {slides|array_length} {"slide"|pluralize=slides}
+            - Add slides to the carousel
+        picker_preview:
+          text: Carousel
+          subtext: A carousel component for displaying slides with navigation controls
+          icon: image
+        _inputs:
+          label:
+            comment: Optional label for the carousel to help identify it in the editor.
+            type: text
+          slides:
+            comment: Array of slides to display in the carousel.
+            type: array
+            options:
+              structures: _structures.slides
+          autoPlay:
+            comment: Enable auto-play functionality.
+            type: switch
+          autoScroll:
+            comment: Enable auto-scroll functionality.
+            type: switch
+          slideWidthPercent:
+            comment: Width of each slide as a percentage of the carousel (e.g., 33, 50, 100).
+            type: range
+            min: 0
+            max: 100
+            step: 1
+          minSlideWidth:
+            comment: Minimum width of slides in pixels. Prevents slides from getting too small.
+            type: number
       - &ref_6
         label: Testimonial
         icon: format_quote
@@ -1449,66 +1449,6 @@ _structures:
                 - id: center
                   name: Center
       - &ref_7
-        label: Simple Text
-        icon: view_headline
-        description: Paragraph for plain text content.
-        value:
-          _component: typography/simple-text
-          text: ""
-          alignX: start
-          size: default
-        preview:
-          text:
-            - key: text
-            - Simple Text
-          icon: view_headline
-        picker_preview:
-          text: Simple Text
-          subtext: Displays blocks of text for content sections with options for alignment, size and decoration.
-          icon: view_headline
-        _inputs:
-          text:
-            comment: The text content of the simple text.
-            type: textarea
-          alignX:
-            comment: The horizontal alignment of the text.
-            type: select
-            options:
-              values:
-                - id: start
-                  name: Start
-                - id: center
-                  name: Center
-                - id: end
-                  name: End
-          size:
-            type: select
-            comment: The font size of the text.
-            options:
-              values:
-                - id: default
-                  name: Default
-                - id: xs
-                  name: Extra Small
-                - id: sm
-                  name: Small
-                - id: md
-                  name: Medium
-                - id: lg
-                  name: Large
-                - id: xl
-                  name: Extra Large
-                - id: 2xl
-                  name: 2xl
-                - id: 3xl
-                  name: 3xl
-                - id: 4xl
-                  name: 4xl
-                - id: 5xl
-                  name: 5xl
-                - id: 6xl
-                  name: 6xl
-      - &ref_8
         label: Rich text
         icon: edit_note
         description: Content component for markdown-formatted text.
@@ -1563,7 +1503,7 @@ _structures:
                 - id: end
                   name: End
             comment: The horizontal alignment of the rich text component.
-      - &ref_9
+      - &ref_8
         label: List
         icon: list
         description: Lists items with icons as markers.
@@ -1624,6 +1564,66 @@ _structures:
                   name: Extra Large
                 - id: 2xl
                   name: 2xl
+      - &ref_9
+        label: Simple Text
+        icon: view_headline
+        description: Paragraph for plain text content.
+        value:
+          _component: typography/simple-text
+          text: ""
+          alignX: start
+          size: default
+        preview:
+          text:
+            - key: text
+            - Simple Text
+          icon: view_headline
+        picker_preview:
+          text: Simple Text
+          subtext: Displays blocks of text for content sections with options for alignment, size and decoration.
+          icon: view_headline
+        _inputs:
+          text:
+            comment: The text content of the simple text.
+            type: textarea
+          alignX:
+            comment: The horizontal alignment of the text.
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+          size:
+            type: select
+            comment: The font size of the text.
+            options:
+              values:
+                - id: default
+                  name: Default
+                - id: xs
+                  name: Extra Small
+                - id: sm
+                  name: Small
+                - id: md
+                  name: Medium
+                - id: lg
+                  name: Large
+                - id: xl
+                  name: Extra Large
+                - id: 2xl
+                  name: 2xl
+                - id: 3xl
+                  name: 3xl
+                - id: 4xl
+                  name: 4xl
+                - id: 5xl
+                  name: 5xl
+                - id: 6xl
+                  name: 6xl
       - &ref_10
         label: Heading
         icon: title
@@ -1981,6 +1981,51 @@ _structures:
                 - id: right
                   name: Right
       - &ref_17
+        label: Embed
+        icon: data_object
+        description: Responsive wrapper for third-party embeds.
+        value:
+          _component: elements/embed
+          source: ""
+          title: ""
+          aspectRatio: landscape
+        preview:
+          icon: data_object
+          text: Embed
+          subtext:
+            - key: title
+            - key: source
+            - Add embed source
+        picker_preview:
+          text: Embed
+          subtext: Embed content from other sources.
+          icon: data_object
+        _inputs:
+          source:
+            type: url
+            comment: The url source for the iframe.
+            options:
+              disable_upload_file: true
+              disable_direct_input: false
+              disable_upload_file_in_file_browser: true
+              hide_link_to_file: true
+              hide_link_to_page: false
+              hide_link_to_email_address: true
+              hide_link_to_telephone: true
+          aspectRatio:
+            type: select
+            comment: The aspect ratio of the embed.
+            options:
+              values:
+                - id: square
+                  name: Square (1:1)
+                - id: landscape
+                  name: Landscape (4:3)
+                - id: portrait
+                  name: Portrait (3:4)
+                - id: widescreen
+                  name: Widescreen (16:9)
+      - &ref_18
         label: Icon
         icon: star
         description: SVG icon component.
@@ -2068,51 +2113,6 @@ _structures:
                   name: Center
                 - id: end
                   name: End
-      - &ref_18
-        label: Embed
-        icon: data_object
-        description: Responsive wrapper for third-party embeds.
-        value:
-          _component: elements/embed
-          source: ""
-          title: ""
-          aspectRatio: landscape
-        preview:
-          icon: data_object
-          text: Embed
-          subtext:
-            - key: title
-            - key: source
-            - Add embed source
-        picker_preview:
-          text: Embed
-          subtext: Embed content from other sources.
-          icon: data_object
-        _inputs:
-          source:
-            type: url
-            comment: The url source for the iframe.
-            options:
-              disable_upload_file: true
-              disable_direct_input: false
-              disable_upload_file_in_file_browser: true
-              hide_link_to_file: true
-              hide_link_to_page: false
-              hide_link_to_email_address: true
-              hide_link_to_telephone: true
-          aspectRatio:
-            type: select
-            comment: The aspect ratio of the embed.
-            options:
-              values:
-                - id: square
-                  name: Square (1:1)
-                - id: landscape
-                  name: Landscape (4:3)
-                - id: portrait
-                  name: Portrait (3:4)
-                - id: widescreen
-                  name: Widescreen (16:9)
       - &ref_19
         label: Divider
         icon: horizontal_rule
@@ -2182,10 +2182,10 @@ _structures:
     values:
       - *ref_0
       - *ref_1
-      - *ref_20
       - *ref_3
       - *ref_4
       - *ref_5
+      - *ref_20
       - *ref_6
       - *ref_7
       - *ref_8
@@ -2228,10 +2228,10 @@ _structures:
     values:
       - *ref_1
       - *ref_2
-      - *ref_20
       - *ref_3
       - *ref_4
       - *ref_5
+      - *ref_20
       - *ref_6
       - *ref_7
       - *ref_8
@@ -2275,24 +2275,6 @@ _structures:
     style: modal
     values:
       - *ref_21
-  slides:
-    id_key: _component
-    style: modal
-    values:
-      - label: Carousel Slide
-        value:
-          contentBlocks: []
-        _inputs:
-          contentBlocks:
-            type: array
-            options:
-              structures: _structures.carouselBlocks
-        preview:
-          icon: transition_slide
-          text: Carousel Slide
-          subtext:
-            - template: Contains {contentBlocks|array_length} content {"block"|pluralize=contentBlocks}
-            - Add one or more content blocks to the grid item
   gridItemBlocks:
     id_key: _component
     style: modal
@@ -2370,6 +2352,24 @@ _structures:
             type: array
             options:
               structures: _structures.accordionBlocks
+  slides:
+    id_key: _component
+    style: modal
+    values:
+      - label: Carousel Slide
+        value:
+          contentBlocks: []
+        _inputs:
+          contentBlocks:
+            type: array
+            options:
+              structures: _structures.carouselBlocks
+        preview:
+          icon: transition_slide
+          text: Carousel Slide
+          subtext:
+            - template: Contains {contentBlocks|array_length} content {"block"|pluralize=contentBlocks}
+            - Add one or more content blocks to the grid item
   listItems:
     id_key: _component
     style: modal
@@ -2529,44 +2529,6 @@ _structures:
     id_key: _component
     style: modal
     values:
-      - label: Textarea
-        icon: text_ad
-        description: Form field for entering multi-line text.
-        value:
-          _component: forms/textarea
-          label: null
-          name: null
-          required: false
-          placeholder: null
-          value: null
-        preview:
-          subtext:
-            - key: label
-            - key: name
-            - Enter a name for the textarea input.
-        picker_preview:
-          text: Textarea
-          subtext: A multi-line text input field with an optional label.
-          icon: text_ad
-        _inputs:
-          label:
-            type: text
-            comment: The label text for the textarea field.
-          name:
-            type: text
-            comment: A unique name attribute for the textarea field.
-            options:
-              required: true
-              required_message: Only form elements with a name will have their values passed when submitting a form.
-          required:
-            type: switch
-            comment: Whether the field is required.
-          placeholder:
-            type: text
-            comment: Placeholder text for the textarea field.
-          value:
-            type: text
-            comment: The default value for the textarea field.
       - label: Submit
         icon: check
         description: Button for submitting a form.
@@ -2647,6 +2609,44 @@ _structures:
           disabled:
             type: switch
             comment: Whether the submit button is disabled.
+      - label: Textarea
+        icon: text_ad
+        description: Form field for entering multi-line text.
+        value:
+          _component: forms/textarea
+          label: null
+          name: null
+          required: false
+          placeholder: null
+          value: null
+        preview:
+          subtext:
+            - key: label
+            - key: name
+            - Enter a name for the textarea input.
+        picker_preview:
+          text: Textarea
+          subtext: A multi-line text input field with an optional label.
+          icon: text_ad
+        _inputs:
+          label:
+            type: text
+            comment: The label text for the textarea field.
+          name:
+            type: text
+            comment: A unique name attribute for the textarea field.
+            options:
+              required: true
+              required_message: Only form elements with a name will have their values passed when submitting a form.
+          required:
+            type: switch
+            comment: Whether the field is required.
+          placeholder:
+            type: text
+            comment: Placeholder text for the textarea field.
+          value:
+            type: text
+            comment: The default value for the textarea field.
       - label: Select
         icon: view_list
         description: Form field for selecting one option from a list.
@@ -2699,54 +2699,6 @@ _structures:
           value:
             type: text
             comment: The default selected value.
-      - label: Segments
-        icon: radio_button_partial
-        description: Segmented control form field with connected buttons.
-        value:
-          _component: forms/segments
-          title: null
-          name: null
-          required: false
-          options: []
-          iconOnly: false
-          multiple: false
-          keepStateOnRefresh: true
-        preview:
-          subtext:
-            - template: A segments field, containing {options|array_length} {"option"|pluralize=options}
-        picker_preview:
-          text: Segments
-          subtext: A segmented control component using radio buttons or checkboxes with optional icons.
-          icon: radio_button_partial
-        _inputs:
-          title:
-            type: text
-            comment: Optional title text for the fieldset.
-          name:
-            type: text
-            comment: A unique name attribute for the radio button group.
-            options:
-              required: true
-              required_message: Only form elements with a name will have their values passed when submitting a form.
-          required:
-            type: switch
-            comment: Whether the field is required.
-          options:
-            type: array
-            comment: Array of segment options with value, label, icon, and checked state.
-            options:
-              structures: _structures.segmentOptions
-              min_items: 1
-              min_items_message: At least one option is required.
-          iconOnly:
-            type: switch
-            comment: When true, labels are used as tooltips instead of being displayed as text.
-          multiple:
-            type: switch
-            comment: When true, uses checkboxes for multiple selection instead of radio buttons for single selection.
-          keepStateOnRefresh:
-            type: switch
-            comment: When true, sets autocomplete="on" to allow browser to remember state on page refresh. Defaults to false (autocomplete="off").
       - label: Input
         icon: rectangle
         description: Single text input form field.
@@ -2796,6 +2748,54 @@ _structures:
           value:
             type: text
             comment: The default value for the input field.
+      - label: Segments
+        icon: radio_button_partial
+        description: Segmented control form field with connected buttons.
+        value:
+          _component: forms/segments
+          title: null
+          name: null
+          required: false
+          options: []
+          iconOnly: false
+          multiple: false
+          keepStateOnRefresh: true
+        preview:
+          subtext:
+            - template: A segments field, containing {options|array_length} {"option"|pluralize=options}
+        picker_preview:
+          text: Segments
+          subtext: A segmented control component using radio buttons or checkboxes with optional icons.
+          icon: radio_button_partial
+        _inputs:
+          title:
+            type: text
+            comment: Optional title text for the fieldset.
+          name:
+            type: text
+            comment: A unique name attribute for the radio button group.
+            options:
+              required: true
+              required_message: Only form elements with a name will have their values passed when submitting a form.
+          required:
+            type: switch
+            comment: Whether the field is required.
+          options:
+            type: array
+            comment: Array of segment options with value, label, icon, and checked state.
+            options:
+              structures: _structures.segmentOptions
+              min_items: 1
+              min_items_message: At least one option is required.
+          iconOnly:
+            type: switch
+            comment: When true, labels are used as tooltips instead of being displayed as text.
+          multiple:
+            type: switch
+            comment: When true, uses checkboxes for multiple selection instead of radio buttons for single selection.
+          keepStateOnRefresh:
+            type: switch
+            comment: When true, sets autocomplete="on" to allow browser to remember state on page refresh. Defaults to false (autocomplete="off").
       - label: Hidden
         icon: eye-slash
         description: Hidden form field for storing data.
