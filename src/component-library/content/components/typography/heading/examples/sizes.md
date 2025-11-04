@@ -34,12 +34,4 @@ blocks:
     text: This h1 heading size is 4xl
     level: h1
     size: 4xl
-  - _component: "typography/heading"
-    text: This h1 heading size is 5xl
-    level: h1
-    size: 5xl
-  - _component: "typography/heading"
-    text: This h1 heading size is 6xl
-    level: h1
-    size: 6xl
 ---

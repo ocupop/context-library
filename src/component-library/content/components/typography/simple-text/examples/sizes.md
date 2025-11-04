@@ -42,14 +42,4 @@ blocks:
     alignX: start
     size: 4xl
     decoration: none
-  - _component: "typography/simple-text"
-    text: This simple text size is 5xl
-    alignX: start
-    size: 5xl
-    decoration: none
-  - _component: "typography/simple-text"
-    text: This simple text size is 6xl
-    alignX: start
-    size: 6xl
-    decoration: none
 ---

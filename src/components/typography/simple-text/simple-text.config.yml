@@ -62,7 +62,3 @@ _inputs:
           name: 3xl
         - id: 4xl
           name: 4xl
-        - id: 5xl
-          name: 5xl
-        - id: 6xl
-          name: 6xl
