@@ -11,7 +11,7 @@ structures:
 value:
   _component: wrappers/accordion
   label: null
-  items: null
+  items: []
   openFirst: false
   singleOpen: false
 preview:
@@ -40,8 +40,6 @@ _inputs:
   singleOpen:
     comment: Whether only one item can be open at a time within this accordion.
     type: switch
-  _component:
-    hidden: true
 _structures:
   accordionItems:
     values:
@@ -59,3 +57,5 @@ _structures:
             type: array
             options:
               structures: _structures.accordionBlocks
+          _component:
+            hidden: true
