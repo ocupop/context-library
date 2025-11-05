@@ -814,42 +814,6 @@ _structures:
             comment: Swaps the order of the columns.
             type: switch
       - &ref_1
-        label: Content Selector
-        icon: view_sidebar
-        description: Lets users switch between different content panels using tabs.
-        value:
-          _component: wrappers/content-selector
-          label: ""
-          items: null
-          navigationPosition: start
-        preview:
-          text:
-            - key: label
-            - Content Selector
-          subtext:
-            - template: A content selector containing {items|array_length} {"item"|pluralize=items}
-            - Add items to the content selector
-        picker_preview:
-          text: Content Selector
-          subtext: Switches between related content panels using tab buttons.
-          icon: view_sidebar
-        _inputs:
-          label:
-            comment: Optional label for the content selector to help identify it in the editor.
-            type: text
-          items:
-            type: array
-            options:
-              structures: _structures.contentSelectorItems
-          navigationPosition:
-            type: select
-            options:
-              values:
-                - id: start
-                  name: Start
-                - id: top
-                  name: Top
-      - &ref_2
         label: Grid
         icon: grid_on
         description: Arranges content into a grid that adapts to screen size.
@@ -918,6 +882,258 @@ _structures:
                   name: 2xl
                 - id: 3xl
                   name: 3xl
+      - &ref_2
+        label: Content Selector
+        icon: view_sidebar
+        description: Lets users switch between different content panels using tabs.
+        value:
+          _component: wrappers/content-selector
+          label: ""
+          items: null
+          navigationPosition: start
+        preview:
+          text:
+            - key: label
+            - Content Selector
+          subtext:
+            - template: A content selector containing {items|array_length} {"item"|pluralize=items}
+            - Add items to the content selector
+        picker_preview:
+          text: Content Selector
+          subtext: Switches between related content panels using tab buttons.
+          icon: view_sidebar
+        _inputs:
+          label:
+            comment: Optional label for the content selector to help identify it in the editor.
+            type: text
+          items:
+            type: array
+            options:
+              structures: _structures.contentSelectorItems
+          navigationPosition:
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: top
+                  name: Top
+      - &ref_20
+        label: Carousel
+        icon: image
+        description: Displays multiple items in a sliding gallery.
+        value:
+          _component: wrappers/carousel
+          label: ""
+          slides: []
+          autoPlay: false
+          autoScroll: false
+          slideWidthPercent: 100
+          minSlideWidth: 0
+        preview:
+          text:
+            - key: label
+            - Carousel
+          subtext:
+            - template: A carousel containing {slides|array_length} {"slide"|pluralize=slides}
+            - Add slides to the carousel
+        picker_preview:
+          text: Carousel
+          subtext: A carousel component for displaying slides with navigation controls
+          icon: image
+        _inputs:
+          label:
+            comment: Optional label for the carousel to help identify it in the editor.
+            type: text
+          slides:
+            comment: Array of slides to display in the carousel.
+            type: array
+            options:
+              structures: _structures.slides
+          autoPlay:
+            comment: Enable auto-play functionality.
+            type: switch
+          autoScroll:
+            comment: Enable auto-scroll functionality.
+            type: switch
+          slideWidthPercent:
+            comment: Width of each slide as a percentage of the carousel (e.g., 33, 50, 100).
+            type: range
+            options:
+              min: 0
+              max: 100
+              step: 1
+          minSlideWidth:
+            comment: Minimum width of slides in pixels. Prevents slides from getting too small.
+            type: number
+      - &ref_3
+        label: Card
+        icon: crop_square
+        description: Groups related content within a section.
+        value:
+          _component: wrappers/card
+          label: null
+          contentBlocks: []
+          paddingHorizontal: sm
+          paddingVertical: sm
+          colorScheme: default
+          backgroundColor: base
+          backgroundImage:
+            source: null
+            alt: null
+            positionVertical: top
+            positionHorizontal: center
+          link: null
+          rounded: false
+          border: false
+          showBeforeAfter: false
+          beforeContentBlocks: []
+          afterContentBlocks: []
+        preview:
+          text:
+            - key: label
+            - Card
+        picker_preview:
+          text: Card
+          subtext: A container component that provides card layout with background options and padding controls.
+          icon: crop_square
+        _inputs:
+          label:
+            type: text
+            comment: Optional label for the card to help identify it in the editor.
+          contentBlocks:
+            type: array
+            comment: Content inside the main area of the card, with padding.
+            options:
+              structures: _structures.cardBlocks
+          beforeContentBlocks:
+            type: array
+            comment: Content that appears above the main card area, without padding.
+            hidden: "!showBeforeAfter"
+            options:
+              structures: _structures.cardBlocks
+          afterContentBlocks:
+            type: array
+            comment: Content that appears below the main card area, without padding.
+            hidden: "!showBeforeAfter"
+            options:
+              structures: _structures.cardBlocks
+          showBeforeAfter:
+            type: switch
+            comment: Whether to show the before/after content blocks used to add content outside the card's padding.
+          paddingHorizontal:
+            type: select
+            comment: Horizontal padding applied to the card content.
+            options:
+              values:
+                - id: xs
+                  name: Extra Small
+                - id: sm
+                  name: Small
+                - id: md
+                  name: Medium
+                - id: lg
+                  name: Large
+                - id: xl
+                  name: Extra Large
+                - id: 2xl
+                  name: 2xl
+          paddingVertical:
+            type: select
+            comment: Vertical padding applied to the card content.
+            options:
+              values:
+                - id: xs
+                  name: Extra Small
+                - id: sm
+                  name: Small
+                - id: md
+                  name: Medium
+                - id: lg
+                  name: Large
+                - id: xl
+                  name: Extra Large
+                - id: 2xl
+                  name: 2xl
+          colorScheme:
+            type: select
+            comment: Color scheme theme for the card.
+            options:
+              values:
+                - id: default
+                  name: Default
+                - id: contrast
+                  name: Contrast
+          backgroundColor:
+            type: select
+            comment: Background color for the card.
+            options:
+              values:
+                - id: none
+                  name: None
+                - id: base
+                  name: Base
+                - id: surface
+                  name: Surface
+                - id: accent
+                  name: Accent
+                - id: highlight
+                  name: Highlight
+          backgroundImage:
+            type: object
+            comment: Background image configuration for the card.
+            options:
+              preview:
+                icon: image
+                text:
+                  - key: alt
+                  - Background Image
+                subtext:
+                  - key: source
+                  - Add an image source
+                image:
+                  - key: source
+          backgroundImage.source:
+            comment: URL or path to the background image.
+            type: image
+            options:
+              paths:
+                uploads: src/assets/images
+                static: ""
+          backgroundImage.alt:
+            comment: Alt text for the background image.
+            type: text
+          backgroundImage.positionVertical:
+            comment: Vertical position of the background image.
+            type: select
+            options:
+              values:
+                - id: top
+                  name: Top
+                - id: center
+                  name: Center
+                - id: bottom
+                  name: Bottom
+          backgroundImage.positionHorizontal:
+            comment: Horizontal position of the background image.
+            type: select
+            options:
+              values:
+                - id: left
+                  name: Left
+                - id: center
+                  name: Center
+                - id: right
+                  name: Right
+          link:
+            type: url
+            comment: URL to make the entire card clickable. Leave empty for a non-clickable card.
+          rounded:
+            type: switch
+            comment: Whether to apply rounded corners to the card.
+          border:
+            type: switch
+            comment: Whether to apply a border to the card.
       - &ref_21
         label: Container
         icon: width_full
@@ -1091,222 +1307,6 @@ _structures:
           rounded:
             type: switch
             comment: Whether to apply rounded corners to the container.
-      - &ref_20
-        label: Carousel
-        icon: image
-        description: Displays multiple items in a sliding gallery.
-        value:
-          _component: wrappers/carousel
-          label: ""
-          slides: []
-          autoPlay: false
-          autoScroll: false
-          slideWidthPercent: 100
-          minSlideWidth: 0
-        preview:
-          text:
-            - key: label
-            - Carousel
-          subtext:
-            - template: A carousel containing {slides|array_length} {"slide"|pluralize=slides}
-            - Add slides to the carousel
-        picker_preview:
-          text: Carousel
-          subtext: A carousel component for displaying slides with navigation controls
-          icon: image
-        _inputs:
-          label:
-            comment: Optional label for the carousel to help identify it in the editor.
-            type: text
-          slides:
-            comment: Array of slides to display in the carousel.
-            type: array
-            options:
-              structures: _structures.slides
-          autoPlay:
-            comment: Enable auto-play functionality.
-            type: switch
-          autoScroll:
-            comment: Enable auto-scroll functionality.
-            type: switch
-          slideWidthPercent:
-            comment: Width of each slide as a percentage of the carousel (e.g., 33, 50, 100).
-            type: range
-            default: 100
-            min: 0
-            max: 100
-            step: 1
-          minSlideWidth:
-            comment: Minimum width of slides in pixels. Prevents slides from getting too small.
-            type: number
-      - &ref_3
-        label: Card
-        icon: crop_square
-        description: Groups related content within a section.
-        value:
-          _component: wrappers/card
-          label: null
-          contentBlocks: []
-          paddingHorizontal: sm
-          paddingVertical: sm
-          colorScheme: default
-          backgroundColor: base
-          backgroundImage:
-            source: null
-            alt: null
-            positionVertical: top
-            positionHorizontal: center
-          link: null
-          rounded: false
-          border: false
-          showBeforeAfter: false
-          beforeContentBlocks: []
-          afterContentBlocks: []
-        preview:
-          text:
-            - key: label
-            - Card
-        picker_preview:
-          text: Card
-          subtext: A container component that provides card layout with background options and padding controls.
-          icon: crop_square
-        _inputs:
-          label:
-            type: text
-            comment: Optional label for the card to help identify it in the editor.
-          contentBlocks:
-            type: array
-            comment: Content inside the main area of the card, with padding.
-            options:
-              structures: _structures.cardBlocks
-          beforeContentBlocks:
-            type: array
-            comment: Content that appears above the main card area, without padding.
-            hidden: "!showBeforeAfter"
-            options:
-              structures: _structures.cardBlocks
-          afterContentBlocks:
-            type: array
-            comment: Content that appears below the main card area, without padding.
-            hidden: "!showBeforeAfter"
-            options:
-              structures: _structures.cardBlocks
-          showBeforeAfter:
-            type: switch
-            comment: Whether to show the before/after content blocks used to add content outside the card's padding.
-          paddingHorizontal:
-            type: select
-            comment: Horizontal padding applied to the card content.
-            options:
-              values:
-                - id: xs
-                  name: Extra Small
-                - id: sm
-                  name: Small
-                - id: md
-                  name: Medium
-                - id: lg
-                  name: Large
-                - id: xl
-                  name: Extra Large
-                - id: 2xl
-                  name: 2xl
-          paddingVertical:
-            type: select
-            comment: Vertical padding applied to the card content.
-            options:
-              values:
-                - id: xs
-                  name: Extra Small
-                - id: sm
-                  name: Small
-                - id: md
-                  name: Medium
-                - id: lg
-                  name: Large
-                - id: xl
-                  name: Extra Large
-                - id: 2xl
-                  name: 2xl
-          colorScheme:
-            type: select
-            comment: Color scheme theme for the card.
-            options:
-              values:
-                - id: default
-                  name: Default
-                - id: contrast
-                  name: Contrast
-          backgroundColor:
-            type: select
-            comment: Background color for the card.
-            options:
-              values:
-                - id: none
-                  name: None
-                - id: base
-                  name: Base
-                - id: surface
-                  name: Surface
-                - id: accent
-                  name: Accent
-                - id: highlight
-                  name: Highlight
-          backgroundImage:
-            type: object
-            comment: Background image configuration for the card.
-            options:
-              preview:
-                icon: image
-                text:
-                  - key: alt
-                  - Background Image
-                subtext:
-                  - key: source
-                  - Add an image source
-                image:
-                  - key: source
-          backgroundImage.source:
-            comment: URL or path to the background image.
-            type: image
-            options:
-              paths:
-                uploads: src/assets/images
-                static: ""
-          backgroundImage.alt:
-            comment: Alt text for the background image.
-            type: text
-          backgroundImage.positionVertical:
-            comment: Vertical position of the background image.
-            type: select
-            options:
-              values:
-                - id: top
-                  name: Top
-                - id: center
-                  name: Center
-                - id: bottom
-                  name: Bottom
-          backgroundImage.positionHorizontal:
-            comment: Horizontal position of the background image.
-            type: select
-            options:
-              values:
-                - id: left
-                  name: Left
-                - id: center
-                  name: Center
-                - id: right
-                  name: Right
-          link:
-            type: url
-            comment: URL to make the entire card clickable. Leave empty for a non-clickable card.
-          rounded:
-            type: switch
-            comment: Whether to apply rounded corners to the card.
-          border:
-            type: switch
-            comment: Whether to apply a border to the card.
       - &ref_4
         label: Button Group
         icon: rectangle
@@ -1454,61 +1454,6 @@ _structures:
                 - id: center
                   name: Center
       - &ref_7
-        label: Rich text
-        icon: edit_note
-        description: Content component for markdown-formatted text.
-        value:
-          _component: typography/rich-text
-          text: ""
-          alignX: start
-        preview:
-          subtext:
-            - key: text
-            - Add text to block
-        picker_preview:
-          text: Rich text
-          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
-          icon: edit_note
-        _inputs:
-          text:
-            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
-            type: markdown
-            options:
-              bold: true
-              italic: true
-              link: true
-              strike: true
-              subscript: true
-              superscript: true
-              underline: true
-              undo: true
-              redo: true
-              format: p h1 h2 h3 h4 h5 h6
-              removeformat: true
-              copyformatting: true
-              bulletedlist: true
-              numberedlist: true
-              indent: true
-              outdent: true
-              join_above: true
-              join_below: true
-              code: true
-              embed: true
-              horizontalrule: true
-              image: true
-              table: true
-          alignX:
-            type: select
-            options:
-              values:
-                - id: start
-                  name: Start
-                - id: center
-                  name: Center
-                - id: end
-                  name: End
-            comment: The horizontal alignment of the rich text component.
-      - &ref_8
         label: Simple Text
         icon: view_headline
         description: Paragraph for plain text content.
@@ -1564,6 +1509,61 @@ _structures:
                   name: 3xl
                 - id: 4xl
                   name: 4xl
+      - &ref_8
+        label: Rich text
+        icon: edit_note
+        description: Content component for markdown-formatted text.
+        value:
+          _component: typography/rich-text
+          text: ""
+          alignX: start
+        preview:
+          subtext:
+            - key: text
+            - Add text to block
+        picker_preview:
+          text: Rich text
+          subtext: A catch-all for all content types. Can contain headings, paragraphs, images, bullets.
+          icon: edit_note
+        _inputs:
+          text:
+            comment: The content for the rich text component (Markdown format). Leave empty to use slot content instead.
+            type: markdown
+            options:
+              bold: true
+              italic: true
+              link: true
+              strike: true
+              subscript: true
+              superscript: true
+              underline: true
+              undo: true
+              redo: true
+              format: p h1 h2 h3 h4 h5 h6
+              removeformat: true
+              copyformatting: true
+              bulletedlist: true
+              numberedlist: true
+              indent: true
+              outdent: true
+              join_above: true
+              join_below: true
+              code: true
+              embed: true
+              horizontalrule: true
+              image: true
+              table: true
+          alignX:
+            type: select
+            options:
+              values:
+                - id: start
+                  name: Start
+                - id: center
+                  name: Center
+                - id: end
+                  name: End
+            comment: The horizontal alignment of the rich text component.
       - &ref_9
         label: List
         icon: list
@@ -2182,6 +2182,52 @@ _structures:
     style: modal
     values:
       - *ref_0
+      - *ref_1
+      - *ref_20
+      - *ref_3
+      - *ref_4
+      - *ref_5
+      - *ref_6
+      - *ref_7
+      - *ref_8
+      - *ref_9
+      - *ref_10
+      - *ref_11
+      - *ref_12
+      - *ref_13
+      - *ref_14
+      - *ref_15
+      - *ref_16
+      - *ref_17
+      - *ref_18
+      - *ref_19
+  gridItems:
+    id_key: _component
+    style: modal
+    values:
+      - label: Grid Item
+        value:
+          _component: wrappers/grid/grid-item
+          contentBlocks: []
+        preview:
+          icon: grid_view
+          text: Grid Item
+          subtext:
+            - template: Contains {contentBlocks|array_length} content {"block"|pluralize=contentBlocks}
+            - Add one or more content blocks to the grid item
+        _inputs:
+          _component:
+            hidden: true
+          contentBlocks:
+            type: array
+            comment: Content blocks to render within this grid item.
+            options:
+              structures: _structures.gridItemBlocks
+  splitBlocks:
+    id_key: _component
+    style: modal
+    values:
+      - *ref_1
       - *ref_2
       - *ref_20
       - *ref_3
@@ -2225,57 +2271,6 @@ _structures:
             type: array
             options:
               structures: _structures.contentSelectorBlocks
-  splitBlocks:
-    id_key: _component
-    style: modal
-    values:
-      - *ref_1
-      - *ref_2
-      - *ref_20
-      - *ref_3
-      - *ref_4
-      - *ref_5
-      - *ref_6
-      - *ref_7
-      - *ref_8
-      - *ref_9
-      - *ref_10
-      - *ref_11
-      - *ref_12
-      - *ref_13
-      - *ref_14
-      - *ref_15
-      - *ref_16
-      - *ref_17
-      - *ref_18
-      - *ref_19
-  gridItems:
-    id_key: _component
-    style: modal
-    values:
-      - label: Grid Item
-        value:
-          _component: wrappers/grid/grid-item
-          contentBlocks: []
-        preview:
-          icon: grid_view
-          text: Grid Item
-          subtext:
-            - template: Contains {contentBlocks|array_length} content {"block"|pluralize=contentBlocks}
-            - Add one or more content blocks to the grid item
-        _inputs:
-          _component:
-            hidden: true
-          contentBlocks:
-            type: array
-            comment: Content blocks to render within this grid item.
-            options:
-              structures: _structures.gridItemBlocks
-  pageBlocks:
-    id_key: _component
-    style: modal
-    values:
-      - *ref_21
   slides:
     id_key: _component
     style: modal
@@ -2315,6 +2310,11 @@ _structures:
       - *ref_17
       - *ref_18
       - *ref_19
+  pageBlocks:
+    id_key: _component
+    style: modal
+    values:
+      - *ref_21
   cardBlocks:
     id_key: _component
     style: modal
