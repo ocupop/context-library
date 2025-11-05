@@ -21,20 +21,28 @@ if (!htmlAttributes.id && label) {
 const accordionName = singleOpen ? `accordion-${crypto.randomUUID()}` : undefined;
 ---
 
-<div class:list={["accordion"]} data-editable="array" data-prop="items" {...htmlAttributes}>
+<div
+  class:list={["accordion"]}
+  data-editable="array"
+  data-prop="items"
+  data-component-key="_component"
+  data-id-key="_component"
+  {...htmlAttributes}
+>
   {
     items ? (
       items.map((item: any, index: number) => {
         const isFirst = index === 0 && openFirst;
 
         return (
-          <AccordionItem
-            data-editable="array-item"
-            title={item.title}
-            contentBlocks={item.contentBlocks}
-            isOpen={isFirst}
-            accordionName={accordionName}
-          />
+          <editable-array-item data-component={item._component}>
+            <AccordionItem
+              title={item.title}
+              contentBlocks={item.contentBlocks}
+              isOpen={isFirst}
+              accordionName={accordionName}
+            />
+          </editable-array-item>
         );
       })
     ) : (
