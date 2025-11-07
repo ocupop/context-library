@@ -1,6 +1,6 @@
 ---
 import Heading from "@components/typography/heading/heading.astro";
-import RenderBlock from "@components/utils/renderBlock.astro";
+import ContentSelectorPanel from "./content-selector-panel.astro";
 
 const { items, navigationPosition = "start", class: className, label, ...restProps } = Astro.props;
 
@@ -65,19 +65,22 @@ const uniqueId = crypto.randomUUID();
     }
   </div>
 
-  <div class="panels" data-editable="array" data-prop="items">
+  <div
+    class="panels"
+    data-editable="array"
+    data-prop="items"
+    data-component-key="_component"
+    data-id-key="_component"
+  >
     {
       items?.map((item: any, index: number) => (
-        <div
-          data-editable="array-item"
-          class="panel"
-          id={`panel-${uniqueId}-${index}`}
-          role="tabpanel"
-          aria-labelledby={`tablabel-${uniqueId}-${index}`}
-          aria-hidden={index !== 0}
-        >
-          <RenderBlock contentBlocks={item.contentBlocks} />
-        </div>
+        <editable-array-item data-component={item._component}>
+          <ContentSelectorPanel
+            index={index}
+            uniqueId={uniqueId}
+            contentBlocks={item.contentBlocks}
+          />
+        </editable-array-item>
       ))
     }
   </div>

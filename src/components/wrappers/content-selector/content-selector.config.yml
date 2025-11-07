@@ -8,7 +8,7 @@ structures:
 value:
   _component: wrappers/content-selector
   label: ""
-  items: null
+  items: []
   navigationPosition: start
 preview:
   text:
@@ -43,6 +43,7 @@ _structures:
       - label: Content Selector Item
         icon: place_item
         value:
+          _component: wrappers/content-selector/content-selector-panel
           title: null
           contentBlocks: null
         preview:
@@ -60,3 +61,5 @@ _structures:
             type: array
             options:
               structures: _structures.contentSelectorBlocks
+          _component:
+            hidden: true
