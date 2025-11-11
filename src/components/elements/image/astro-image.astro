@@ -1,7 +1,41 @@
 ---
 import { Picture } from "astro:assets";
 
-const { source, alt, sizes, widths, width, height, priority, ...htmlAttributes } = Astro.props;
+const ASPECT_RATIO_MAP: Record<string, number> = {
+  square: 1,
+  landscape: 4 / 3,
+  portrait: 3 / 4,
+  widescreen: 16 / 9,
+};
+
+const POSITION_MAP: Record<string, string> = {
+  "top-left": "northwest",
+  "top-center": "north",
+  "top-right": "northeast",
+  "center-left": "west",
+  "center-center": "center",
+  "center-right": "east",
+  "bottom-left": "southwest",
+  "bottom-center": "south",
+  "bottom-right": "southeast",
+};
+
+const DEFAULT_WIDTH = 800;
+const DEFAULT_HEIGHT = 450;
+
+const {
+  source,
+  alt,
+  sizes,
+  widths,
+  width,
+  height,
+  priority,
+  aspectRatio,
+  positionVertical = "center",
+  positionHorizontal = "center",
+  ...htmlAttributes
+} = Astro.props;
 
 const {
   "data-editable": dataEditable,
@@ -9,6 +43,7 @@ const {
   "data-prop-alt": dataPropAlt,
   ...restHtmlAttributes
 } = htmlAttributes;
+
 const dataAttributes = dataEditable
   ? { "data-editable": dataEditable, "data-prop-src": dataPropSrc, "data-prop-alt": dataPropAlt }
   : {};
@@ -32,32 +67,27 @@ if (typeof source === "string" && source.startsWith("/src/")) {
 
   if (imageKey && imageFiles[imageKey]) {
     imageSrc = imageFiles[imageKey];
-
-    if (!imageWidth) imageWidth = imageSrc.width;
-    if (!imageHeight) imageHeight = imageSrc.height;
+    imageWidth = imageWidth || imageSrc.width;
+    imageHeight = imageHeight || imageSrc.height;
     shouldRender = true;
   } else {
     console.warn(`Local image not found for path: ${source}`);
-
-    imageWidth = imageWidth || 800;
-    imageHeight = imageHeight || 450;
+    imageWidth = imageWidth || DEFAULT_WIDTH;
+    imageHeight = imageHeight || DEFAULT_HEIGHT;
   }
 }
 
-// For remote URLs, try to validate the image exists before using inferSize
 if (isRemoteUrl) {
   if (!imageWidth || !imageHeight) {
-    imageWidth = imageWidth || 800;
-    imageHeight = imageHeight || 450;
+    imageWidth = imageWidth || DEFAULT_WIDTH;
+    imageHeight = imageHeight || DEFAULT_HEIGHT;
 
     try {
       const response = await fetch(source, { method: "HEAD" });
 
       if (response.ok) {
         const contentType = response.headers.get("content-type");
-        const isValidImage = contentType && contentType.startsWith("image/");
-
-        if (isValidImage) {
+        if (contentType?.startsWith("image/")) {
           shouldRender = true;
           useInferSize = true;
         } else {
@@ -73,6 +103,49 @@ if (isRemoteUrl) {
     shouldRender = true;
   }
 }
+
+let finalWidth = imageWidth;
+let finalHeight = imageHeight;
+let useFit = undefined;
+let usePosition = undefined;
+let filteredWidths = widths;
+
+if (aspectRatio && aspectRatio !== "none" && shouldRender && imageSrc && imageWidth) {
+  const targetAspect = ASPECT_RATIO_MAP[aspectRatio];
+
+  if (targetAspect) {
+    let maxWidth: number;
+    let maxHeight: number;
+
+    if (targetAspect === 1 && imageHeight) {
+      const dimension = Math.min(imageWidth, imageHeight);
+      maxWidth = dimension;
+      maxHeight = dimension;
+    } else if (imageHeight) {
+      const heightFromWidth = imageWidth / targetAspect;
+      const widthFromHeight = imageHeight * targetAspect;
+
+      if (heightFromWidth <= imageHeight) {
+        maxWidth = imageWidth;
+        maxHeight = Math.round(imageWidth / targetAspect);
+      } else {
+        maxWidth = Math.round(imageHeight * targetAspect);
+        maxHeight = imageHeight;
+      }
+    } else {
+      maxWidth = imageWidth;
+      maxHeight = Math.round(imageWidth / targetAspect);
+    }
+
+    finalWidth = maxWidth;
+    finalHeight = maxHeight;
+    filteredWidths = widths.filter((w: number) => w <= maxWidth);
+    useFit = "cover";
+
+    const positionKey = `${positionVertical}-${positionHorizontal}`;
+    usePosition = POSITION_MAP[positionKey] || "center";
+  }
+}
 ---
 
 {
@@ -80,11 +153,13 @@ if (isRemoteUrl) {
     <Picture
       src={imageSrc}
       alt={alt}
-      widths={widths}
+      widths={filteredWidths}
       sizes={sizes}
       formats={["avif", "webp"]}
-      width={imageWidth}
-      height={imageHeight}
+      width={finalWidth}
+      height={finalHeight}
+      fit={useFit}
+      position={usePosition}
       loading={priority ? "eager" : "lazy"}
       decoding={priority ? "sync" : "async"}
       fetchpriority={priority ? "high" : undefined}

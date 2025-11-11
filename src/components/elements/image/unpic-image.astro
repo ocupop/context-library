@@ -2,7 +2,8 @@
 import { inferRemoteSize } from "astro:assets";
 import { transformUrl } from "unpic";
 
-const { source, alt, sizes, widths, width, height, priority, ...htmlAttributes } = Astro.props;
+const { source, alt, sizes, widths, width, height, priority, aspectRatio, ...htmlAttributes } =
+  Astro.props;
 
 const {
   "data-editable": dataEditable,
@@ -17,7 +18,6 @@ const dataAttributes = dataEditable
 let imageWidth = width;
 let imageHeight = height;
 
-// Try to infer remote image dimensions using Astro's built-in function
 if (!imageWidth || !imageHeight) {
   try {
     const dimensions = await inferRemoteSize(source);
@@ -28,44 +28,65 @@ if (!imageWidth || !imageHeight) {
     }
   } catch (error) {
     console.warn(`Could not detect image dimensions for: ${source}`, error);
-    // Don't throw - just continue with fallback dimensions
   }
 }
 
-// Fallback dimensions if not provided or detected
+let targetAspectRatio: number | null = null;
+if (aspectRatio && aspectRatio !== "none") {
+  const aspectRatioMap: Record<string, number> = {
+    square: 1,
+    landscape: 4 / 3,
+    portrait: 3 / 4,
+    widescreen: 16 / 9,
+  };
+  targetAspectRatio = aspectRatioMap[aspectRatio] || null;
+}
+
 const fallbackWidth = imageWidth || Math.min(...widths);
-const fallbackHeight = imageHeight || Math.round(fallbackWidth * 0.75);
-const aspectRatio = imageWidth && imageHeight ? imageHeight / imageWidth : 0.75;
+let calculatedAspectRatio: number;
+let fallbackHeight: number;
+
+if (targetAspectRatio) {
+  calculatedAspectRatio = targetAspectRatio;
+  fallbackHeight = Math.round(fallbackWidth / targetAspectRatio);
+} else {
+  calculatedAspectRatio = imageWidth && imageHeight ? imageHeight / imageWidth : 0.75;
+  fallbackHeight = imageHeight || Math.round(fallbackWidth * calculatedAspectRatio);
+}
+
+const getTransformedUrl = (width: number, format: string) => {
+  if (targetAspectRatio) {
+    const cropHeight = Math.round(width / targetAspectRatio);
+    return transformUrl({
+      url: source,
+      width,
+      height: cropHeight,
+      format,
+    });
+  } else {
+    const height = Math.round(width * calculatedAspectRatio);
+    return transformUrl({
+      url: source,
+      width,
+      height,
+      format,
+    });
+  }
+};
 ---
 
 <picture {...restHtmlAttributes}>
   <source
     type="image/avif"
     srcset={widths
-      .map(
-        (width: number) =>
-          `${transformUrl({
-            url: source,
-            width,
-            height: Math.round(width * aspectRatio),
-            format: "avif",
-          })} ${width}w`
-      )
+      .map((width: number) => `${getTransformedUrl(width, "avif")} ${width}w`)
       .join(", ")}
     sizes={sizes}
   />
   <source
     type="image/webp"
     srcset={widths
-      .map(
-        (width: number) =>
-          `${transformUrl({
-            url: source,
-            width,
-            height: Math.round(width * aspectRatio),
-            format: "webp",
-          })} ${width}w`
-      )
+      .map((width: number) => `${getTransformedUrl(width, "webp")} ${width}w`)
       .join(", ")}
     sizes={sizes}
   />
@@ -79,15 +100,7 @@ const aspectRatio = imageWidth && imageHeight ? imageHeight / imageWidth : 0.75;
     width={fallbackWidth}
     height={fallbackHeight}
     srcset={widths
-      .map(
-        (width: number) =>
-          `${transformUrl({
-            url: source,
-            width,
-            height: Math.round(width * aspectRatio),
-            format: "jpeg",
-          })} ${width}w`
-      )
+      .map((width: number) => `${getTransformedUrl(width, "jpeg")} ${width}w`)
       .join(", ")}
     sizes={sizes}
   />

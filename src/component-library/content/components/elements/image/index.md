@@ -1,7 +1,7 @@
 ---
 title: Image
 order: 2
-overview: "An image component with built-in optimization for local, CDN, and remote sources. Automatically serves responsive sizes and modern formats like AVIF for smaller file sizes. Supports aspect ratios, object fit, positioning, and rounded corners."
+overview: "An image component with built-in optimization for local, CDN, and remote sources. Automatically serves responsive sizes and modern formats like AVIF for smaller file sizes. Supports aspect ratios, object fit, positioning, rounded corners, and automatic cropping when aspect ratios are set."
 
 examples:
   - title: Source
@@ -14,10 +14,11 @@ examples:
   - title: Ratio
     size: lg
     slugs:
-      - ratio-square
-      - ratio-landscape
-      - ratio-portrait
-      - ratio-widescreen
+      - crop-square
+      - crop-landscape
+      - crop-portrait
+      - crop-widescreen
+      - crop-cdn
   - title: Position
     size: lg
     slugs:
