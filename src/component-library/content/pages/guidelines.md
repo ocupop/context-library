@@ -25,12 +25,8 @@ They should stay minimal, consistent, and easy to maintain.
 
 Components are grouped by purpose:
 
-- **Typography** — Text-based components such as headings, paragraphs, and lists.
-- **Elements** — Standalone interface pieces like buttons, media embeds, and dividers.
-- **Wrappers** — Components that hold and arrange other components.
-- **Forms** — Inputs, selects, and uploads for collecting user information.
-- **Navigation** — Used for moving between pages of the site.
+Building Blocks — Foundational UI components designed for reuse within larger structures.
 
-## Blocks
+Page Sections — Full-width sections used to assemble complete page layouts.
 
-Blocks are built from components to create structured page sections such as heroes and feature grids. Editors build pages from blocks rather than lower-level components. Developers can tailor how each block is edited, from simple locked-down sections to open, flexible layouts.
+Navigation — Components that facilitate movement throughout the site, such as headers, menus, and footers.
