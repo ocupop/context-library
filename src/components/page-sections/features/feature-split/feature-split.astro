@@ -11,7 +11,6 @@ const {
   heading = "",
   subtext = "",
   buttonSections = [],
-  features = [],
   imageSource = "",
   imageAlt = "",
   imageAspectRatio = "portrait",
@@ -78,8 +77,11 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
             class:list={["feature-split-image", reverse && "reverse"]}
             source={imageSource}
             alt={imageAlt}
-            rounded={true}
-            aspectRatio="portrait"
+            rounded={imageRounded}
+            aspectRatio={imageAspectRatio}
+            data-prop-src="imageSource"
+            data-prop-alt="imageAlt"
+            data-editable="image"
           />
         )
       }
@@ -87,21 +89,25 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
   </Split>
 </CustomSection>
 
-<style
-  is:inline
-  set:html={`
-    @container feature-split-layout (min-width: ${minSplitWidth}px) {
-      .feature-split-image.image.rounded.reverse {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-      }
-      .feature-split-image.image.rounded:not(.reverse) {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-      }
-    }
-  `}
-></style>
+{
+  imageAspectRatio == "portrait" && (
+    <style
+      is:inline
+      set:html={`
+        @container feature-split-layout (min-width: ${minSplitWidth}px) {
+        .feature-split-image.image.rounded.reverse {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        .feature-split-image.image.rounded:not(.reverse) {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        }
+    `}
+    />
+  )
+}
 
 <style lang="pcss">
 

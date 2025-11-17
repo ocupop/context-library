@@ -64,6 +64,8 @@ _inputs:
     comment: Aspect ratio applied to the image.
     options:
       values:
+        - id: none
+          name: None
         - id: portrait
           name: Portrait
         - id: square
@@ -165,4 +167,3 @@ _structures:
           iconBackground:
             type: switch
             comment: Adds a subtle background shape behind the icon.
-

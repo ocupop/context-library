@@ -20,4 +20,5 @@ blocks:
       link: "/brief.pdf"
   imageSource: /src/assets/images/component-library/dunedin-cliff.jpg
   imageAlt: "Product team reviewing plans together"
+  imageRounded: true
 ---
