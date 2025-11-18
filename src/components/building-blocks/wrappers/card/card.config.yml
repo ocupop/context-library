@@ -14,7 +14,7 @@ value:
   maxContentWidth: null
   paddingHorizontal: sm
   paddingVertical: sm
-  colorScheme: default
+  colorScheme:
   backgroundColor: base
   backgroundImage:
     source: null

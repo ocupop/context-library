@@ -16,7 +16,7 @@ value:
       hideText: false
       variant: primary
       size: md
-  colorScheme: default
+  colorScheme:
   backgroundColor: base
 preview:
   text:
@@ -65,4 +65,3 @@ _inputs:
           name: Accent
         - id: highlight
           name: Highlight
-
