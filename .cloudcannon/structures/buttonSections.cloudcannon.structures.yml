@@ -1,4 +1,5 @@
 buttonSections:
   id_key: _component
   style: modal
-  values_from_glob: /src/components/building-blocks/core-elements/button/button.cloudcannon.structures.yml
+  values_from_glob:
+    - /src/components/**/*.cloudcannon.structure-value.yml
