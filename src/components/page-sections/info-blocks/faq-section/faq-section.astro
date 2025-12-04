@@ -28,7 +28,7 @@ const htmlAttributes = Object.fromEntries(
   colorScheme={colorScheme}
   backgroundColor={backgroundColor}
 >
-  {heading && <Heading level="h2" size="lg" alignX="center" text={heading} />}
+  {heading && <Heading level="h2" size="lg" alignX="center" text={heading} data-prop="heading" />}
   {
     items?.length > 0 && (
       <Accordion label={label} singleOpen={true} openFirst={false} items={items} />
