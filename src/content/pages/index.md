@@ -6,7 +6,7 @@ pageSections:
     eyebrow:
     heading: The Astro Component Library for building any site
     subtext: >-
-      Built on web fundamentals. Fast to use, fast to ship, and simple to
+      Built on web fundamentals. Easy to customize, fast to use, and simple to
       maintain.
     buttonSections:
       - _component: building-blocks/core-elements/button
@@ -18,7 +18,7 @@ pageSections:
         variant: primary
         size: md
       - _component: building-blocks/core-elements/button
-        text: Deploy in CloudCannon
+        text: View in GitHub
         link: '#'
         iconName: ''
         iconPosition: before
