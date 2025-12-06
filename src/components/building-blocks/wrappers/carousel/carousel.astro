@@ -10,6 +10,7 @@ const {
   minSlideWidth = 0,
   style = "",
   label,
+  editable = true,
   ...rest
 } = Astro.props;
 
@@ -82,10 +83,12 @@ const carouselStyles = `
   <div class="viewport">
     <div
       class="track"
-      data-editable="array"
-      data-component-key="_component"
-      data-id-key="_component"
-      data-prop={dataProp}
+      {...(editable ? {
+        "data-editable": "array",
+        "data-component-key": "_component",
+        "data-id-key": "_component",
+        "data-prop": dataProp,
+      } : {})}
     >
       {
         slides.length > 0 ? (

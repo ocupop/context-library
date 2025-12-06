@@ -3,6 +3,7 @@ const {
   title,
   text,
   class: className,
+  editable = true,
   "data-prop-title": customDataPropTitle = "title",
   "data-prop-content": customDataPropContent = "text",
   ...restProps
@@ -12,14 +13,14 @@ const htmlAttributes = Object.fromEntries(
   Object.entries(restProps).filter(([key]) => key !== "_component")
 );
 
-const titleDataAttributes = customDataPropTitle
+const titleDataAttributes = editable && customDataPropTitle
   ? {
       "data-editable": "text",
       "data-prop": customDataPropTitle,
     }
   : {};
 
-const contentDataAttributes = customDataPropContent
+const contentDataAttributes = editable && customDataPropContent
   ? {
       "data-editable": "text",
       "data-prop": customDataPropContent,

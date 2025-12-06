@@ -1,7 +1,7 @@
 ---
 import DefinitionListItem from "./definition-list-item.astro";
 
-const { items, alignX = "start", class: className, ...restProps } = Astro.props;
+const { items, alignX = "start", class: className, editable = true, ...restProps } = Astro.props;
 
 const htmlAttributes = Object.fromEntries(
   Object.entries(restProps).filter(([key]) => key !== "_component")
@@ -14,7 +14,7 @@ const htmlAttributes = Object.fromEntries(
 >
   {
     items && items.length > 0 ? (
-      items.map((item: any) => <DefinitionListItem title={item.title} text={item.text} />)
+      items.map((item: any) => <DefinitionListItem title={item.title} text={item.text} editable={editable} />)
     ) : (
       <slot />
     )
