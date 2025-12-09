@@ -1,0 +1,23 @@
+Button:
+  snippet: "<Button [[button_args]] />"
+  params:
+    button_args:
+      parser: key_values
+      options:
+        models:
+          - editor_key: text
+          - editor_key: link
+          - editor_key: variant
+          - editor_key: size
+          - editor_key: iconName
+          - editor_key: iconPosition
+          - editor_key: hideText
+        format:
+          string_boundary:
+            - '"'
+          root_value_delimiter: "="
+          root_pair_delimiter:
+            - " "
+          allow_booleans: true
+  _inputs_from_glob:
+    - /src/components/building-blocks/core-elements/button/button.cloudcannon.inputs.yml
