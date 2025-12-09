@@ -9,9 +9,9 @@ preview:
     - Spacer
   subtext:
     - key: size
+  icon: space_bar
 picker_preview:
   text: Spacer
   subtext: Adds adjustable spacing between content sections.
-  icon: space_bar
 _inputs_from_glob:
   - /src/components/building-blocks/core-elements/spacer/spacer.cloudcannon.inputs.yml

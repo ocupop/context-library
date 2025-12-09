@@ -14,9 +14,9 @@ preview:
     - template: Input - {type}
   subtext:
     - key: name
+  icon: rectangle
 picker_preview:
   text: Input
   subtext: Single text input form field.
-  icon: rectangle
 _inputs_from_glob:
   - /src/components/building-blocks/forms/input/input.cloudcannon.inputs.yml

@@ -11,9 +11,9 @@ preview:
     - Embed
   subtext:
     - key: title
+  icon: data_object
 picker_preview:
   text: Embed
   subtext: Responsive wrapper for third-party embeds.
-  icon: data_object
 _inputs_from_glob:
   - /src/components/building-blocks/core-elements/embed/embed.cloudcannon.inputs.yml

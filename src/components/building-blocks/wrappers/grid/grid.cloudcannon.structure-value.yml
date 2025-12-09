@@ -18,7 +18,6 @@ preview:
 picker_preview:
   text: Grid
   subtext: Arranges content into a grid that adapts to screen size.
-  icon: grid_on
 _inputs_from_glob:
   - /src/components/building-blocks/wrappers/grid/grid.cloudcannon.inputs.yml
 _structures:

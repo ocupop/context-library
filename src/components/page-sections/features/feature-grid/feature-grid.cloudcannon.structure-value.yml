@@ -17,10 +17,10 @@ preview:
     - Feature Grid
   subtext:
     - key: heading
+  icon: apps
 picker_preview:
   text: Feature Grid
   subtext: Grid of feature highlights with icons and descriptions.
-  icon: apps
 _inputs_from_glob:
   - /src/components/page-sections/features/feature-grid/feature-grid.cloudcannon.inputs.yml
 _structures:

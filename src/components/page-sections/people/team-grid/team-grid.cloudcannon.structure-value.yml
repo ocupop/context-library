@@ -14,10 +14,10 @@ preview:
     - Team Grid
   subtext:
     - key: subtext
+  icon: people
 picker_preview:
   text: Team Grid
   subtext: Grid of team member cards with photos and bios.
-  icon: people
 _inputs_from_glob:
   - /src/components/page-sections/people/team-grid/team-grid.cloudcannon.inputs.yml
 _structures:

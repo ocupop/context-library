@@ -2,7 +2,11 @@ featureSlider:
   template: mdx_component
   inline: false
   preview:
-    text: Feature Slider
+    text:
+      - Feature Slider
+    subtext:
+      - key: heading
+    icon: view_carousel
   definitions:
     component_name: FeatureSlider
     named_args:

@@ -9,10 +9,10 @@ preview:
     - Raw HTML
   subtext:
     - key: html
+  icon: code
 picker_preview:
   text: Raw HTML
   subtext: Raw HTML content including scripts and styles.
-  icon: code
 _inputs_from_glob:
   - /src/components/building-blocks/core-elements/raw-html/raw-html.cloudcannon.inputs.yml
 

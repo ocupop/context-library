@@ -22,9 +22,9 @@ preview:
     - CTA Center
   subtext:
     - key: heading
+  icon: hero
 picker_preview:
   text: CTA Center
   subtext: Centered CTA with stacked text and buttons.
-  icon: hero
 _inputs_from_glob:
   - /src/components/page-sections/ctas/cta-center/cta-center.cloudcannon.inputs.yml

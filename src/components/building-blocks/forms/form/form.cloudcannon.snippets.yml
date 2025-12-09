@@ -2,7 +2,11 @@ form:
   template: mdx_component
   inline: false
   preview:
-    text: Form
+    text:
+      - Form
+    subtext:
+      - key: label
+    icon: checklist_rtl
   definitions:
     component_name: Form
     named_args:

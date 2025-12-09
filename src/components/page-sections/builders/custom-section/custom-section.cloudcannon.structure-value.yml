@@ -21,9 +21,9 @@ preview:
     - Custom Section
   subtext:
     - key: label
+  icon: width_full
 picker_preview:
   text: Custom Section
   subtext: Used to group and style large sections of a page.
-  icon: width_full
 _inputs_from_glob:
   - /src/components/page-sections/builders/custom-section/custom-section.cloudcannon.inputs.yml

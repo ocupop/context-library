@@ -20,10 +20,10 @@ preview:
     - Select
   subtext:
     - key: name
+  icon: view_list
 picker_preview:
   text: Select
   subtext: Form field for selecting one option from a list.
-  icon: view_list
 _inputs_from_glob:
   - /src/components/building-blocks/forms/select/select.cloudcannon.inputs.yml
 _structures:

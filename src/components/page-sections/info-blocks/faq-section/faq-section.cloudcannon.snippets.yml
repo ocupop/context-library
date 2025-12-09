@@ -2,7 +2,11 @@ faqSection:
   template: mdx_component
   inline: false
   preview:
-    text: FAQ Section
+    text:
+      - FAQ Section
+    subtext:
+      - key: heading
+    icon: help_outline
   definitions:
     component_name: FaqSection
     named_args:

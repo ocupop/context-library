@@ -2,7 +2,11 @@ embed:
   template: mdx_component
   inline: false
   preview:
-    text: Embed
+    text:
+      - Embed
+    subtext:
+      - key: title
+    icon: data_object
   definitions:
     component_name: Embed
     named_args:
@@ -14,4 +18,3 @@ embed:
         remove_empty: true
   _inputs_from_glob:
     - /src/components/building-blocks/core-elements/embed/embed.cloudcannon.inputs.yml
-

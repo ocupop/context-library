@@ -15,9 +15,9 @@ preview:
     - Submit
   subtext:
     - key: text
+  icon: check
 picker_preview:
   text: Submit
   subtext: Button for submitting a form.
-  icon: check
 _inputs_from_glob:
   - /src/components/building-blocks/forms/submit/submit.cloudcannon.inputs.yml

@@ -2,7 +2,11 @@ ctaSplit:
   template: mdx_component
   inline: false
   preview:
-    text: CTA Split
+    text:
+      - CTA Split
+    subtext:
+      - key: heading
+    icon: hero
   definitions:
     component_name: CtaSplit
     named_args:

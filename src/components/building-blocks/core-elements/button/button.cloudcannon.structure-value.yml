@@ -15,9 +15,9 @@ preview:
     - Button
   subtext:
     - key: text
+  icon: variables
 picker_preview:
   text: Button
   subtext: Clickable button for calls-to-action and navigation.
-  icon: variables
 _inputs_from_glob:
   - /src/components/building-blocks/core-elements/button/button.cloudcannon.inputs.yml

@@ -2,7 +2,11 @@ teamGrid:
   template: mdx_component
   inline: false
   preview:
-    text: Team Grid
+    text:
+      - Team Grid
+    subtext:
+      - key: subtext
+    icon: people
   definitions:
     component_name: TeamGrid
     named_args:

@@ -7,9 +7,9 @@ value:
 preview:
   text:
     - Divider
+  icon: horizontal_rule
 picker_preview:
   text: Divider
   subtext: Visual separator for dividing content sections.
-  icon: horizontal_rule
 _inputs_from_glob:
   - /src/components/building-blocks/core-elements/divider/divider.cloudcannon.inputs.yml

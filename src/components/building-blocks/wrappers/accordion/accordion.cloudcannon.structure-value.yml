@@ -12,10 +12,10 @@ preview:
     - Accordion
   subtext:
     - key: label
+  icon: expand_all
 picker_preview:
   text: Accordion
   subtext: Interactive component for showing and hiding content panels.
-  icon: expand_all
 _inputs_from_glob:
   - /src/components/building-blocks/wrappers/accordion/accordion.cloudcannon.inputs.yml
 _structures:

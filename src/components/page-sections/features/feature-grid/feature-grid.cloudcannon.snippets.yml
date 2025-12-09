@@ -2,7 +2,11 @@ featureGrid:
   template: mdx_component
   inline: false
   preview:
-    text: Feature Grid
+    text:
+      - Feature Grid
+    subtext:
+      - key: heading
+    icon: apps
   definitions:
     component_name: FeatureGrid
     named_args:

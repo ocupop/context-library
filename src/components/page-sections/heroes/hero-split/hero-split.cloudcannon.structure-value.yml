@@ -26,9 +26,9 @@ preview:
     - Hero Split
   subtext:
     - key: heading
+  icon: hero
 picker_preview:
   text: Hero Split
   subtext: Prominent section block for landing pages.
-  icon: hero
 _inputs_from_glob:
   - /src/components/page-sections/heroes/hero-split/hero-split.cloudcannon.inputs.yml

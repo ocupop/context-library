@@ -2,7 +2,11 @@ image:
   template: mdx_component
   inline: false
   preview:
-    text: Image
+    text:
+      - Image
+    subtext:
+      - key: alt
+    icon: image
   definitions:
     component_name: Image
     named_args:
@@ -32,4 +36,3 @@ image:
         optional: true
   _inputs_from_glob:
     - /src/components/building-blocks/core-elements/image/image.cloudcannon.inputs.yml
-

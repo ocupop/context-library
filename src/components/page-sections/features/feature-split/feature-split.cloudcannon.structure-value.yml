@@ -19,9 +19,9 @@ preview:
     - Feature Split
   subtext:
     - key: heading
+  icon: view_week
 picker_preview:
   text: Feature Split
   subtext: Split view with story content and supporting feature list.
-  icon: view_week
 _inputs_from_glob:
   - /src/components/page-sections/features/feature-split/feature-split.cloudcannon.inputs.yml

@@ -2,7 +2,11 @@ featureSplit:
   template: mdx_component
   inline: false
   preview:
-    text: Feature Split
+    text:
+      - Feature Split
+    subtext:
+      - key: heading
+    icon: view_week
   definitions:
     component_name: FeatureSplit
     named_args:

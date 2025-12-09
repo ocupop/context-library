@@ -2,7 +2,11 @@ ctaForm:
   template: mdx_component
   inline: false
   preview:
-    text: CTA Form
+    text:
+      - CTA Form
+    subtext:
+      - key: heading
+    icon: hero
   definitions:
     component_name: CtaForm
     named_args:

@@ -21,6 +21,5 @@ preview:
 picker_preview:
   text: Split
   subtext: Two-column layout for side-by-side content.
-  icon: vertical_split
 _inputs_from_glob:
   - /src/components/building-blocks/wrappers/split/split.cloudcannon.inputs.yml

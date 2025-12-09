@@ -14,10 +14,10 @@ preview:
     - Carousel
   subtext:
     - key: label
+  icon: image
 picker_preview:
   text: Carousel
   subtext: Displays multiple items in a sliding gallery.
-  icon: image
 _inputs_from_glob:
   - /src/components/building-blocks/wrappers/carousel/carousel.cloudcannon.inputs.yml
 _structures:

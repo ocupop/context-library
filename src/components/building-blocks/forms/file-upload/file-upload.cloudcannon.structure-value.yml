@@ -13,9 +13,9 @@ preview:
     - File Upload
   subtext:
     - key: name
+  icon: upload
 picker_preview:
   text: File Upload
   subtext: Form field for uploading files.
-  icon: upload
 _inputs_from_glob:
   - /src/components/building-blocks/forms/file-upload/file-upload.cloudcannon.inputs.yml

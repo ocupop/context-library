@@ -8,10 +8,10 @@ value:
 preview:
   text:
     - Definition List
+  icon: dns
 picker_preview:
   text: Definition List
   subtext: Lists term/definition pairs for structured content.
-  icon: dns
 _inputs_from_glob:
   - /src/components/building-blocks/core-elements/definition-list/definition-list.cloudcannon.inputs.yml
 _structures:

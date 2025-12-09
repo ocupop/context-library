@@ -15,9 +15,9 @@ preview:
     - Image
   subtext:
     - key: alt
+  icon: image
 picker_preview:
   text: Image
   subtext: Optimized image component for local and remote sources.
-  icon: image
 _inputs_from_glob:
   - /src/components/building-blocks/core-elements/image/image.cloudcannon.inputs.yml

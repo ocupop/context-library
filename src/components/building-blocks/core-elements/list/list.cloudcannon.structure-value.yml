@@ -16,10 +16,10 @@ value:
 preview:
   text:
     - List
+  icon: list
 picker_preview:
   text: List
   subtext: Lists items with icons as markers.
-  icon: list
 _inputs_from_glob:
   - /src/components/building-blocks/core-elements/list/list.cloudcannon.inputs.yml
 _structures:

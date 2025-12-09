@@ -11,9 +11,9 @@ preview:
     - Simple Text
   subtext:
     - key: text
+  icon: view_headline
 picker_preview:
   text: Simple Text
   subtext: Paragraph for plain text content with inline markdown formatting.
-  icon: view_headline
 _inputs_from_glob:
   - /src/components/building-blocks/core-elements/simple-text/simple-text.cloudcannon.inputs.yml

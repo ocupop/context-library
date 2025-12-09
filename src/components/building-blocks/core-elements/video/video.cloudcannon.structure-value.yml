@@ -14,9 +14,9 @@ preview:
     - Video
   subtext:
     - key: title
+  icon: videocam
 picker_preview:
   text: Video
   subtext: Video component for YouTube, Vimeo, and HTML5 sources.
-  icon: videocam
 _inputs_from_glob:
   - /src/components/building-blocks/core-elements/video/video.cloudcannon.inputs.yml

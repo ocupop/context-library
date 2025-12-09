@@ -2,7 +2,11 @@ ctaCenter:
   template: mdx_component
   inline: false
   preview:
-    text: CTA Center
+    text:
+      - CTA Center
+    subtext:
+      - key: heading
+    icon: hero
   definitions:
     component_name: CtaCenter
     named_args:
@@ -30,4 +34,3 @@ ctaCenter:
         optional: true
   _inputs_from_glob:
     - /src/components/page-sections/ctas/cta-center/cta-center.cloudcannon.inputs.yml
-

@@ -19,10 +19,10 @@ preview:
     - FAQ Section
   subtext:
     - key: heading
+  icon: help_outline
 picker_preview:
   text: FAQ Section
   subtext: Accordion of frequently asked questions.
-  icon: help_outline
 _inputs_from_glob:
   - /src/components/page-sections/info-blocks/faq-section/faq-section.cloudcannon.inputs.yml
 _structures:

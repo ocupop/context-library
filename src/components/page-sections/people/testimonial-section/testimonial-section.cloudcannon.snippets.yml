@@ -2,7 +2,11 @@ testimonialSection:
   template: mdx_component
   inline: false
   preview:
-    text: Testimonial Section
+    text:
+      - Testimonial Section
+    subtext:
+      - key: authorName
+    icon: format_quote
   definitions:
     component_name: TestimonialSection
     named_args:
