@@ -112,7 +112,14 @@ pageSections:
       - _component: building-blocks/core-elements/divider
         paddingVertical: lg
       - _component: building-blocks/core-elements/embed
-        source: https://youtu.be/yXBiY3tHsfc
+        source: >-
+          <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/yXBiY3tHsfc?si=5FhPIZL6FPur9QVg"
+          title="YouTube video player" frameborder="0" allow="accelerometer;
+          autoplay; clipboard-write; encrypted-media; gyroscope;
+          picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
         title: ''
         aspectRatio: landscape
     maxContentWidth: 2xl
