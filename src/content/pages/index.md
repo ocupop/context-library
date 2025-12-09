@@ -91,7 +91,7 @@ pageSections:
   - _component: page-sections/features/feature-grid
     eyebrow: Principles
     heading: Built for real-world web projects
-    subtext: No trends. No noise. Just fundamentals that stay reliable year after year.
+    subtext: No trends. No noise. Just reliability.
     gap: xl
     minItemWidth: 280
     maxItemWidth: 360
@@ -150,7 +150,7 @@ pageSections:
         variant: primary
         size: md
       - _component: building-blocks/core-elements/button
-        text: Deploy in CloudCannon
+        text: View in GitHub
         link: '#'
         iconName: ''
         iconPosition: before

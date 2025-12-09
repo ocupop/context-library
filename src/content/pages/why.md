@@ -6,15 +6,12 @@ pageSections:
     eyebrow:
     heading: Why build another Astro component library?
     subtext: >-
-      I’m a big fan of the static web. And I love what the Astro team is making!
-      For the last couple of years I’ve been watching agencies and dev teams
-      rebuild the same patterns in every project — carousels, page hero
-      sections, accordions — often starting from scratch each time.
-
-
-      With help from a bunch of people at CloudCannon I’ve built a component
-      library for Astro that outputs static HTML and CSS, for the fastest
-      delivery possible —&nbsp;all unbranded and adaptable for any project.
+      We're big fans of the static web. And we love what the Astro team is
+      making!  As more <a href="https://cloudcannon.com/partner-program/"
+      target="_blank" rel="noopener">partner agencies</a> are building client
+      sites on CloudCannon, we wanted to provide a component library for Astro
+      that outputs static HTML and CSS, for the fastest delivery possible
+      —&nbsp;all unbranded and adaptable for any project.
     imageSource: /src/assets/images/component-library/sunset.jpg
     imageAlt: Sunset
     imageAspectRatio: portrait
@@ -29,7 +26,7 @@ pageSections:
         eyebrow: Speed
         title: High performance
         description: >-
-          Great performance starts with what you choose not to load. The
+          Great performance starts with what you choose not to load. This
           component library keeps everything lean with simple HTML, CSS, and
           vanilla JavaScript, plus built-in tools that squeeze every drop of
           performance out of your images.
@@ -41,7 +38,7 @@ pageSections:
         title: Easy maintenance
         description: >-
           Maintaining a site is easier when the pieces stay small and
-          predictable. With the component library, you build on top of highly
+          predictable. With this component library, you build on top of highly
           polished building blocks that stay clear, focused, and easy to work
           with as your site grows.
         imageSource: /src/assets/images/component-library/sheep.jpg
@@ -52,9 +49,8 @@ pageSections:
         title: Team friendly
         description: >-
           Teams move faster when everything feels obvious. Clear names, simple
-          patterns, and consistent structure mean anyone can open the project
-          and immediately know where things live and how they work. No handoff
-          drama. No onboarding tour.
+          patterns, and a consistent structure mean anyone can open the project
+          and immediately know where things live and how they work.
         imageSource: /src/assets/images/component-library/castle.jpg
         imageAlt: Move Faster
         minSplitWidth: 300
@@ -62,10 +58,9 @@ pageSections:
         eyebrow: Future
         title: Long-term stability
         description: >-
-          This stack isn't chasing trends, and it won't age out. It's built to
-          last. You're using the same basics the web has relied on from the
-          start. It's a set of solid tools that stay understandable and easy to
-          improve, no matter how much time passes.
+          This stack isn't chasing trends, and it's built to last. It's a set of
+          solid tools that stay understandable and easy to improve, no matter
+          how much time passes.
         imageSource: /src/assets/images/component-library/dunedin-cliff.jpg
         imageAlt: Long-Term Stability
         minSplitWidth: 0
@@ -140,9 +135,9 @@ pageSections:
         contentSections:
           - _component: building-blocks/core-elements/text
             text: >-
-              We give you straightforward building blocks without hiding
-              anything behind layers of abstraction. You see everything that's
-              happening, and stay in control.
+              We give you [straightforward building blocks](/component-library/)
+              without hiding anything behind layers of abstraction. You see
+              everything that's happening, and stay in control.
       - _component: building-blocks/wrappers/accordion/accordion-item
         title: What's included in the component library?
         contentSections:
@@ -164,9 +159,10 @@ pageSections:
         contentSections:
           - _component: building-blocks/core-elements/text
             text: >-
-              Every part of the component starter is meant to be opened, read,
+              Every part of the component library is meant to be opened, read,
               and edited. You shape it to fit your project instead of working
-              around someone else's opinions.
+              around someone else's opinions. Start by [browsing the
+              components](/component-library/) to see how they're set up!
     maxContentWidth: xl
     paddingHorizontal: xl
     paddingVertical: 4xl
