@@ -6,7 +6,6 @@ function parseConfigProperties(configData: any): PropertyMeta[] {
 
   if (configData.value) {
     Object.entries(configData.value).forEach(([key, value]) => {
-      // Skip the _component key as it's metadata
       if (key === "_component") {
         return;
       }
