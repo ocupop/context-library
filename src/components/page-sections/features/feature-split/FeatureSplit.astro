@@ -23,7 +23,6 @@ const {
   class: className,
 } = Astro.props;
 
-const hasImage = Boolean(imageSource);
 const minSplitWidth = 720;
 const featureSplitId = `feature-split-${crypto.randomUUID()}`;
 ---
@@ -75,7 +74,7 @@ const featureSplitId = `feature-split-${crypto.randomUUID()}`;
       }
     </Fragment>
     {
-      hasImage && (
+      imageSource && (
         <Image
           slot="second"
           class:list={["feature-split-image", reverse && "reverse"]}
