@@ -26,6 +26,8 @@ aspectRatio:
         name: Portrait (3:4)
       - id: widescreen
         name: Widescreen (16:9)
+      - id: horizontal-strip
+        name: Horizontal Strip (16:5)
 positionVertical:
   type: select
   comment: Vertical positioning of the image within the container (if aspect ratio is set).

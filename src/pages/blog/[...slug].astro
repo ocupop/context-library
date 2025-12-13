@@ -25,7 +25,7 @@ Object.entries(componentImports).forEach(([path, module]) => {
   const pathParts = path.split("/");
   const fileName = pathParts[pathParts.length - 1].replace(".astro", "");
   const folderName = pathParts[pathParts.length - 2];
-  
+
   // Convert PascalCase to component name (already PascalCase, so just use it)
   // If filename matches folder (in kebab-case), use folder-based name
   const kebabFileName = fileName
@@ -36,7 +36,7 @@ Object.entries(componentImports).forEach(([path, module]) => {
     .replace(/([A-Z])/g, "-$1")
     .toLowerCase()
     .replace(/^-/, "");
-  
+
   // Component name is already PascalCase from filename
   const componentName = fileName;
 
@@ -105,6 +105,8 @@ const pubDate = post.data.pubDate.toLocaleDateString("en-US", {
           rounded={true}
           editable={false}
           class="post-image"
+          aspectRatio="horizontal-strip"
+          positionVertical="center"
         />
       )
     }
@@ -166,10 +168,5 @@ const pubDate = post.data.pubDate.toLocaleDateString("en-US", {
 
   .post-image {
     margin-top: var(--spacing-xl);
-    :global(img) {
-      aspect-ratio: 16/5;
-      object-fit: cover;
-      object-position: center bottom;
-    }
   }
 </style>
