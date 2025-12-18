@@ -3,7 +3,7 @@ _schema: default
 title: Why
 pageSections:
   - _component: page-sections/heroes/hero-split
-    eyebrow:
+    eyebrow: Eyebrow
     heading: Why build an Astro component starter?
     subtext: >-
       At CloudCannon, we're big fans of the static web. And we love what the
@@ -21,7 +21,7 @@ pageSections:
     buttonSections: []
     reverse: true
     colorScheme: default
-    backgroundColor: base
+    backgroundColor: '#c69999'
     paddingVertical: 4xl
   - _component: page-sections/info-blocks/faq-section
     heading: Frequently asked questions
@@ -69,7 +69,7 @@ pageSections:
     colorScheme: default
     backgroundColor: none
   - _component: page-sections/builders/custom-section
-    label: ""
+    label: ''
     contentSections:
       - _component: building-blocks/core-elements/spacer
         size: md
@@ -91,8 +91,8 @@ pageSections:
     colorScheme: contrast
     backgroundColor: surface
     backgroundImage:
-      source: ""
-      alt: ""
+      source: ''
+      alt: ''
       positionVertical: top
       positionHorizontal: center
     rounded: false
@@ -170,7 +170,7 @@ pageSections:
     subtext: We're a group of stock photography faces that fill out this team grid.
     teamMembers:
       - _component: page-sections/people/team-grid/team-item
-        name: "Alex Smith "
+        name: 'Alex Smith '
         role: Lead Developer
         bio: >-
           As a fictional representation of a real employee, I exist solely to
