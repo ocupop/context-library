@@ -12,7 +12,7 @@ const {
   ...rest
 } = props;
 
-const isValidName = name && name.trim();
+const isValidName = name && typeof name === "string" && name.trim();
 
 if (!isValidName) {
   return;
@@ -35,7 +35,7 @@ const htmlAttributes = Object.fromEntries(
   ]}
   {...htmlAttributes as any}
 >
-  <AstroIcon name={name} />
+  <AstroIcon name={String(name).trim()} is:inline />
 </div>
 
 <style lang="pcss">
