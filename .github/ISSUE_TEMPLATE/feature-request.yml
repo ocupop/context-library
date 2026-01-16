@@ -1,0 +1,173 @@
+name: ✨ Feature Request
+description: Suggest a new feature or enhancement
+labels: ["enhancement", "needs-discussion"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Feature Request
+        
+        We appreciate your ideas! Please provide as much detail as possible.
+        
+        **Note:** Markdown formatting is supported. Use `**bold**`, `*italics*`, bullet points, numbered lists, and code blocks for better readability.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: A brief 2-3 sentence overview of the feature request (TL;DR). This appears first for quick scanning.
+      placeholder: |
+        Example: "Add dark mode support to the application. This would include a theme toggle in the header and support for all existing components. Users have been requesting this feature to reduce eye strain during evening use."
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem does this feature solve? Is this related to a frustration? Use bullet points or numbered lists for clarity.
+      placeholder: |
+        I'm always frustrated when:
+        - [List specific frustrations or pain points]
+        - [Describe the impact on workflow]
+        - [Explain why current solutions don't work]
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the solution you'd like to see. Be specific about the desired behavior, UI/UX, or functionality.
+      placeholder: |
+        I would like:
+        - [Feature capability 1]
+        - [Feature capability 2]
+        - [How it should work]
+        
+        Example: "I would like a dark mode toggle in the header that persists across sessions. When enabled, all components should switch to a dark color scheme automatically."
+    validations:
+      required: true
+
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use Case
+      description: Describe a specific scenario where you would use this feature. Use the format: "When I'm [context], I need to [action], so that [goal]."
+      placeholder: |
+        Example: "When I'm working late at night on my dashboard, I need to switch to dark mode, so that I don't strain my eyes and can work more comfortably."
+        
+        **Specific scenario:**
+        When I'm [working on X], I need to [perform Y], so that [I can achieve Z].
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this feature to you? Priority is relative to your role and needs.
+      options:
+        - "🔥 Critical - Can't use the product without it"
+        - "⭐ High - Would significantly improve my workflow"
+        - "👍 Medium - Nice to have"
+        - "💭 Low - Just an idea"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: size
+    attributes:
+      label: Estimated Size
+      description: Initial estimate of the effort required to implement this feature. This will be re-evaluated during issue assessment. Size indicates complexity and scope: Small = simple addition, Medium = new component/feature, Large = multiple components, Epic = major feature set.
+      options:
+        - "XS - Small (1-2 story points, 1-4 hours) - Simple addition, minimal changes"
+        - "S - Small (3 story points, 4-8 hours) - New utility/helper, single component"
+        - "M - Medium (5-8 story points, 1-3 days) - New feature/component with tests"
+        - "L - Large (8-13 story points, 3-5 days) - Multiple components, integration work"
+        - "XL - Epic (21+ story points, 1-2 weeks) - Major feature set or system change"
+        - "? - Unknown/Needs Assessment - Requires analysis to estimate"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: user_type
+    attributes:
+      label: User Type
+      description: How would you describe yourself? This helps us prioritize based on user needs.
+      options:
+        - Individual Developer
+        - Team Lead
+        - Enterprise User
+        - Open Source Contributor
+        - Other
+    validations:
+      required: false
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Which category best fits this feature? This helps with organization and triage.
+      options:
+        - UI/UX
+        - API
+        - Performance
+        - Documentation
+        - Developer Experience
+        - Accessibility
+        - Integration
+        - Other
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: What other solutions have you considered? This helps us evaluate the best approach. Examples: using existing feature X, using third-party library Y, implementing workaround Z.
+      placeholder: |
+        I've also thought about:
+        - [Alternative approach 1 and why it doesn't work]
+        - [Alternative approach 2 and its limitations]
+        - [Workarounds you've tried]
+        
+        Example: "I've considered using the browser's dark mode detection, but that doesn't give users manual control. I've also looked at third-party theme libraries, but they add significant bundle size."
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: What needs to be true for this feature to be considered complete? List specific, testable conditions. This helps define the scope clearly.
+      placeholder: |
+        - [ ] Criterion 1: [Specific, measurable condition]
+        - [ ] Criterion 2: [Specific, measurable condition]
+        - [ ] Criterion 3: [Specific, measurable condition]
+        
+        Example:
+        - [ ] Dark mode toggle is visible in the header
+        - [ ] Theme preference persists across browser sessions
+        - [ ] All components support dark mode
+        - [ ] Theme switch is accessible via keyboard navigation
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Would you be willing to help? Check all that apply.
+      options:
+        - label: I'm willing to help implement this feature
+        - label: I'm willing to help test this feature
+        - label: I'm willing to help document this feature
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Information
+      description: Any other context, links to related discussions, mockups, examples from other tools, or design references.
+      placeholder: |
+        **Related discussions:** [Link to forum posts, Discord threads, etc.]
+        **Mockups/Designs:** [Link to Figma, screenshots, etc.]
+        **Similar features:** [Link to examples in other tools that do this well]
+        **Additional context:** [Any other relevant information]

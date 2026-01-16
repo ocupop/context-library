@@ -1,0 +1,193 @@
+name: 🐛 Bug Report
+description: Report a bug or unexpected behavior
+labels: ["bug", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Thank you for reporting a bug!
+        
+        Please fill out the sections below to help us understand and fix the issue.
+        
+        **Note:** Markdown formatting is supported. Use `**bold**`, `*italics*`, code blocks (triple backticks), and lists for better readability.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have searched existing issues to ensure this is not a duplicate
+          required: true
+        - label: I have provided all the requested information
+          required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How severe is this bug? This helps us prioritize the issue.
+      options:
+        - "🔴 Critical - Blocks core functionality"
+        - "🟠 High - Major feature broken"
+        - "🟡 Medium - Workaround available"
+        - "🟢 Low - Minor inconvenience"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: size
+    attributes:
+      label: Estimated Size
+      description: Initial estimate of the effort required to fix this bug. This will be re-evaluated during issue assessment. Size indicates complexity and scope: Small = single file/component fix, Medium = multiple files, Large = major refactor, Epic = architectural change.
+      options:
+        - "XS - Small (1-2 story points, 1-4 hours) - Simple fix, single component"
+        - "S - Small (3 story points, 4-8 hours) - Minor changes, minimal testing"
+        - "M - Medium (5-8 story points, 1-3 days) - Multiple files, moderate testing"
+        - "L - Large (8-13 story points, 3-5 days) - Significant changes, comprehensive testing"
+        - "XL - Epic (21+ story points, 1-2 weeks) - Major refactor or architectural change"
+        - "? - Unknown/Needs Assessment - Requires investigation to estimate"
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: A brief 2-3 sentence overview of the bug (TL;DR). This appears first in the issue for quick scanning.
+      placeholder: |
+        Example: "The login button fails to respond on mobile Safari 17.0. The page loads correctly but tapping the button produces no response. This blocks all mobile Safari users from accessing the application."
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Environment
+        
+        Please provide details about where the bug occurs.
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: What version are you using? (e.g., package version, commit hash, or deployment tag)
+      placeholder: "e.g., 2.1.0, v1.2.3, or commit abc123f"
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating System
+      description: Which operating system are you using?
+      options:
+        - macOS
+        - Windows
+        - Linux
+        - iOS
+        - Android
+        - Other
+        - N/A
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser (if applicable)
+      description: Which browser are you using? Select N/A if not applicable.
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Other
+        - N/A
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Bug Details
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear description of what the bug is. Format: **Component:** [name], **Page/Route:** [url], **Action:** [what you did]
+      placeholder: |
+        **Component:** LoginForm
+        **Page/Route:** /login
+        **Action:** Attempted to submit login form
+        
+        Describe what's broken in detail...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen? Be specific.
+      placeholder: |
+        Example: "When I click the login button, I expected the form to validate credentials and redirect to the dashboard page."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happened instead? Be specific.
+      placeholder: |
+        Example: "When I click the login button, nothing happens. No loading indicator appears, no error message is shown, and the page does not change."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Provide a minimal set of steps to reproduce the issue. Include any necessary setup, data, or configuration.
+      placeholder: |
+        1. Navigate to https://example.com/login
+        2. Enter email: user@example.com
+        3. Enter password: password123
+        4. Click the "Sign In" button
+        5. Observe that nothing happens
+        
+        **Minimal reproduction:** If possible, provide the simplest case that demonstrates the bug.
+    validations:
+      required: true
+
+  - type: input
+    id: related_issues
+    attributes:
+      label: Related Issues
+      description: Link to related issues (e.g., #123, #456). Leave empty if none.
+      placeholder: "#123, #456"
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Evidence
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Attach screenshots using GitHub's attachment feature (drag & drop or click to upload above this field). If you have screenshots, describe what they show here.
+      placeholder: |
+        Screenshots attached above/below this field showing:
+        - The broken UI element
+        - Error messages displayed
+        - Comparison with expected behavior
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Log Output
+      description: Wrap code/logs in triple backticks (```) for better readability. Include error messages, stack traces, console output, or server logs.
+      render: shell
+      placeholder: |
+        ```
+        Error: Cannot read property 'user' of undefined
+            at LoginForm.handleSubmit (LoginForm.js:42)
+            at HTMLButtonElement.onClick (LoginForm.js:12)
+        ```
