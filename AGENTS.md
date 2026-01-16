@@ -263,13 +263,13 @@ const { title, description, image, class: className } = Astro.props;
 
 ### Package Manager
 
-This project uses **npm** as the package manager. Use npm commands for all package management operations.
+This project uses **pnpm** as the package manager. Use pnpm commands for all package management operations.
 
 ```bash
 # Project setup
-npm create astro@latest
-npm install
-npm run dev
+pnpm create astro@latest
+pnpm install
+pnpm run dev
 ```
 
 ### Essential Astro 5 Dependencies
@@ -296,8 +296,6 @@ npm run dev
 ```bash
 # React integration
 pnpm astro add react
-# or
-npx astro add react
 
 # Vue integration
 pnpm astro add vue
