@@ -69,11 +69,55 @@ collections_config:
     icon: database
     _enabled_editors:
       - data
+  skills:
+    path: skills
+    glob:
+      - "**/SKILL.md"
+    url: /skills/[slug]/
+    icon: puzzle-piece
+    name: Agent Skills
+    singular_name: Skill
+    description: Agent Skills are reusable instructions for AI agents to perform specific tasks.
+    _enabled_editors:
+      - content
+    include_developer_files: true
+    add_options:
+      - name: Add New Skill
+        schema: default
+        icon: puzzle-piece
+    schemas:
+      default:
+        name: New Skill
+        path: .cloudcannon/schemas/skill.md
+        remove_extra_inputs: false
+    create:
+      path: "[relative_base_path]/{filename|slugify|lowercase}/SKILL.md"
+    new_preview_url: /skills/
+    _inputs:
+      name:
+        type: text
+        comment: Required. 1-64 characters, lowercase letters, numbers, and hyphens only. Must not start or end with hyphen, no consecutive hyphens. Must match the parent directory name.
+      description:
+        type: textarea
+        comment: Required. 1-1024 characters. Describes what the skill does and when to use it. Should include specific keywords that help agents identify relevant tasks.
+      license:
+        type: text
+        comment: Optional. License name or reference to a bundled license file (e.g., 'Apache-2.0' or 'Proprietary. LICENSE.txt has complete terms').
+      compatibility:
+        type: textarea
+        comment: Optional. Max 500 characters. Environment requirements (intended product, system packages, network access, etc.). Only include if your skill has specific environment requirements.
+      metadata:
+        type: object
+        comment: Optional. Arbitrary key-value mapping for additional metadata (e.g., author, version). Use unique key names to avoid conflicts.
+      "allowed-tools":
+        type: text
+        comment: Optional. Space-delimited list of pre-approved tools the skill may use (experimental). Example: 'Bash(git:*) Bash(jq:*) Read'.
 collection_groups:
   - heading: Content
     collections:
       - pages
       - blog
+      - skills
   - heading: Data
     collections:
       - data
