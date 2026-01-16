@@ -31,3 +31,6 @@ yarn-error.log*
 # temporary files
 *.tmp
 *.temp
+
+# local files
+_local/
