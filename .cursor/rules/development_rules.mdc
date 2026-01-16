@@ -1,0 +1,188 @@
+# Development Rules: KISS, YAGNI, DRY
+
+This file enforces the three core development principles for Astro projects: **KISS** (Keep It Simple, Stupid), **YAGNI** (You Aren't Gonna Need It), and **DRY** (Don't Repeat Yourself).
+
+## KISS (Keep It Simple, Stupid)
+
+### Guidelines
+
+- **Prefer simple solutions over complex ones**: When multiple approaches exist, choose the simplest one that solves the problem.
+- **Avoid over-engineering**: Don't add abstractions, patterns, or layers unless they provide clear value.
+- **Use Astro's built-in features**: Leverage Astro's native capabilities before adding external dependencies.
+- **Static by default**: Prefer static HTML generation over dynamic server-side rendering when possible.
+- **Component simplicity**: Keep components focused and under 200 lines. Split complex components into smaller, focused pieces.
+
+### Enforcement Rules
+
+- **Functions should be under 50 lines**: If a function exceeds this limit, split it into smaller functions.
+- **Astro components should be under 200 lines**: Refactor larger components by extracting sub-components or utilities.
+- **Avoid nested conditionals beyond 3 levels**: Simplify complex conditionals using early returns, guard clauses, or extraction.
+- **Prefer explicit over implicit**: Make code intentions clear through naming and structure.
+- **Use built-in Astro features**: Prefer `.astro` components for static content over framework components.
+
+## YAGNI (You Aren't Gonna Need It)
+
+### Guidelines
+
+- **Build only what's needed now**: Don't implement features "just in case" they might be useful later.
+- **Avoid speculative abstractions**: Don't create abstractions until you have at least two concrete use cases.
+- **Resist premature optimization**: Don't optimize code until you've identified an actual performance problem.
+- **Skip future-proofing**: Don't add configuration or parameters for features that don't exist yet.
+- **Implement when needed**: Add features, utilities, or helpers only when there's a clear, current requirement.
+
+### Enforcement Rules
+
+- **No unused code**: Remove code that isn't actively being used. Don't keep "dead" code for future use.
+- **No placeholder implementations**: Don't create stub functions or TODO comments for future features. Implement when needed.
+- **No speculative parameters**: Don't add function parameters or configuration options for hypothetical future use cases.
+- **No generic utilities without use cases**: Don't create utility functions or helpers until you have at least two concrete use cases.
+- **No abstraction without duplication**: Don't extract common patterns until you have actual duplication (see DRY).
+
+## DRY (Don't Repeat Yourself)
+
+### Guidelines
+
+- **Extract common patterns**: When the same logic appears in multiple places, refactor it into a shared component, utility, or function.
+- **Single source of truth**: Store data, configuration, and logic in one place to avoid inconsistencies.
+- **Reuse components**: Create reusable Astro components for repeated UI patterns.
+- **Centralize utilities**: Place helper functions in shared utility files (`src/lib/utils.ts`).
+- **Share constants**: Define constants once and import them where needed.
+
+### Enforcement Rules
+
+- **No code duplication**: If the same logic appears in 2+ places, extract it into a shared function or component.
+- **Component reuse**: If similar UI appears in multiple places, create a reusable component instead of duplicating markup.
+- **Utility extraction**: Extract repeated calculations, transformations, or validations into utility functions.
+- **Constants definition**: Define magic numbers, strings, or configuration values as constants and reuse them.
+- **Schema reuse**: Use shared Zod schemas for validation when the same data structure is validated in multiple places.
+- **Layout reuse**: Use Astro layouts to avoid duplicating common page structures.
+
+### When to Apply DRY
+
+- **After duplication occurs**: Extract common patterns after you have actual duplication, not before (see YAGNI).
+- **When maintaining becomes difficult**: If updating the same logic in multiple places is error-prone, extract it.
+- **When patterns are stable**: Don't extract patterns that are still evolving. Wait until the pattern stabilizes.
+
+## Integration with Astro Best Practices
+
+### Astro-Specific DRY Patterns
+
+- **Use layouts**: Create reusable layout components to avoid duplicating `<html>`, `<head>`, and common page structures.
+- **Content collections**: Use Astro's content collections to avoid duplicating content schema definitions.
+- **Component composition**: Compose smaller components into larger ones instead of duplicating markup.
+- **Shared styles**: Use CSS custom properties (design tokens) to avoid duplicating color, spacing, and typography values.
+- **Utility functions**: Place shared logic in `src/lib/utils.ts` for reuse across components.
+
+### Astro-Specific KISS Patterns
+
+- **Static HTML first**: Prefer static `.astro` components over framework components when interactivity isn't needed.
+- **Use Astro's built-in features**: Leverage Astro's Image component, content collections, and routing instead of custom solutions.
+- **Minimal JavaScript**: Only hydrate components that need interactivity. Use `client:visible` or `client:idle` instead of `client:load`.
+- **Simple routing**: Use file-based routing. Avoid complex routing abstractions unless necessary.
+
+### Astro-Specific YAGNI Patterns
+
+- **Don't add frameworks prematurely**: Only add React, Vue, or other frameworks when you need interactive components.
+- **Don't over-hydrate**: Don't use `client:load` on components that could be static or use deferred hydration.
+- **Don't abstract routes**: Don't create route abstractions until you have multiple routes with similar patterns.
+- **Don't create generic components**: Don't create overly generic "wrapper" components until you have multiple use cases.
+
+## Code Review Checklist
+
+When reviewing code, ensure:
+
+- [ ] **KISS**: Is this the simplest solution? Could it be simpler?
+- [ ] **KISS**: Are components and functions appropriately sized (components < 200 lines, functions < 50 lines)?
+- [ ] **YAGNI**: Is all code being used? Are there any speculative features or abstractions?
+- [ ] **YAGNI**: Are there unused parameters, configurations, or utilities?
+- [ ] **DRY**: Is there any code duplication? Should it be extracted?
+- [ ] **DRY**: Are common patterns reused (components, utilities, constants, layouts)?
+
+## Examples
+
+### ❌ Violates KISS: Overly Complex Component
+
+```astro
+---
+// Too complex - should be split
+const data = await fetch(...);
+const processed = data.map(...).filter(...).reduce(...);
+const transformed = processed.map(item => {
+  // 100+ lines of complex logic
+});
+---
+```
+
+### ✅ Follows KISS: Simple, Focused Component
+
+```astro
+---
+// Simple, focused component
+const posts = await getCollection("blog");
+const recentPosts = posts.slice(0, 5);
+---
+```
+
+### ❌ Violates YAGNI: Speculative Abstraction
+
+```typescript
+// Creating a generic utility "just in case"
+export function processData(data: unknown, options?: {
+  filter?: (item: unknown) => boolean;
+  transform?: (item: unknown) => unknown;
+  sort?: (a: unknown, b: unknown) => number;
+}) {
+  // Complex abstraction with no current use case
+}
+```
+
+### ✅ Follows YAGNI: Implement When Needed
+
+```typescript
+// Simple, specific function for current use case
+export function getRecentPosts(posts: BlogPost[]): BlogPost[] {
+  return posts.slice(0, 5);
+}
+```
+
+### ❌ Violates DRY: Code Duplication
+
+```astro
+<!-- Component 1 -->
+<div class="card">
+  <h2>{title}</h2>
+  <p>{description}</p>
+  <a href={href}>Learn more</a>
+</div>
+
+<!-- Component 2 - duplicated markup -->
+<div class="card">
+  <h2>{title}</h2>
+  <p>{description}</p>
+  <a href={href}>Learn more</a>
+</div>
+```
+
+### ✅ Follows DRY: Reusable Component
+
+```astro
+---
+// Card.astro
+export interface Props {
+  title: string;
+  description: string;
+  href: string;
+}
+const { title, description, href } = Astro.props;
+---
+
+<div class="card">
+  <h2>{title}</h2>
+  <p>{description}</p>
+  <a href={href}>Learn more</a>
+</div>
+```
+
+---
+
+_These rules enforce simplicity, necessity, and reusability in development. Apply them consistently to maintain clean, maintainable code._
