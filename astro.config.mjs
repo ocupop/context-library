@@ -10,6 +10,7 @@ import postcssCustomMedia from "postcss-custom-media";
 import postcssEach from "postcss-each";
 import postcssImport from "postcss-import";
 import postcssNested from "postcss-nested";
+import node from "@astrojs/node";
 
 import mdx from "@astrojs/mdx";
 
@@ -30,6 +31,10 @@ export default defineConfig({
   image: {
     domains: ["picsum.photos"],
   },
+  output: "hybrid",
+  adapter: node({
+    mode: "standalone",
+  }),
   integrations: [
     editableRegions(),
     icon({
