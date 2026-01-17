@@ -1,0 +1,118 @@
+---
+import Components from "@components/utils/renderBlock.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import SimpleText from "@core-elements/simple-text/SimpleText.astro";
+import Page from "@layouts/Page.astro";
+import Pagination from "@core-elements/pagination/Pagination.astro";
+import CustomSection from "@page-sections/builders/custom-section/CustomSection.astro";
+import Card from "@wrappers/card/Card.astro";
+import Grid from "@wrappers/grid/Grid.astro";
+import GridItem from "@wrappers/grid/GridItem.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths({ paginate }) {
+  const skills = (await getCollection("skills")).sort((a: any, b: any) => {
+    const nameA = a.data.name.toLowerCase();
+    const nameB = b.data.name.toLowerCase();
+    return nameA.localeCompare(nameB);
+  });
+
+  return paginate(skills, { pageSize: 12 });
+}
+
+const { page } = Astro.props;
+
+// Try to load skills page from pages collection for hero sections
+let skillsPage: any;
+let heroSections: any[] = [];
+
+try {
+  const pages = await getCollection("pages");
+
+  skillsPage = pages.find((page: any) => page.id === "skills");
+
+  if (skillsPage?.data?.pageSections) {
+    heroSections = skillsPage.data.pageSections;
+  }
+} catch {}
+
+const pageTitle = skillsPage?.data?.title ?? "Agent Skills";
+const pageDescription =
+  skillsPage?.data?.description ??
+  "Browse and download reusable AI agent skills for your projects.";
+---
+
+<Page title={pageTitle} description={pageDescription}>
+  {heroSections.length > 0 && <Components contentSections={heroSections} propName="pageSections" />}
+
+  <CustomSection
+    maxContentWidth="2xl"
+    paddingHorizontal="lg"
+    paddingVertical="none"
+    colorScheme="default"
+    backgroundColor="base"
+  >
+    {
+      page.data.length > 0 ? (
+        <>
+          <Grid
+            gap="lg"
+            layout="start"
+            minItemWidth="320"
+            maxItemWidth="400"
+            style="margin-top: var(--spacing-2xl)"
+            editable={false}
+          >
+            {page.data.map((skill: any) => {
+              // Extract slug from id (format: "skill-name/SKILL.md")
+              const slug = skill.id?.split("/")[0] || skill.slug;
+
+              return (
+                <GridItem editable={false}>
+                  <Card
+                    link={`/skills/${slug}`}
+                    rounded={true}
+                    border={true}
+                    paddingVertical="lg"
+                    paddingHorizontal="lg"
+                    editable={false}
+                  >
+                    {skill.data.license && (
+                      <SimpleText
+                        size="xs"
+                        style="color: var(--color-text-muted); margin-bottom: var(--spacing-xs); display: inline-block; background: var(--color-bg-muted); padding: 0.25rem 0.5rem; border-radius: var(--radius-xs);"
+                        editable={false}
+                      >
+                        {skill.data.license}
+                      </SimpleText>
+                    )}
+                    <Heading
+                      level="h3"
+                      size="md"
+                      style="margin-bottom: var(--spacing-md); margin-top: var(--spacing-sm);"
+                      editable={false}
+                    >
+                      {skill.data.name}
+                    </Heading>
+                    <SimpleText
+                      size="sm"
+                      style="color: var(--color-text-muted); margin-top: 0;"
+                      editable={false}
+                    >
+                      {skill.data.description}
+                    </SimpleText>
+                  </Card>
+                </GridItem>
+              );
+            })}
+          </Grid>
+          <Pagination page={page} showArrows={true} style="margin-top: var(--spacing-2xl);" />
+        </>
+      ) : (
+        <SimpleText alignX="center" style="margin-top: var(--spacing-2xl);" editable={false}>
+          No skills available yet. Check back soon!
+        </SimpleText>
+      )
+    }
+  </CustomSection>
+</Page>

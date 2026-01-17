@@ -16,6 +16,17 @@
       "name": "Blog",
       "path": "/blog/",
       "children": []
+    },
+    {
+      "name": "Resources",
+      "path": "#",
+      "children": [
+        {
+          "name": "Skills",
+          "path": "/skills/",
+          "children": []
+        }
+      ]
     }
   ],
   "buttonSections": [

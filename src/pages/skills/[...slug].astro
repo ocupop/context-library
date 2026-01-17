@@ -1,0 +1,182 @@
+---
+import Heading from "@core-elements/heading/Heading.astro";
+import SimpleText from "@core-elements/simple-text/SimpleText.astro";
+import Button from "@core-elements/button/Button.astro";
+import Page from "@layouts/Page.astro";
+import CustomSection from "@page-sections/builders/custom-section/CustomSection.astro";
+import { getCollection, render, type CollectionEntry } from "astro:content";
+
+// Automatically import all components from building-blocks and page-sections for MDX
+const buildingBlocksImports = import.meta.glob("../../components/building-blocks/**/*.astro", {
+  eager: true,
+});
+
+const pageSectionsImports = import.meta.glob("../../components/page-sections/**/*.astro", {
+  eager: true,
+});
+
+// Merge both import objects
+const componentImports = { ...buildingBlocksImports, ...pageSectionsImports };
+
+// Build components object with PascalCase names from file paths
+const mdxComponents: Record<string, any> = {};
+
+Object.entries(componentImports).forEach(([path, module]) => {
+  const pathParts = path.split("/");
+  const fileName = pathParts[pathParts.length - 1].replace(".astro", "");
+
+  // Component name is already PascalCase from filename
+  const componentName = fileName;
+
+  mdxComponents[componentName] = (module as any).default;
+});
+
+export async function getStaticPaths() {
+  const skills = await getCollection("skills");
+
+  return skills.map((skill: CollectionEntry<"skills">) => {
+    // Extract slug from id (format: "skill-name/SKILL.md")
+    const slug = skill.id?.split("/")[0] || skill.slug;
+
+    return {
+      params: { slug },
+      props: { skill },
+    };
+  });
+}
+
+interface Props {
+  skill: CollectionEntry<"skills">;
+}
+
+const { skill } = Astro.props;
+const { Content } = await render(skill);
+
+// Extract slug from id (format: "skill-name/SKILL.md")
+const slug = skill.id?.split("/")[0] || skill.slug;
+---
+
+<Page title={skill.data.name} description={skill.data.description}>
+  <CustomSection
+    maxContentWidth="xl"
+    paddingHorizontal="lg"
+    paddingVertical="4xl"
+    colorScheme="default"
+    backgroundColor="base"
+    class="skill-container"
+  >
+    <div class="skill-header">
+      {skill.data.license && (
+        <SimpleText
+          size="sm"
+          style="color: var(--color-text-muted); margin-bottom: var(--spacing-sm); display: inline-block; background: var(--color-bg-muted); padding: 0.5rem 0.75rem; border-radius: var(--radius-xs);"
+          editable={false}
+        >
+          License: {skill.data.license}
+        </SimpleText>
+      )}
+
+      <Heading level="h1" size="2xl" style="margin-bottom: var(--spacing-xs);">
+        {skill.data.name}
+      </Heading>
+
+      <SimpleText
+        size="lg"
+        style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg); margin-top: var(--spacing-xs);"
+        editable={false}
+      >
+        {skill.data.description}
+      </SimpleText>
+
+      {skill.data.metadata && Object.keys(skill.data.metadata).length > 0 && (
+        <div class="skill-metadata" style="margin-bottom: var(--spacing-lg);">
+          {Object.entries(skill.data.metadata).map(([key, value]) => (
+            <SimpleText
+              size="sm"
+              style="color: var(--color-text-muted); margin-bottom: var(--spacing-xs);"
+              editable={false}
+            >
+              <strong>{key}:</strong> {value}
+            </SimpleText>
+          ))}
+        </div>
+      )}
+
+      {skill.data.compatibility && (
+        <SimpleText
+          size="sm"
+          style="color: var(--color-text-muted); margin-bottom: var(--spacing-lg); padding: var(--spacing-sm); background: var(--color-bg-surface); border-radius: var(--radius-xs); border-left: 3px solid var(--color-border-strong);"
+          editable={false}
+        >
+          <strong>Compatibility:</strong> {skill.data.compatibility}
+        </SimpleText>
+      )}
+
+      <Button
+        text="Download Skill"
+        link={`/api/skills/${slug}/download`}
+        variant="primary"
+        iconName="arrow-down-tray"
+        iconPosition="before"
+        editable={false}
+      />
+    </div>
+
+    <div class="skill-content">
+      <Content components={mdxComponents} />
+    </div>
+  </CustomSection>
+</Page>
+
+<style>
+  :global(.skill-container.custom-section) > :global(.outer-content) > :global(.content) {
+    padding-bottom: 0 !important;
+  }
+
+  .skill-header {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .skill-content {
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 70ch)
+      minmax(0, 1fr);
+    margin-inline: auto;
+  }
+
+  .skill-content > :global(*) {
+    grid-column: 2;
+  }
+
+  .skill-content > :global(.wide),
+  .skill-content > :global(pre),
+  .skill-content > :global(.image),
+  .skill-content > :global(.video) {
+    grid-column: 1 / -1;
+  }
+
+  .skill-content > :global(h1),
+  .skill-content > :global(h2),
+  .skill-content > :global(h3),
+  .skill-content > :global(h4),
+  .skill-content > :global(h5),
+  .skill-content > :global(h6) {
+    margin-bottom: 0;
+    margin-top: 1rem;
+  }
+
+  .skill-content > :global(h1:first-child),
+  .skill-content > :global(h2:first-child),
+  .skill-content > :global(h3:first-child),
+  .skill-content > :global(h4:first-child),
+  .skill-content > :global(h5:first-child),
+  .skill-content > :global(h6:first-child) {
+    margin-top: 0;
+  }
+
+  .skill-content > :global(.astro-code) {
+    margin-block: var(--spacing-xl);
+  }
+</style>

@@ -109,9 +109,9 @@ collections_config:
       metadata:
         type: object
         comment: Optional. Arbitrary key-value mapping for additional metadata (e.g., author, version). Use unique key names to avoid conflicts.
-      "allowed-tools":
+      allowed-tools:
         type: text
-        comment: Optional. Space-delimited list of pre-approved tools the skill may use (experimental). Example: 'Bash(git:*) Bash(jq:*) Read'.
+        comment: "Optional. Space-delimited list of pre-approved tools the skill may use (experimental). Example: 'Bash(git:*) Bash(jq:*) Read'."
 collection_groups:
   - heading: Content
     collections:

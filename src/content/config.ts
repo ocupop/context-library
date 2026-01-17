@@ -92,9 +92,24 @@ const blogCollection = defineCollection({
   schema: blogPostSchema,
 });
 
+const skillSchema = z.object({
+  name: z.string(),
+  description: z.string(),
+  license: z.string().optional(),
+  compatibility: z.string().optional(),
+  metadata: z.record(z.string()).optional(),
+  "allowed-tools": z.string().optional(),
+});
+
+const skillsCollection = defineCollection({
+  loader: glob({ pattern: "**/SKILL.md", base: "./src/content/skills" }),
+  schema: skillSchema,
+});
+
 export const collections = {
   pages: pagesCollection,
   "docs-pages": docsPagesCollection,
   "docs-components": docsComponentsCollection,
   blog: blogCollection,
+  skills: skillsCollection,
 };
