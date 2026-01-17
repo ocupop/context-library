@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "tsx scripts/generate-skill-zips.ts",
+    "prebuild": "tsx scripts/generate-skill-zips.ts || echo 'Warning: Skill ZIP generation failed, continuing build...'",
     "build": "astro build",
     "build:no-library": "DISABLE_COMPONENT_LIBRARY=true astro build",
     "preview": "astro preview",

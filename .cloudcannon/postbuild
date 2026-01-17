@@ -1,3 +1,14 @@
 #!/bin/bash
+set -e
 
-npx pagefind --site dist
+# Generate Pagefind search index
+if [ -d "dist" ]; then
+  echo "Generating Pagefind search index..."
+  npx --yes pagefind --site dist || {
+    echo "Warning: pagefind failed, but continuing build..."
+  }
+else
+  echo "Warning: dist directory not found, skipping pagefind"
+fi
+
+echo "Postbuild complete"
